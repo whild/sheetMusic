@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move3D : MonoBehaviour, IMoveable
+public class Move3D : MoveCore
 {
-    [SerializeField] Rigidbody rigid;
-    [SerializeField] CharacterController _characterController;
-    public static float normalSpeed = 5;
-    public static float dashSpeed = 10;
-    private float speed = 5;
-    private Vector3 direction;
-
-    private void Awake()
+    [SerializeField] protected Rigidbody rigid;
+    [SerializeField] protected Collider collider;
+    public void Awake()
     {
+        GameManager.Instance.player3D = this.transform;
         TryGetComponent(out rigid);
-        TryGetComponent(out _characterController);
+        TryGetComponent(out collider);
     }
 
     private void FixedUpdate()
@@ -25,21 +21,12 @@ public class Move3D : MonoBehaviour, IMoveable
         }
     }
 
-    public void SetDirection(Vector3 direction)
+    public override void Jump()
     {
-        this.direction = direction;
-    }
-
-    public void Jump()
-    {
-        if (_characterController.isGrounded)
+        if (isGround)
         {
-            Debug.Log("Jump");
+            isGround = false;
+            rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
-    }
-
-    public void Dash(float val)
-    {
-        this.speed = val;
     }
 }
