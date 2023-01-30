@@ -38,4 +38,18 @@ public class MoveCore : MonoBehaviour, IMoveable
             isGround = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var contianer = other.GetComponent<IInteract>();
+        if (contianer != null)
+        {
+            PlayerInputController.Instance.SetInteract(contianer);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlayerInputController.Instance.SetInteract(null);
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : Manager<GameManager>
 {
@@ -14,6 +15,7 @@ public class GameManager : Manager<GameManager>
         base.Awake();
         //TryGetComponent(out mainCamera);
         DontDestroyOnLoad(this.gameObject);
+        DestroyEventSystem();
     }
 
     public void MoveCameraTo(bool player3d)
@@ -26,6 +28,12 @@ public class GameManager : Manager<GameManager>
         {
             mainCamera.transform.LookAt(player2D);
         }
+    }
+
+    private void DestroyEventSystem()
+    {
+        var eventsystems = GameObject.FindObjectsOfType<EventSystem>();
+        Destroy(eventsystems[0].gameObject);
     }
 
 

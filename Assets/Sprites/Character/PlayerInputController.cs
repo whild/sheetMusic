@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputController : MonoBehaviour
+public class PlayerInputController : Manager<PlayerInputController>
 {
     [SerializeField] PlayerInput _input;
     [SerializeField] IMoveable _move;
@@ -14,11 +14,12 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] IMoveable move3d;
     [SerializeField] IMoveable move2d;
 
-    [SerializeField] bool test;
+    [SerializeField] IInteract interact;
 
 
-    private void Awake()
+    protected void Awake()
     {
+        base.Awake();
         TryGetComponent(out _input);
 
     }
@@ -42,8 +43,8 @@ public class PlayerInputController : MonoBehaviour
         _input.actions["Dash"].performed += OnDash;
         _input.actions["Dash"].canceled += OnDashStop;
         _input.actions["ChangeCharacter"].performed += OnChangeCharacter;
+        _input.actions["Interact"].started += OnInteract;
     }
-
 
     private void OnDisable()
     {
@@ -52,6 +53,7 @@ public class PlayerInputController : MonoBehaviour
         _input.actions["Jump"].started -= OnJump;
         _input.actions["Dash"].performed -= OnDash;
         _input.actions["Dash"].canceled -= OnDashStop;
+        _input.actions["Interact"].started -= OnInteract;
     }
 
     private void OnMove(InputAction.CallbackContext obj)
@@ -82,8 +84,17 @@ public class PlayerInputController : MonoBehaviour
     private void OnChangeCharacter(InputAction.CallbackContext obj)
     {
         _move = (_move.Equals(move3d) ? move2d : move3d);
-        test = _move.Equals(move3d);
         GameManager.Instance.MoveCameraTo(_move.Equals(move3d));
         //MoveCamera
+    }
+    private void OnInteract(InputAction.CallbackContext obj)
+    {
+        interact.Interact();
+        Debug.Log("Interact");
+    }
+
+    public void SetInteract(IInteract interact)
+    {
+        this.interact = interact;
     }
 }
