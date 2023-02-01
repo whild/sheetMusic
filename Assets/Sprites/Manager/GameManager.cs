@@ -9,13 +9,16 @@ public class GameManager : Manager<GameManager>
 
     [SerializeField] public Transform player3D;
     [SerializeField] public Transform player2D;
+    public static GameObject _3Dplayer;
+    public static GameObject _2Dplayer;
 
     private void Awake()
     {
         base.Awake();
+        _3Dplayer = player3D.gameObject;
+        _2Dplayer = player2D.gameObject;
         //TryGetComponent(out mainCamera);
-        DontDestroyOnLoad(this.gameObject);
-        DestroyEventSystem();
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     public void MoveCameraTo(bool player3d)
@@ -37,4 +40,9 @@ public class GameManager : Manager<GameManager>
     }
 
 
+}
+
+public class TagManager 
+{
+    public static string player = "Player";
 }

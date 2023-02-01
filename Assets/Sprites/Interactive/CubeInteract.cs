@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CubeInteract : ObjectInteracCore
+public class CubeInteract : ObjectInteractCore
 {
-    protected void Awake()
-    {
-        base.Awake();
-    }
-
     public override void Interact()
     {
         this.transform
