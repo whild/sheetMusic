@@ -33,4 +33,9 @@ public class Move2D : MoveCore
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
+
+    public override void PlayerAct()
+    {
+
+    }
 }

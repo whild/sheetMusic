@@ -15,7 +15,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] IMoveable move2d;
 
     [SerializeField] IInteract interact;
-
+    [SerializeField] IPlayerReact playerReact;
 
     protected void Awake()
     {
@@ -44,6 +44,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         _input.actions["Dash"].canceled += OnDashStop;
         _input.actions["ChangeCharacter"].performed += OnChangeCharacter;
         _input.actions["Interact"].started += OnInteract;
+        _input.actions["PlayerAct"].started += OnPlayerAct;
     }
 
     private void OnDisable()
@@ -54,6 +55,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         _input.actions["Dash"].performed -= OnDash;
         _input.actions["Dash"].canceled -= OnDashStop;
         _input.actions["Interact"].started -= OnInteract;
+        _input.actions["PlayerAct"].started -= OnPlayerAct;
     }
 
     private void OnMove(InputAction.CallbackContext obj)
@@ -89,12 +91,45 @@ public class PlayerInputController : Manager<PlayerInputController>
     }
     private void OnInteract(InputAction.CallbackContext obj)
     {
-        interact.Interact();
-        Debug.Log("Interact");
+        if (interact != null)
+        {
+            interact.Interact();
+            Debug.Log("Interact");
+        }
     }
 
+    private void OnPlayerAct(InputAction.CallbackContext obj)
+    {
+        if (this.playerReact != null)
+        {
+            this.playerReact.PlayerReact();
+        }
+    }
     public void SetInteract(IInteract interact)
     {
         this.interact = interact;
+    }
+
+    public bool AlreadyHaveInteract(IInteract interact)
+    {
+        if (this.interact == interact)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void SetPlayerReact(IPlayerReact playerReact)
+    {
+        this.playerReact = playerReact;
+    }
+
+    public bool AlreadyHaveReact(IPlayerReact react)
+    {
+        if (this.playerReact == react)
+        {
+            return true;
+        }
+        return false;
     }
 }

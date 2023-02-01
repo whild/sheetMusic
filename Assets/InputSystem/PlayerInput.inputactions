@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeCharacter",
-                    "type": "Button",
-                    "id": "e1dcfcff-5bd1-4ef2-bf36-7d5141276d11",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "267feb3c-bf71-477f-a04d-bb8cfd1d572e",
@@ -45,6 +36,24 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "61c066c3-1a29-4717-8fac-d9daafbcbb18",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerAct",
+                    "type": "Button",
+                    "id": "2f39c81e-d5bd-445a-9437-f1e734745ea2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeCharacter",
+                    "type": "Button",
+                    "id": "e1dcfcff-5bd1-4ef2-bf36-7d5141276d11",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -142,17 +151,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5f3cb6fd-2f37-4a28-ab28-25151df4a2ff",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "ChangeCharacter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dbeb8035-6a3a-48ac-ab20-5f1eddd8441f",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -175,17 +173,6 @@
                 },
                 {
                     "name": "",
-                    "id": "564d9480-5c7d-4dfd-9e33-d630dfd0f496",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "ChangeCharacter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "96039b79-09ae-41e3-aba6-de2aa8c89750",
                     "path": "<Keyboard>/z",
                     "interactions": "",
@@ -203,6 +190,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f3cb6fd-2f37-4a28-ab28-25151df4a2ff",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ChangeCharacter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "564d9480-5c7d-4dfd-9e33-d630dfd0f496",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeCharacter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7966feb2-109d-4fb6-ba28-c6a4756c8534",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayerAct",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "518ed11f-9056-4a9c-b14d-6bd7426674c9",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayerAct",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

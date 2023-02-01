@@ -41,15 +41,35 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     private void OnTriggerEnter(Collider other)
     {
-        var contianer = other.GetComponent<IInteract>();
-        if (contianer != null)
+        var interactContianer = other.GetComponent<IInteract>();
+        if (interactContianer != null)
         {
-            PlayerInputController.Instance.SetInteract(contianer);
+            PlayerInputController.Instance.SetInteract(interactContianer);
+        }
+        var PlayerReactContianer = other.GetComponent<IPlayerReact>();
+        if(PlayerReactContianer != null)
+        {
+            PlayerInputController.Instance.SetPlayerReact(PlayerReactContianer);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerInputController.Instance.SetInteract(null);
+        var interactContianer = other.GetComponent<IInteract>();
+        if (PlayerInputController.Instance.AlreadyHaveInteract(interactContianer))
+        {
+            PlayerInputController.Instance.SetInteract(null);
+        }
+
+        var PlayerReactContianer = other.GetComponent<IPlayerReact>();
+        if (PlayerInputController.Instance.AlreadyHaveReact(PlayerReactContianer))
+        {
+            PlayerInputController.Instance.SetPlayerReact(PlayerReactContianer);
+        }
+    }
+
+    public virtual void PlayerAct()
+    {
+
     }
 }

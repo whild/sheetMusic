@@ -8,4 +8,6 @@ public interface IMoveable
     public void Jump();
 
     public void Dash(float val);
+
+    public void PlayerAct();
 }
