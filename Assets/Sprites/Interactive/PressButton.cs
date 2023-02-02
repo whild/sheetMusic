@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PressButton : ObjectInteractCore
+public class PressButton : ContactIInteractCore
 {
     [SerializeField] GameObject targetObj;
     [SerializeField] Collider _collider;
@@ -14,6 +15,7 @@ public class PressButton : ObjectInteractCore
     [SerializeField] private float duration;
     [SerializeField] private float currentDuration;
 
+
     private void Awake()
     {
         this.interact = targetObj.GetComponent<IInteract>();
@@ -21,63 +23,50 @@ public class PressButton : ObjectInteractCore
         Y = this.transform.position.y;
     }
 
-    public override void Interact()
+    public override void OnContact()
     {
-    }
+        this.isContact = true;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(TagManager.player)) 
-        {
-            if(GameManager._3Dplayer.transform.position.y >= this.transform.position.y)
+        var down = DOTween.Sequence();
+        down.Append(this.transform
+            .DOMoveY(Y - 0.5f, this.transform.position.y - (Y - 0.5f) / duration)
+            .SetEase(Ease.Linear)
+            .OnUpdate(() =>
             {
-                this.isContact = true;
-
-                var down = DOTween.Sequence();
-                down.Append(this.transform
-                    .DOMoveY(Y - 0.5f, this.transform.position.y - (Y - 0.5f) / duration)
-                    .SetEase(Ease.Linear)
-                    .OnUpdate(() =>
-                    {
-                        currentDuration = (Y - transform.position.y) / 0.5f;
-                        this.interact.Interact(currentDuration);
-                        if (!isContact)
-                        {
-                            down.Kill();
-                        }
-                    })
-                    )
-                    .OnComplete(() =>
-                    {
-                        currentDuration = 1;
-                    });
-            }
-        }
+                currentDuration = (Y - transform.position.y) / 0.5f;
+                this.interact.Interact(currentDuration);
+                if (!isContact)
+                {
+                    down.Kill();
+                }
+            })
+            )
+            .OnComplete(() =>
+            {
+                currentDuration = 1;
+            });
     }
-    private void OnCollisionExit(Collision collision)
+
+    public override void OnUnContact()
     {
-        if (collision.gameObject.CompareTag(TagManager.player))
-        {
-            this.isContact = false;
+        this.isContact = false;
 
-            var up = DOTween.Sequence();
-            up.Append(this.transform
-                .DOMoveY(Y, Y - this.transform.position.y / duration)
-                .SetEase(Ease.Linear)
-                .OnUpdate(() =>
+        var up = DOTween.Sequence();
+        up.Append(this.transform
+            .DOMoveY(Y, Y - this.transform.position.y / duration)
+            .SetEase(Ease.Linear)
+            .OnUpdate(() =>
+            {
+                currentDuration = (Y - transform.position.y) / 0.5f;
+                this.interact.Interact(currentDuration);
+                if (isContact)
                 {
-                    currentDuration = (Y - transform.position.y) / 0.5f;
-                    this.interact.Interact(currentDuration);
-                    if (isContact)
-                    {
-                        up.Kill();
-                    }
-                })
-                .OnComplete( () =>
-                {
-                    currentDuration = 0;
-                }));
-        }
+                    up.Kill();
+                }
+            })
+            .OnComplete(() =>
+           {
+                currentDuration = 0;
+            }));
     }
-
 }
