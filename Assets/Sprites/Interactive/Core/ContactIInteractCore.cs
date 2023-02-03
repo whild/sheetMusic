@@ -8,6 +8,7 @@ public class ContactIInteractCore : MonoBehaviour, IContactInteract
 
     [TagSelector]
     [SerializeField] protected string[] targetTags = new string[] { };
+    [SerializeField] protected Dimension targetDimension;
     [SerializeField] protected MoveDirection contactDirection;
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +23,25 @@ public class ContactIInteractCore : MonoBehaviour, IContactInteract
     }
 
     private void OnCollisionExit(Collision collision)
+    {
+        if (IsRightTag(collision.gameObject.tag))
+        {
+            OnUnContact();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (IsRightTag(collision.gameObject.tag))
+        {
+            if (IsRightDirection(collision.transform))
+            {
+                OnContact();
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (IsRightTag(collision.gameObject.tag))
         {

@@ -46,3 +46,9 @@ public class TagManager
 {
     public static string player = "Player";
 }
+
+public enum Dimension
+{
+    _2D,
+    _3D
+}
