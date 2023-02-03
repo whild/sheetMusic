@@ -1570,35 +1570,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1418784999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8578397800269004923, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
-  m_PrefabInstance: {fileID: 7669995526621056463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1418785005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418784999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086c11f06c2ac3e4ab615a83ac799b0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTags:
-  - Player
-  targetDimension: 1
-  contactDirection: 2
-  targetObj: {fileID: 1986007570}
-  _collider: {fileID: 0}
-  isContact: 0
-  onceTest: 0
-  Y: 0
-  pressValue: 0.5
-  duration: 3
-  currentDuration: 0
 --- !u!4 &1525194522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7669995525730325205, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
@@ -1855,11 +1826,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 23.411, y: 0, z: 0}
---- !u!1 &1986007570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7669995526570851218, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
-  m_PrefabInstance: {fileID: 7669995526621056463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2057411594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,10 +2070,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestWorld
       objectReference: {fileID: 0}
-    - target: {fileID: 7669995526547167971, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.88
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2728029402699503932, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
