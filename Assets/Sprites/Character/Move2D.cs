@@ -6,20 +6,14 @@ public class Move2D : MoveCore
 {
     [SerializeField] protected Rigidbody2D rigid;
     [SerializeField] protected Collider2D collider;
-    public void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
         GameManager.Instance.player2D = this.transform;
         TryGetComponent(out rigid);
         TryGetComponent(out collider);
     }
-    private void FixedUpdate()
-    {
-        if (direction != Vector3.zero)
-        {
-            transform.position += direction * speed * Time.deltaTime;
-        }
-    }
-
     public override void SetDirection(Vector3 direction)
     {
         base.SetDirection(direction);
@@ -37,5 +31,12 @@ public class Move2D : MoveCore
     public override void PlayerAct()
     {
 
+    }
+
+    protected override void SetLadderMove(bool useGravity)
+    {
+        base.SetLadderMove(useGravity);
+        rigid.gravityScale = (useGravity) ? 1 : 0;
+        rigid.velocity = Vector3.zero;
     }
 }

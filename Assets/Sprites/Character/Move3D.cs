@@ -6,19 +6,14 @@ public class Move3D : MoveCore
 {
     [SerializeField] protected Rigidbody rigid;
     [SerializeField] protected Collider collider;
-    public void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
         GameManager.Instance.player3D = this.transform;
+        isLadder = false;
         TryGetComponent(out rigid);
         TryGetComponent(out collider);
-    }
-
-    private void FixedUpdate()
-    {
-        if(direction != Vector3.zero)
-        {
-            transform.position += direction * speed * Time.deltaTime;
-        }
     }
 
     public override void Jump()
@@ -34,4 +29,12 @@ public class Move3D : MoveCore
     {
 
     }
+
+    protected override void SetLadderMove(bool useGravity)
+    {
+        base.SetLadderMove(useGravity);
+        rigid.useGravity = useGravity;
+        rigid.velocity = Vector3.zero;
+    }
+
 }

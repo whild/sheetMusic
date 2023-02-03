@@ -11,28 +11,34 @@ public class DragableObject : MonoBehaviour
 
     private void Awake()
     {
-        if(!TryGetComponent(out rigid))
+        Init();
+    }
+
+    private void Init()
+    {
+        switch (dimension)
         {
-            rigid = this.gameObject.AddComponent<Rigidbody>();
-            init(rigid);
-            return;
-        }
-        if(!TryGetComponent(out rigid))
-        {
-            rigid2d = this.gameObject.AddComponent<Rigidbody2D>();
-            init(rigid2d);
-            return;
+            case Dimension._2D:
+                rigid = GameManager.CheckNull<Rigidbody>(this.transform);
+                RigidInit(rigid);
+                break;
+            case Dimension._3D:
+                rigid2d = GameManager.CheckNull<Rigidbody2D>(this.transform);
+                RigidInit(rigid2d);
+                break;
+            default:
+                break;
         }
     }
 
-    private void init(Rigidbody rigid)
+    private void RigidInit(Rigidbody rigid)
     {
         rigid.constraints = RigidbodyConstraints.FreezePositionY;
         rigid.constraints = RigidbodyConstraints.FreezeRotationX;
         rigid.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
 
-    private void init(Rigidbody2D rigid)
+    private void RigidInit(Rigidbody2D rigid)
     {
         rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }

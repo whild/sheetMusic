@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveCore : MonoBehaviour, IMoveable
 {
     [SerializeField] protected bool isGround;
+    [SerializeField] public static bool isLadder = false;
     [SerializeField] protected float speed = 5;
     [SerializeField] protected float jumpPower = 8;
 
@@ -12,10 +13,30 @@ public class MoveCore : MonoBehaviour, IMoveable
     public static float dashSpeed = 10;
     protected Vector3 direction;
 
+    protected virtual void Awake()
+    {
+        isLadder = false;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     public virtual void SetDirection(Vector3 direction)
     {
         this.direction = direction;
     }
+
+    public virtual void Move()
+    {
+        if (direction != Vector3.zero)
+        {
+            Debug.Log(direction);
+            transform.position += direction * speed * Time.deltaTime;
+        }
+    }
+
     public virtual void Jump() { }
 
     public void Dash(float val)
@@ -25,18 +46,50 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag(TagManager.ground))
         {
             isGround = true;
+        }
+        if (collision.gameObject.CompareTag(TagManager.ladder))
+        {
+            isLadder = true;
+            SetLadderMove(false);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag(TagManager.ground))
         {
             isGround = true;
         }
+        if (collision.gameObject.CompareTag(TagManager.ladder))
+        {
+            isLadder = true;
+            SetLadderMove(false);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(TagManager.ladder))
+        {
+            isLadder = false;
+            isGround = true;
+            SetLadderMove(true);
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(TagManager.ladder))
+        {
+            isLadder = false;
+            isGround = true;
+            SetLadderMove(true);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,6 +124,11 @@ public class MoveCore : MonoBehaviour, IMoveable
     public virtual void PlayerAct()
     {
 
+    }
+
+    protected virtual void SetLadderMove(bool userGravity)
+    {
+        direction = Vector3.zero;
     }
 
 

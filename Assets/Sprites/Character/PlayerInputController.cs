@@ -60,9 +60,14 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnMove(InputAction.CallbackContext obj)
     {
-        Debug.Log("Move");
         var value = obj.ReadValue<Vector2>();
         var direction = new Vector3(value.x, 0, value.y);
+
+        if(MoveCore.isLadder)
+        {
+            direction.y = direction.z;
+            direction.z = 0;
+        }
         _move.SetDirection(direction);
     }
     private void OnMoveStop(InputAction.CallbackContext obj)

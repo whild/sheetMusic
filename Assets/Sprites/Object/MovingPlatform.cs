@@ -34,7 +34,4 @@ public class MovingPlatform : MonoBehaviour
             .SetEase(Ease.Linear)
             .SetLoops(-1, LoopType.Yoyo);
     }
-
-
-
 }

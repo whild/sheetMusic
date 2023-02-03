@@ -40,12 +40,32 @@ public class GameManager : Manager<GameManager>
         Destroy(eventsystems[0].gameObject);
     }
 
-
+    public static T CheckNull<T>(Transform from) where T : Component
+    {
+        Transform trans = from;
+        if (trans != null)
+        {
+            T type = trans.GetComponent<T>();
+            if (type != null)
+            {
+                return type;
+            }
+            else
+            {
+                trans.gameObject.AddComponent<T>();
+                Debug.Log($"There is Not Component So I Added Component for you");
+                return type;
+            }
+        }
+        return null;
+    }
 }
 
 public class TagManager 
 {
     public static string player = "Player";
+    public static string ground = "Ground";
+    public static string ladder = "Ladder";
 
 
 
