@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,18 @@ public class GameManager : Manager<GameManager>
 public class TagManager 
 {
     public static string player = "Player";
+
+
+
+    public static bool IsRightTag(string[] targetTags, string targetTag)
+    {
+        string tag = Array.Find(targetTags, tag => tag == targetTag);
+        if (tag != null)
+        {
+            return true;
+        }
+        return false;
+    }
 }
 
 public enum Dimension

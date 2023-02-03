@@ -16,7 +16,7 @@ public class ObjectMoveInteract : ObjectInteractCore
         currentValue
             .Subscribe(val =>
             {
-                this.transform.position = init + ((val * endValue) * GetDirection(direction));
+                this.transform.position = init + ((val * endValue) * MoveCore.GetDirection(direction));
             });
     }
 

@@ -31,11 +31,10 @@ public class Laser : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hit, length))
         {
             Vector3 hitpoint = hit.point;
-            if (Array.Find(targetTags, tag => tag == hit.collider.gameObject.tag) != null)
+            if (TagManager.IsRightTag(targetTags, hit.collider.gameObject.tag))
             {
                 hitpoint = hit.point;
             }
-
             lineRenderer.SetPosition(1, hitpoint);
 
         }
@@ -43,7 +42,7 @@ public class Laser : MonoBehaviour
         if(hit2d)
         {
             Vector3 hitpoint = hit2d.point;
-            if (Array.Find(targetTags, tag => tag == hit2d.collider.gameObject.tag) != null)
+            if (TagManager.IsRightTag(targetTags, hit2d.collider.gameObject.tag))
             {
                 hitpoint = hit2d.point;
                 hitpoint.z = hit2d.collider.transform.position.z;

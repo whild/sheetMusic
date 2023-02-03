@@ -20,17 +20,15 @@ public class JumpSpring : ContactIInteractCore
         }
     }
 
-    public override void OnContact()
+    public override void OnContact(Collision collision)
     {
-        Vector3 jumpValue = ObjectMoveInteract.GetDirection(contactDirection) * jumpPower;
-        
-        if (targetDimension == Dimension._3D)
-        {
-            GameManager.Instance.player3D.GetComponent<Rigidbody>().AddForce(jumpValue, ForceMode.VelocityChange);
-        }
-        else if(targetDimension == Dimension._2D)
-        {Debug.Log("Contact");
-            GameManager.Instance.player2D.GetComponent<Rigidbody2D>().AddForce(jumpValue, ForceMode2D.Impulse);
-        }
+        Vector3 jumpValue = MoveCore.GetDirection(contactDirection) * jumpPower;
+        GameManager.Instance.player3D.GetComponent<Rigidbody>().AddForce(jumpValue, ForceMode.VelocityChange);
+    }
+
+    public override void OnContact(Collision2D collision)
+    {
+        Vector3 jumpValue = MoveCore.GetDirection(contactDirection) * jumpPower;
+        GameManager.Instance.player2D.GetComponent<Rigidbody2D>().AddForce(jumpValue, ForceMode2D.Impulse);
     }
 }

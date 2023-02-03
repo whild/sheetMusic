@@ -13,60 +13,57 @@ public class ContactIInteractCore : MonoBehaviour, IContactInteract
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (IsRightTag(collision.gameObject.tag))
+        if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))
         {
             if (IsRightDirection(collision.transform))
             {
-                OnContact();
+                OnContact(collision);
             }
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (IsRightTag(collision.gameObject.tag))
+        if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))
         {
-            OnUnContact();
+            OnUnContact(collision);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (IsRightTag(collision.gameObject.tag))
+        if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))
         {
             if (IsRightDirection(collision.transform))
             {
-                OnContact();
+                OnContact(collision);
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (IsRightTag(collision.gameObject.tag))
+        if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))
         {
-            OnUnContact();
+            OnUnContact(collision);
         }
     }
 
-    public virtual void OnContact()
+    public virtual void OnContact(Collision collision)
     {
 
     }
-
-    public virtual void OnUnContact()
+    public virtual void OnContact(Collision2D collision)
     {
 
     }
-
-    private bool IsRightTag(string targetTag)
+    public virtual void OnUnContact(Collision collision)
     {
-        string tag = Array.Find(targetTags, tag => tag == targetTag);
-        if(tag != null)
-        {
-            return true;
-        }
-        return false;
+
+    }
+    public virtual void OnUnContact(Collision2D collision)
+    {
+
     }
 
     private bool IsRightDirection(Transform trans)

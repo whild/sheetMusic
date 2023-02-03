@@ -11,7 +11,12 @@ public class PressButton : ContactIInteractCore
 
     private IInteract interact;
     [SerializeField] private bool isContact;
+    [SerializeField] private bool onceTest;
     [SerializeField] private float Y;
+    [SerializeField] private float pressValue;
+    /// <summary>
+    /// 0일 시 즉시 발동
+    /// </summary>
     [SerializeField] private float duration;
     [SerializeField] private float currentDuration;
 
@@ -23,17 +28,20 @@ public class PressButton : ContactIInteractCore
         Y = this.transform.position.y;
     }
 
-    public override void OnContact()
+    public override void OnContact(Collision collision)
     {
         this.isContact = true;
+        this.onceTest = true;
+        float current = Mathf.Lerp(pressValue,0, Y - this.transform.position.y);
+        float duration_ = (duration != 0) ? current * duration : 0;
 
         var down = DOTween.Sequence();
         down.Append(this.transform
-            .DOMoveY(Y - 0.5f, this.transform.position.y - (Y - 0.5f) / duration)
+            .DOMoveY(Y - pressValue, duration_)
             .SetEase(Ease.Linear)
             .OnUpdate(() =>
             {
-                currentDuration = (Y - transform.position.y) / 0.5f;
+                currentDuration = (Y - transform.position.y) / pressValue;
                 this.interact.Interact(currentDuration);
                 if (!isContact)
                 {
@@ -44,20 +52,35 @@ public class PressButton : ContactIInteractCore
             .OnComplete(() =>
             {
                 currentDuration = 1;
+                this.interact.Interact(currentDuration);
             });
     }
 
-    public override void OnUnContact()
+    public override void OnUnContact(Collision collision)
     {
         this.isContact = false;
+        StartCoroutine(WaitUnContact());
+    }
+
+    private IEnumerator WaitUnContact()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (isContact)
+        {
+            yield break;
+        }
+
+        float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
+        float duration_ = (duration != 0) ? current * duration : 0;
 
         var up = DOTween.Sequence();
         up.Append(this.transform
-            .DOMoveY(Y, Y - this.transform.position.y / duration)
+            .DOMoveY(Y, duration_)
             .SetEase(Ease.Linear)
             .OnUpdate(() =>
             {
-                currentDuration = (Y - transform.position.y) / 0.5f;
+                currentDuration = (Y - transform.position.y) / pressValue;
                 this.interact.Interact(currentDuration);
                 if (isContact)
                 {
@@ -66,7 +89,8 @@ public class PressButton : ContactIInteractCore
             })
             .OnComplete(() =>
            {
-                currentDuration = 0;
-            }));
+               currentDuration = 0;
+               this.interact.Interact(currentDuration);
+           }));
     }
 }
