@@ -15,7 +15,7 @@ public class GameManager : Manager<GameManager>
     public static GameObject _3Dplayer;
     public static GameObject _2Dplayer;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         _3Dplayer = player3D.gameObject;

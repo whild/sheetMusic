@@ -5,7 +5,7 @@ public class Manager<T> : MonoBehaviour
 {
     public static T Instance;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         Instance = (T)this;
     }

@@ -6,7 +6,7 @@ public class React_Knockback : PlayerReactCore
 {
     Rigidbody rigid;
     public int value;
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         rigid = this.gameObject.AddComponent<Rigidbody>();
