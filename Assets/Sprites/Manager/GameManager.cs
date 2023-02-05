@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Cinemachine;
 
 public class GameManager : Manager<GameManager>
 {
-    [SerializeField] Camera mainCamera;
+    [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
 
     [SerializeField] public Transform player3D;
     [SerializeField] public Transform player2D;
@@ -24,14 +25,7 @@ public class GameManager : Manager<GameManager>
 
     public void MoveCameraTo(bool player3d)
     {
-        if (player3d)
-        {
-            mainCamera.transform.LookAt(player3D);
-        }
-        else
-        {
-            mainCamera.transform.LookAt(player2D);
-        }
+        cinemachineVirtual.Follow = (player3d) ? player3D : player2D;
     }
 
     private void DestroyEventSystem()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MoveCore : MonoBehaviour, IMoveable
 {
-    [SerializeField] protected bool isGround;
+    [SerializeField] public bool isGround;
     [SerializeField] public static bool isLadder = false;
     [SerializeField] protected float speed = 5;
     [SerializeField] protected float jumpPower = 8;
 
     public static float normalSpeed = 5;
     public static float dashSpeed = 10;
-    protected Vector3 direction;
+    [SerializeField] protected Vector3 direction;
 
     protected virtual void Awake()
     {
@@ -28,11 +28,15 @@ public class MoveCore : MonoBehaviour, IMoveable
         this.direction = direction;
     }
 
+    public Vector3 GetDirection()
+    {
+        return this.direction;
+    }
+
     public virtual void Move()
     {
         if (direction != Vector3.zero)
         {
-            Debug.Log(direction);
             transform.position += direction * speed * Time.deltaTime;
         }
     }
@@ -128,10 +132,10 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     protected virtual void SetLadderMove(bool userGravity)
     {
-        direction = Vector3.zero;
+        direction.y = direction.z;
+        direction.z = 0;
+        isGround = false;
     }
-
-
     public static Vector3 GetDirection(MoveDirection direction)
     {
         switch (direction)
@@ -152,4 +156,10 @@ public class MoveCore : MonoBehaviour, IMoveable
                 return Vector3.zero;
         }
     }
+
+}
+
+public class GameUtiles 
+{ 
+
 }

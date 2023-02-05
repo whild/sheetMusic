@@ -8,11 +8,12 @@ public class PlayerInputController : Manager<PlayerInputController>
 {
     [SerializeField] PlayerInput _input;
     [SerializeField] IMoveable _move;
+    [SerializeField] MoveCore moveCore;
 
     [SerializeField] GameObject player_3d;
     [SerializeField] GameObject player_2d;
-    [SerializeField] IMoveable move3d;
-    [SerializeField] IMoveable move2d;
+    [SerializeField] IMoveable Imove3d;
+    [SerializeField] IMoveable Imove2d;
 
     [SerializeField] IInteract interact;
     [SerializeField] IPlayerReact playerReact;
@@ -29,10 +30,11 @@ public class PlayerInputController : Manager<PlayerInputController>
         player_3d = GameManager.Instance.player3D.gameObject;
         player_2d = GameManager.Instance.player2D.gameObject;
 
-        player_3d.TryGetComponent(out move3d);
-        player_2d.TryGetComponent(out move2d);
-
-        _move = move3d;
+        player_3d.TryGetComponent(out Imove3d);
+        player_2d.TryGetComponent(out Imove2d);
+        
+        _move = Imove3d;
+        moveCore = player_3d.GetComponent<MoveCore>();
     }
 
     private void OnEnable()
@@ -63,7 +65,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         var value = obj.ReadValue<Vector2>();
         var direction = new Vector3(value.x, 0, value.y);
 
-        if(MoveCore.isLadder)
+        if(MoveCore.isLadder && !moveCore.isGround)
         {
             direction.y = direction.z;
             direction.z = 0;
@@ -90,9 +92,14 @@ public class PlayerInputController : Manager<PlayerInputController>
     }
     private void OnChangeCharacter(InputAction.CallbackContext obj)
     {
-        _move = (_move.Equals(move3d) ? move2d : move3d);
-        GameManager.Instance.MoveCameraTo(_move.Equals(move3d));
+        Vector3 dir = _move.GetDirection();
+        _move.SetDirection(Vector3.zero);
+        _move = (_move.Equals(Imove3d) ? Imove2d : Imove3d);
+        moveCore = (_move.Equals(Imove3d) ? player_2d.GetComponent<MoveCore>() : player_3d.GetComponent<MoveCore>());
+        _move.SetDirection(dir);
+
         //MoveCamera
+        GameManager.Instance.MoveCameraTo(_move.Equals(Imove3d)); 
     }
     private void OnInteract(InputAction.CallbackContext obj)
     {

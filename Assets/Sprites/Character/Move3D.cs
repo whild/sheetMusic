@@ -34,7 +34,15 @@ public class Move3D : MoveCore
     {
         base.SetLadderMove(useGravity);
         rigid.useGravity = useGravity;
+
         rigid.velocity = Vector3.zero;
+
+        if (useGravity)
+        {
+            rigid.AddForce(Vector3.up * 3, ForceMode.Impulse);
+            direction.z = direction.y;
+            direction.y = 0;
+        }
     }
 
 }
