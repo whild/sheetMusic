@@ -31,12 +31,6 @@ public class GameManager : Manager<GameManager>
         cinemachineTargetGroup.m_Targets[0].target = (player3d) ? player3D : player2D;
     }
 
-    private void DestroyEventSystem()
-    {
-        var eventsystems = GameObject.FindObjectsOfType<EventSystem>();
-        Destroy(eventsystems[0].gameObject);
-    }
-
     public static T CheckNull<T>(Transform from) where T : Component
     {
         Transform trans = from;
@@ -56,6 +50,21 @@ public class GameManager : Manager<GameManager>
         }
         return null;
     }
+
+    public static T AddColliderTriger<T>(GameObject gameObject) where T : Collider
+    {
+        var col = gameObject.AddComponent<T>();
+        col.isTrigger = true;
+        return col;
+    }
+    
+    public static T AddColliderTriger2D<T>(GameObject gameObject) where T : Collider2D
+    {
+        var col = gameObject.AddComponent<T>();
+        col.isTrigger = true;
+        return col;
+    }
+
 }
 
 public class TagManager 

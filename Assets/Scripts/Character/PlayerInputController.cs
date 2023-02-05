@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UniRx;
 
 public class PlayerInputController : Manager<PlayerInputController>
 {
@@ -16,9 +17,11 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] IMoveable Imove2d;
 
     [SerializeField] IInteract interact;
-    [SerializeField] IPlayerReact playerReact;
+    [SerializeField] public List<IPlayerReact> playerReact = new List<IPlayerReact>();
 
-    protected void Awake()
+    [SerializeField] public ReactiveProperty<instrument> currentInstrument = new ReactiveProperty<instrument>();
+
+    protected override void Awake()
     {
         base.Awake();
         TryGetComponent(out _input);
@@ -112,9 +115,9 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnPlayerAct(InputAction.CallbackContext obj)
     {
-        if (this.playerReact != null)
+        foreach (var reacts in playerReact)
         {
-            this.playerReact.PlayerReact();
+            reacts.PlayerReact((int)this.currentInstrument.Value);
         }
     }
     public void SetInteract(IInteract interact)
@@ -133,15 +136,7 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     public void SetPlayerReact(IPlayerReact playerReact)
     {
-        this.playerReact = playerReact;
+        this.playerReact.Add(playerReact);
     }
 
-    public bool AlreadyHaveReact(IPlayerReact react)
-    {
-        if (this.playerReact == react)
-        {
-            return true;
-        }
-        return false;
-    }
 }

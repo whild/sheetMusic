@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class PlayerReactCore : MonoBehaviour, IPlayerReact
 {
-    protected Collider collider;
-    protected Collider2D collider2D;
-
     private MeshFilter meshFilter;
     private SpriteRenderer spriteRenderer;
 
     protected virtual void Awake()
     {
-        var col = this.gameObject.AddComponent<SphereCollider>();
+        if(TryGetComponent(out meshFilter))
+        {
+            Setup3D();
+            return;
+        }
+        if(TryGetComponent(out spriteRenderer))
+        {
+            Setup2D();
+            return;
+        }
+    }
+
+    public virtual void PlayerReact(int instrumentValue)
+    {
+
+    }
+
+    private void Setup2D()
+    {
+        var col = this.gameObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
         col.radius = 2;
     }
 
-    public virtual void PlayerReact()
+    private void Setup3D()
     {
-
+        var col = this.gameObject.AddComponent<SphereCollider>();
+        col.isTrigger = true;
+        col.radius = 2;
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPlayerReact 
 {
-    public void PlayerReact();
+    public void PlayerReact(int instrumentValue);
 }

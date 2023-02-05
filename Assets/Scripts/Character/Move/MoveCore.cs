@@ -119,9 +119,9 @@ public class MoveCore : MonoBehaviour, IMoveable
         }
 
         var PlayerReactContianer = other.GetComponent<IPlayerReact>();
-        if (PlayerInputController.Instance.AlreadyHaveReact(PlayerReactContianer))
+        if (PlayerInputController.Instance.playerReact.Contains(PlayerReactContianer))
         {
-            PlayerInputController.Instance.SetPlayerReact(PlayerReactContianer);
+            PlayerInputController.Instance.playerReact.Remove(PlayerReactContianer);
         }
     }
 
