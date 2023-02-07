@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa925c2ed9dfeb1458672adc0420358a, type: 3}
   m_Name: StageData
   m_EditorClassIdentifier: 
+  stageIndex: 0
   stage_3D: {fileID: 7669995525730325206, guid: 32c59615a1ff0004e8b804a48074337a, type: 3}
   stage_2D: {fileID: 1891056174770594533, guid: ba7fd6505befa0148a724d57a521d258, type: 3}
-  spawnPos_3D: {x: 0, y: 0, z: 0}
+  spawnPos_3D: {x: -110, y: 0, z: 0}
   spawnPos_2D: {x: 0, y: 2, z: 0}
   needKey: 0
