@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContactIInteractCore : MonoBehaviour, IContactInteract
+public class ContactInteractCore : MonoBehaviour, IContactInteract
 {
 
     [TagSelector]

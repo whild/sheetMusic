@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PressButton : ContactIInteractCore
+public class PressButton : ContactInteractWithObjectCore
 {
-    [SerializeField] GameObject targetObj;
     [SerializeField] Collider _collider;
 
-    private IInteract interact;
     [SerializeField] private bool isContact;
     [SerializeField] private bool onceTest;
     [SerializeField] private float Y;
@@ -21,9 +19,9 @@ public class PressButton : ContactIInteractCore
     [SerializeField] private float currentDuration;
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        this.interact = targetObj.GetComponent<IInteract>();
+        base.Awake();
         TryGetComponent(out _collider);
         Y = this.transform.position.y;
     }
@@ -42,7 +40,7 @@ public class PressButton : ContactIInteractCore
             .OnUpdate(() =>
             {
                 currentDuration = (Y - transform.position.y) / pressValue;
-                this.interact.Interact(currentDuration);
+                this.objectEvent.Event(currentDuration);
                 if (!isContact)
                 {
                     down.Kill();
@@ -52,7 +50,7 @@ public class PressButton : ContactIInteractCore
             .OnComplete(() =>
             {
                 currentDuration = 1;
-                this.interact.Interact(currentDuration);
+                this.objectEvent.Event(currentDuration);
             });
     }
 
@@ -81,7 +79,7 @@ public class PressButton : ContactIInteractCore
             .OnUpdate(() =>
             {
                 currentDuration = (Y - transform.position.y) / pressValue;
-                this.interact.Interact(currentDuration);
+                this.objectEvent.Event(currentDuration);
                 if (isContact)
                 {
                     up.Kill();
@@ -90,7 +88,7 @@ public class PressButton : ContactIInteractCore
             .OnComplete(() =>
            {
                currentDuration = 0;
-               this.interact.Interact(currentDuration);
+               this.objectEvent.Event(currentDuration);
            }));
     }
 }

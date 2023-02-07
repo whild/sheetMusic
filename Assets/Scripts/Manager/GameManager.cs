@@ -91,3 +91,12 @@ public enum Dimension
     _2D,
     _3D
 }
+public enum MoveDirection
+{
+    forward,
+    back,
+    up,
+    down,
+    right,
+    left,
+}

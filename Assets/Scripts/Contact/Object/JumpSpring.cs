@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpSpring : ContactIInteractCore
+public class JumpSpring : ContactInteractCore
 {
     [SerializeField] private float jumpPower;
     [SerializeField] Collider collider;
