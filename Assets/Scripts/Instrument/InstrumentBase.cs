@@ -10,7 +10,11 @@ public enum instrument
 }
 
 
-public class InstrumentBase : MonoBehaviour
+[CreateAssetMenu(fileName = "Instrument", menuName = "SheetMusic/Create NewI nstrument", order = 10001)]
+public class InstrumentBase : ScriptableObject
 {
-
+    /// <summary>
+    /// Automaton = 0, Violin = 1, Horn = 2,
+    /// </summary>
+    public int instrumentIndex;
 }

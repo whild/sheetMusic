@@ -44,5 +44,7 @@ public class StageManager : Manager<StageManager>
     {
         this.stageData.Value = null;
         this.stageData.Value = stageData;
+        GameManager.Instance.data.currentStage = stageData.stageIndex;
+        GameManager.Instance.SaveGameData();
     }
 }
