@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceData<T> where T: Component
+public class ResourceData<T> where T: Object
 {
     public static Dictionary<string, T> Data = new Dictionary<string, T>();
 

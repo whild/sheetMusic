@@ -30,11 +30,19 @@ public class GameManager : Manager<GameManager>
         //DontDestroyOnLoad(this.gameObject);
 
         SaveGameData();
+        LoadGameData();
     }
 
     public void MoveCameraTo(bool player3d)
     {
         cinemachineTargetGroup.m_Targets[0].target = (player3d) ? player3D : player2D;
+    }
+
+    public void CameraZoom(int pov, Transform lookat)
+    {
+        cinemachineVirtual.m_Lens.FieldOfView = pov;
+        cinemachineVirtual.LookAt = lookat;
+        cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
     }
 
     public static T CheckNull<T>(Transform from) where T : Component
