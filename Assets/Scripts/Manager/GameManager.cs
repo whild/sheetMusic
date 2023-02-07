@@ -57,7 +57,7 @@ public class GameManager : Manager<GameManager>
             }
             else
             {
-                trans.gameObject.AddComponent<T>();
+                type = trans.gameObject.AddComponent<T>();
                 Debug.Log($"There is Not Component So I Added Component for you");
                 return type;
             }
