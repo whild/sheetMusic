@@ -52,14 +52,58 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnEnable()
     {
-        _input.actions["Move"].performed += OnMove;
-        _input.actions["Move"].canceled += OnMoveStop;
-        _input.actions["Jump"].started += OnJump;
-        _input.actions["Dash"].performed += OnDash;
-        _input.actions["Dash"].canceled += OnDashStop;
-        _input.actions["ChangeCharacter"].performed += OnChangeCharacter;
-        _input.actions["Interact"].started += OnInteract;
-        _input.actions["PlayerAct"].started += OnPlayerAct;
+        SetPlayerInput();
+        SetOptionInput();
+        SetChangeInstrumentInput();
+    }
+
+    private void SetPlayerInput()
+    {
+        var playerInput = _input.actions.FindActionMap("Player");
+        playerInput["Move"].performed += OnMove;
+        playerInput["Move"].canceled += OnMoveStop;
+        playerInput["Jump"].started += OnJump;
+        playerInput["Dash"].performed += OnDash;
+        playerInput["Dash"].canceled += OnDashStop;
+        playerInput["ChangeCharacter"].performed += OnChangeCharacter;
+        playerInput["Interact"].started += OnInteract;
+        playerInput["PlayerAct"].started += OnPlayerAct;
+        playerInput["Option"].started += TurnOnOption;
+        playerInput["Option"].started += SwitchActionMapEvent;
+        playerInput["ChangeInstrument"].started += ChangeInstrument;
+        playerInput["ChangeInstrument"].started += SwitchActionMapEvent;
+    }
+
+    private void SetOptionInput()
+    {
+        var optionInput = _input.actions.FindActionMap("Option");
+        optionInput["MoveUp"].started += OptionMoveUp;
+        optionInput["MoveDown"].started += OptionMoveDown;
+        optionInput["Decide"].started += OptionDecide;
+        optionInput["Cancle"].started += OptionCancle;
+        optionInput["Cancle"].started += SwitchActionMapEvent;
+    }
+
+
+    private void SetChangeInstrumentInput()
+    {
+        var changeInstrument = _input.actions.FindActionMap("ChangeInstrument");
+        changeInstrument["SelectInstrument"].performed += SelectInstrument;
+        changeInstrument["Decide"].started += DecideInstrument;
+        changeInstrument["Decide"].started += SwitchActionMapEvent;
+        changeInstrument["Cancle"].started += ChangeCancle;
+        changeInstrument["Cancle"].started += SwitchActionMapEvent;
+    }
+
+    private void ChangeInstrument(InputAction.CallbackContext obj)
+    {
+        _input.SwitchCurrentActionMap("ChangeInstrument");
+    }
+
+    private void TurnOnOption(InputAction.CallbackContext obj)
+    {
+        OptionWindow.Instance.ShowOption(true);
+        _input.SwitchCurrentActionMap("Option");
     }
 
     private void OnDisable()
@@ -73,6 +117,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         _input.actions["PlayerAct"].started -= OnPlayerAct;
     }
 
+    #region Player
     private void OnMove(InputAction.CallbackContext obj)
     {
         var value = obj.ReadValue<Vector2>();
@@ -149,4 +194,58 @@ public class PlayerInputController : Manager<PlayerInputController>
         this.playerReact.Add(playerReact);
     }
 
+    #endregion
+
+    #region Option
+    private void OptionDecide(InputAction.CallbackContext obj)
+    {
+        OptionWindow.Instance.DecideCurrentOption();
+        Debug.Log("Select Current Option");
+    }
+
+    private void OptionMoveDown(InputAction.CallbackContext obj)
+    {
+        OptionWindow.Instance.MoveOptionDown();
+        Debug.Log("OptionDown");
+    }
+
+    private void OptionMoveUp(InputAction.CallbackContext obj)
+    {
+        OptionWindow.Instance.MoveOptionUp();
+        Debug.Log("OptionUp");
+    }
+    private void OptionCancle(InputAction.CallbackContext obj)
+    {
+        OptionWindow.Instance.ShowOption(false);
+        _input.SwitchCurrentActionMap("Player");
+        Debug.Log("Switch ActionMap to Player");
+    }
+    #endregion
+
+    #region ChangeInstrument
+    private void DecideInstrument(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Decide Instrument");
+    }
+
+    private void SelectInstrument(InputAction.CallbackContext obj)
+    {
+        var value = obj.ReadValue<Vector2>();
+        Debug.Log("SelectInstrument");
+    }
+
+    private void ChangeCancle(InputAction.CallbackContext obj)
+    {
+        _input.SwitchCurrentActionMap("Player");
+        Debug.Log("Switch ActionMap to Player");
+    }
+    #endregion
+
+
+    private void SwitchActionMapEvent(InputAction.CallbackContext obj)
+    {
+        _move.SetDirection(Vector3.zero);
+
+        Debug.Log("SwitchActionMap");
+    }
 }
