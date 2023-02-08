@@ -103,7 +103,7 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void TurnOnOption(InputAction.CallbackContext obj)
     {
-        OptionWindow.Instance.ShowOption(true);
+        OptionWindowCore.Instance.ShowOption(true);
         _input.SwitchCurrentActionMap("Option");
     }
 
@@ -200,24 +200,24 @@ public class PlayerInputController : Manager<PlayerInputController>
     #region Option
     private void OptionDecide(InputAction.CallbackContext obj)
     {
-        OptionWindow.Instance.DecideCurrentOption();
+        OptionWindowCore.Instance.DecideCurrentOption();
         Debug.Log("Select Current Option");
     }
 
     private void OptionMoveDown(InputAction.CallbackContext obj)
     {
-        OptionWindow.Instance.MoveOptionDown();
+        OptionWindowCore.Instance.MoveOptionDown();
         Debug.Log("OptionDown");
     }
 
     private void OptionMoveUp(InputAction.CallbackContext obj)
     {
-        OptionWindow.Instance.MoveOptionUp();
+        OptionWindowCore.Instance.MoveOptionUp();
         Debug.Log("OptionUp");
     }
     private void OptionCancle(InputAction.CallbackContext obj)
     {
-        OptionWindow.Instance.ShowOption(false);
+        OptionWindowCore.Instance.ShowOption(false);
         _input.SwitchCurrentActionMap("Player");
         Debug.Log("Switch ActionMap to Player");
     }

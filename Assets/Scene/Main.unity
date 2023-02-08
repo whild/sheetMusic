@@ -2512,7 +2512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1315310739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2890,7 +2890,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1482435748}
-  - component: {fileID: 1482435749}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2920,20 +2919,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1482435749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482435747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2adbb83ceb47754abc668a63a57be14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selection: {fileID: 1579908718}
-  optionButtons: []
 --- !u!1 &1503820172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1739035153}
+  - component: {fileID: 1739035154}
   m_Layer: 5
   m_Name: OptionWindow
   m_TagString: Untagged
@@ -3250,6 +3236,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1739035154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739035152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53bf261deb9953428e685f073e05d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFirst: 0
+  container: {fileID: 1482435747}
+  selection: {fileID: 1579908718}
+  optionTransforms: []
 --- !u!1 &1789423776
 GameObject:
   m_ObjectHideFlags: 0

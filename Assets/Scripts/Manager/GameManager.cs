@@ -8,7 +8,7 @@ using Cinemachine;
 
 public class GameManager : Manager<GameManager>
 {
-    private readonly string fileName = "saveData.json";
+    public static readonly string fileName = "saveData.json";
     public SaveData data = new SaveData();
 
     [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
