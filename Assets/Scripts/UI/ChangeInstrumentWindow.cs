@@ -7,19 +7,23 @@ using UniRx;
 
 public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
 {
-    [SerializeField] Transform trnas;
+    [SerializeField] Transform container;
     List<Transform> Selections = new List<Transform>();
     [SerializeField] int currentInstrument;
 
     protected override void Awake()
     {
         base.Awake();
+        ShowChangeInstrument(false);
     }
 
     public void ShowChangeInstrument(bool val)
     {
-        this.gameObject.SetActive(val);
-        currentInstrument = (int)PlayerInputController.Instance.currentInstrument.Value;
+        this.container.gameObject.SetActive(val);
+        if (val)
+        {
+            currentInstrument = (int)PlayerInputController.Instance.currentInstrument.Value;
+        }
     }
 
     public void DecideInstrument()
