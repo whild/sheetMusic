@@ -19,7 +19,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] IInteract interact;
     [SerializeField] public List<IPlayerReact> playerReact = new List<IPlayerReact>();
 
-    [SerializeField] public ReactiveProperty<instrument> currentInstrument = new ReactiveProperty<instrument>();
+    [SerializeField] public ReactiveProperty<Instrument> currentInstrument = new ReactiveProperty<Instrument>();
 
     protected override void Awake()
     {
@@ -98,6 +98,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     private void ChangeInstrument(InputAction.CallbackContext obj)
     {
         _input.SwitchCurrentActionMap("ChangeInstrument");
+        ChangeInstrumentWindow.Instance.ShowChangeInstrument(true);
     }
 
     private void TurnOnOption(InputAction.CallbackContext obj)
@@ -225,18 +226,21 @@ public class PlayerInputController : Manager<PlayerInputController>
     #region ChangeInstrument
     private void DecideInstrument(InputAction.CallbackContext obj)
     {
+        ChangeInstrumentWindow.Instance.DecideInstrument();
         Debug.Log("Decide Instrument");
     }
 
     private void SelectInstrument(InputAction.CallbackContext obj)
     {
         var value = obj.ReadValue<Vector2>();
+        ChangeInstrumentWindow.Instance.ShowSelection(value);
         Debug.Log("SelectInstrument");
     }
 
     private void ChangeCancle(InputAction.CallbackContext obj)
     {
         _input.SwitchCurrentActionMap("Player");
+        ChangeInstrumentWindow.Instance.ShowChangeInstrument(false);
         Debug.Log("Switch ActionMap to Player");
     }
     #endregion

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum instrument 
+public enum Instrument 
 {
     Automaton = 0,
     Violin = 1,
