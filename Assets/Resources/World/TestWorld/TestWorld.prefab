@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 7669995526570851246}
   - component: {fileID: 7669995526570851247}
   - component: {fileID: 7669995526570851216}
-  - component: {fileID: 4551149700727413006}
+  - component: {fileID: 5404094077143315878}
   m_Layer: 0
   m_Name: OpenObj
   m_TagString: Ground
@@ -1253,7 +1253,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4551149700727413006
+--- !u!114 &5404094077143315878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1262,13 +1262,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7669995526570851218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761ad59c9ddb8024a83b6fd748c6d607, type: 3}
+  m_Script: {fileID: 11500000, guid: b92f3d5f928bfe04b8e145b009b5274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentValue:
     value: 0
   direction: 2
   endValue: 5
+  duration: 0
 --- !u!1 &7669995526626596740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1951,14 @@ PrefabInstance:
       propertyPath: targetObj
       value: 
       objectReference: {fileID: 7669995526570851218}
+    - target: {fileID: 9065626674137577112, guid: 7384581f1eebd1d40bf61c22e6f248d9, type: 3}
+      propertyPath: targetTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 7384581f1eebd1d40bf61c22e6f248d9, type: 3}
+      propertyPath: targetTags.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7384581f1eebd1d40bf61c22e6f248d9, type: 3}
 --- !u!4 &5429739158904395501 stripped
