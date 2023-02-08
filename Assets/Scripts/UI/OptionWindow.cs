@@ -60,6 +60,7 @@ public class OptionWindow : Manager<OptionWindow>
         for (int i = 0; i < optionButtons.Count; i++)
         {
             int temp = i;
+            DOTween.Kill(optionButtons[temp].transform);
             optionButtons[temp].transform.localScale = new Vector3(1, 1, 1);
             if(optionValue.Value == temp)
             {
