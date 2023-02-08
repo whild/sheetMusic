@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerReactCore : MonoBehaviour, IPlayerReact
 {
-    private MeshFilter meshFilter;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] protected MeshRenderer meshRenderer;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
     protected virtual void Awake()
     {
-        if(TryGetComponent(out meshFilter))
+        if(TryGetComponent(out meshRenderer))
         {
             Setup3D();
             return;
@@ -26,14 +26,14 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
 
     }
 
-    private void Setup2D()
+    protected virtual void Setup2D()
     {
         var col = this.gameObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
         col.radius = 2;
     }
 
-    private void Setup3D()
+    protected virtual void Setup3D()
     {
         var col = this.gameObject.AddComponent<SphereCollider>();
         col.isTrigger = true;
