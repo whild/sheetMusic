@@ -1,11 +1,6 @@
-using System;
 using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UniRx;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TitleOptionWindow : OptionWindowCore
 {
@@ -50,13 +45,27 @@ public class TitleOptionWindow : OptionWindowCore
 
     private void LoadGame()
     {
+        NextScene();
         Debug.Log("LoadGame");
     }
 
     private void NewGame()
     {
+        SaveData data = new SaveData();
+        string ToJsonData = JsonUtility.ToJson(data, true);
+        string filePath = Application.persistentDataPath + "/" + GameManager.fileName;
+
+        // 이미 저장된 파일이 있다면 덮어쓰고, 없다면 새로 만들어서 저장
+        File.WriteAllText(filePath, ToJsonData);
+
+        NextScene();
 
         Debug.Log("NewGame");
+    }
+
+    private void NextScene()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Option()
