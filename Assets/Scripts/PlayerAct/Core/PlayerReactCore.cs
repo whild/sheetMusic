@@ -9,12 +9,12 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
 
     protected virtual void Awake()
     {
-        if(!TryGetComponent(out meshRenderer))
+        if(TryGetComponent(out meshRenderer))
         {
             Setup3D();
             return;
         }
-        if(!TryGetComponent(out spriteRenderer))
+        if(TryGetComponent(out spriteRenderer))
         {
             Setup2D();
             return;
