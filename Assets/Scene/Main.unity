@@ -942,6 +942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532279682}
+  - component: {fileID: 532279683}
   m_Layer: 5
   m_Name: ChageInstrument
   m_TagString: Untagged
@@ -970,6 +971,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &532279683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532279681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4e07764477c024aa97cc55d8bbe8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 1315310739}
+  currentInstrument: 0
 --- !u!1 &588844607 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1257885242056732829, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
@@ -2491,7 +2506,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315310739}
-  - component: {fileID: 1315310740}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2521,20 +2535,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1315310740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315310738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4e07764477c024aa97cc55d8bbe8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trnas: {fileID: 0}
-  currentInstrument: 0
 --- !u!1 &1329161074
 GameObject:
   m_ObjectHideFlags: 0
