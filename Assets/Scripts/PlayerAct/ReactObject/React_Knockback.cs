@@ -8,16 +8,16 @@ public class React_Knockback : PlayerReactCore
     [SerializeField] int value;
     [SerializeField] int mass;
 
-    private int instrumentIndex = 1;
+    private int instrumentIndex = 2;
     protected override void Awake()
     {
         base.Awake();
         if (!TryGetComponent(out rigid))
         {
             rigid = this.gameObject.AddComponent<Rigidbody>();
-            rigid.mass = mass;
-            rigid.isKinematic = true;
         }
+        rigid.mass = mass;
+        rigid.isKinematic = true;
     }
 
     public override void PlayerReact(int instrumentValue)
@@ -37,7 +37,7 @@ public class React_Knockback : PlayerReactCore
     {
         yield return new WaitUntil(() =>
         {
-            if(rigid.velocity == Vector3.zero)
+            if(rigid.IsSleeping())
             {
                 return true;
             }
