@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class React_Break : PlayerReactCore
 {
     private int instrumentIndex = 0;
-    [SerializeField] UnityAction breakAction;
+    [SerializeField] UnityEvent breakEvent;
     private Material targetMaterial;
     protected override void Awake()
     {
@@ -21,7 +21,7 @@ public class React_Break : PlayerReactCore
             Debug.Log("Break");
         }
 
-        breakAction.Invoke();
+        breakEvent.Invoke();
     }
 
     protected override void Setup2D()

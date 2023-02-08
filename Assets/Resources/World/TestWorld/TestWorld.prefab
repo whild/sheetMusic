@@ -1770,6 +1770,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 7669995527443399740}
   spriteRenderer: {fileID: 0}
+  breakAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1487813445600021833
 PrefabInstance:
   m_ObjectHideFlags: 0
