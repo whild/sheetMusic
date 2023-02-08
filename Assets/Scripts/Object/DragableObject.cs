@@ -8,6 +8,7 @@ public class DragableObject : MonoBehaviour
     [SerializeField] Dimension dimension;
     [SerializeField] Rigidbody rigid;
     [SerializeField] Rigidbody2D rigid2d;
+    [SerializeField] int mass;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class DragableObject : MonoBehaviour
 
     private void RigidInit(Rigidbody rigid)
     {
+        rigid.mass = mass;
         rigid.constraints = RigidbodyConstraints.FreezePositionY;
         rigid.constraints = RigidbodyConstraints.FreezeRotationX;
         rigid.constraints = RigidbodyConstraints.FreezeRotationZ;
@@ -40,6 +42,7 @@ public class DragableObject : MonoBehaviour
 
     private void RigidInit(Rigidbody2D rigid)
     {
+        rigid.mass = mass;
         rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

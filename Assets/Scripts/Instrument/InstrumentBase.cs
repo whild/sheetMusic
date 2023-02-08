@@ -17,4 +17,11 @@ public class InstrumentBase : ScriptableObject
     /// Automaton = 0, Violin = 1, Horn = 2,
     /// </summary>
     public int instrumentIndex;
+
+    public AnimationClip idle_;
+    public AnimationClip walk_;
+    public AnimationClip dash_;
+    public AnimationClip jump_;
+    public AnimationClip playerAct_;
+
 }
