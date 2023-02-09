@@ -47,4 +47,9 @@ public class StageManager : Manager<StageManager>
         GameManager.Instance.data.currentStage = stageData.stageIndex;
         GameManager.Instance.SaveGameData();
     }
+
+    public void Retry()
+    {
+        ChangeStage(this.stageData.Value);
+    }
 }

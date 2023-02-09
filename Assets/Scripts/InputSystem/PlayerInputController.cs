@@ -215,11 +215,16 @@ public class PlayerInputController : Manager<PlayerInputController>
         OptionWindowCore.Instance.MoveOptionUp();
         Debug.Log("OptionUp");
     }
-    private void OptionCancle(InputAction.CallbackContext obj)
+    public void OptionCancle(InputAction.CallbackContext obj)
     {
-        OptionWindowCore.Instance.ShowOption(false);
-        _input.SwitchCurrentActionMap("Player");
+        TurnOption(false);
         Debug.Log("Switch ActionMap to Player");
+    }
+
+    public void TurnOption(bool val)
+    {
+        OptionWindowCore.Instance.ShowOption(val);
+        _input.SwitchCurrentActionMap("Player");
     }
     #endregion
 
