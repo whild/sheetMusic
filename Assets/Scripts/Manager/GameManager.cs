@@ -29,8 +29,8 @@ public class GameManager : Manager<GameManager>
         //TryGetComponent(out mainCamera);
         //DontDestroyOnLoad(this.gameObject);
 
-        SaveGameData();
         LoadGameData();
+        SaveGameData();
     }
 
     public void MoveCameraTo(bool player3d)

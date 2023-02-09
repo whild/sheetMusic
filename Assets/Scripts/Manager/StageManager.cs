@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,15 @@ public class StageManager : Manager<StageManager>
             {
                 ParseStage(data);
             });
+
+        ChangeStage(FindStage());
+
+    }
+
+    private StageDataBase FindStage()
+    {
+        var allStages = ResourceData<StageDataBase>.GetDatas("World/StageData");
+        return Array.Find(allStages, x => x.stageIndex == GameManager.Instance.data.currentStage);
     }
 
     private void ParseStage(StageDataBase data)
