@@ -14,6 +14,8 @@ public class OptionWindowCore : Manager<OptionWindowCore>
     [SerializeField] protected Transform selection;
     [SerializeField] protected List<Transform> optionTransforms = new List<Transform>();
 
+    [SerializeField] AudioSource optionChangeSound;
+
     protected override void Awake()
     {
         base.Awake();
@@ -62,6 +64,7 @@ public class OptionWindowCore : Manager<OptionWindowCore>
 
     private void ShowSelectedOption()
     {
+        AudioManager.PlayAudio(optionChangeSound);
         for (int i = 0; i < optionTransforms.Count; i++)
         {
             int temp = i;
