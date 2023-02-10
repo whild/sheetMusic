@@ -45,4 +45,9 @@ public class Move3D : MoveCore
         }
     }
 
+    protected override void SetAnimation()
+    {
+        
+    }
+
 }

@@ -13,8 +13,14 @@ public class MoveCore : MonoBehaviour, IMoveable
     public static float dashSpeed = 10;
     [SerializeField] protected Vector3 direction;
 
+    [Header("*Animation")]
+    [SerializeField] public Animator Animator;
+    [SerializeField] AnimatorOverrideController AnimatorOverrideController;
+    [SerializeField] AnimationClipOverrides ClipOverrides;
+
     protected virtual void Awake()
     {
+        AnimationInit();
         isLadder = false;
     }
 
@@ -136,6 +142,24 @@ public class MoveCore : MonoBehaviour, IMoveable
         direction.z = 0;
         isGround = false;
     }
+
+    protected void AnimationInit()
+    {
+        AnimatorOverrideController = new AnimatorOverrideController(Animator.runtimeAnimatorController);
+        Animator.runtimeAnimatorController = AnimatorOverrideController;
+
+        ClipOverrides = new AnimationClipOverrides(AnimatorOverrideController.overridesCount);
+        AnimatorOverrideController.GetOverrides(ClipOverrides);
+
+        SetAnimation();
+    }
+
+    protected virtual void SetAnimation()
+    {
+
+    }
+
+
     public static Vector3 GetDirection(MoveDirection direction)
     {
         switch (direction)
@@ -159,7 +183,18 @@ public class MoveCore : MonoBehaviour, IMoveable
 
 }
 
-public class GameUtiles 
-{ 
+public class AnimationClipOverrides : List<KeyValuePair<AnimationClip, AnimationClip>>
+{
+    public AnimationClipOverrides(int capacity) : base(capacity) { }
 
+    public AnimationClip this[string name]
+    {
+        get { return this.Find(x => x.Key.name.Equals(name)).Value; }
+        set
+        {
+            int index = this.FindIndex(x => x.Key.name.Equals(name));
+            if (index != -1)
+                this[index] = new KeyValuePair<AnimationClip, AnimationClip>(this[index].Key, value);
+        }
+    }
 }
