@@ -65,22 +65,19 @@ public class GameManager : Manager<GameManager>
         return null;
     }
 
-    public static T AddColliderTriger<T>(GameObject gameObject) where T : Collider
+    public static void CheckDemansionComponent<T,C>(Transform trans,ref T d3d,ref C d2d) where T : Component where C : Component
     {
-        var col = gameObject.AddComponent<T>();
-        col.isTrigger = true;
-        return col;
+        if(trans.GetComponent<SpriteRenderer>() != null)
+        {// 2D
+            d2d = trans.gameObject.AddComponent<C>();
+            return;
+        }
+        else
+        {// 3D
+            d3d = trans.gameObject.AddComponent<T>();
+            return;
+        }
     }
-    
-    public static T AddColliderTriger2D<T>(GameObject gameObject) where T : Collider2D
-    {
-        var col = gameObject.AddComponent<T>();
-        col.isTrigger = true;
-        return col;
-    }
-
-
-
     public void LoadGameData()
     {
         string filePath = Application.persistentDataPath + "/" + fileName;

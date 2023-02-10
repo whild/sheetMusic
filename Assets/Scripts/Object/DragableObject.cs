@@ -12,25 +12,9 @@ public class DragableObject : MonoBehaviour
 
     private void Awake()
     {
-        Init();
+        GameManager.CheckDemansionComponent(this.transform, ref rigid, ref rigid2d);
     }
 
-    private void Init()
-    {
-        switch (dimension)
-        {
-            case Dimension._2D:
-                rigid = GameManager.CheckNull<Rigidbody>(this.transform);
-                RigidInit(rigid);
-                break;
-            case Dimension._3D:
-                rigid2d = GameManager.CheckNull<Rigidbody2D>(this.transform);
-                RigidInit(rigid2d);
-                break;
-            default:
-                break;
-        }
-    }
 
     private void RigidInit(Rigidbody rigid)
     {

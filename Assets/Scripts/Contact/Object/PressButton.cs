@@ -6,10 +6,8 @@ using DG.Tweening;
 
 public class PressButton : ContactInteractWithObjectCore
 {
-    [SerializeField] Collider _collider;
-
     [SerializeField] private bool isContact;
-    [SerializeField] private bool onceTest;
+    [SerializeField] private bool activeOnce;
     [SerializeField] private float Y;
     [SerializeField] private float pressValue;
     /// <summary>
@@ -22,15 +20,34 @@ public class PressButton : ContactInteractWithObjectCore
     protected override void Awake()
     {
         base.Awake();
-        TryGetComponent(out _collider);
         Y = this.transform.position.y;
     }
 
     public override void OnContact(Collision collision)
     {
+        Press();
+    }
+
+    public override void OnUnContact(Collision collision)
+    {
+        Detach();
+    }
+
+    public override void OnContact(Collision2D collision)
+    {
+        Press();
+    }
+
+
+    public override void OnUnContact(Collision2D collision)
+    {
+        Detach();
+    }
+
+    private void Press()
+    {
         this.isContact = true;
-        this.onceTest = true;
-        float current = Mathf.Lerp(pressValue,0, Y - this.transform.position.y);
+        float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
         float duration_ = (duration != 0) ? current * duration : 0;
 
         var down = DOTween.Sequence();
@@ -54,8 +71,12 @@ public class PressButton : ContactInteractWithObjectCore
             });
     }
 
-    public override void OnUnContact(Collision collision)
+    private void Detach()
     {
+        if (activeOnce)
+        {
+            return;
+        }
         this.isContact = false;
         StartCoroutine(WaitUnContact());
     }

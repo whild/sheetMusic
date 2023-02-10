@@ -11,7 +11,12 @@ public class CameraMagnetTargetController : Manager<CameraMagnetTargetController
 
     private int playerIndex;
     private List<FocusCore> focusCores = new List<FocusCore>();
-    // Start is called before the first frame update
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     void Start()
     {
         playerIndex = 0;

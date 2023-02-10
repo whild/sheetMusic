@@ -6,6 +6,12 @@ public class ChangeStage : TriggerInteractCore
 {
     [SerializeField] StageDataBase nextStageBase;
     [SerializeField] bool needKey;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     public override void OnTrigger(Collider collision)
     {
         if (needKey)

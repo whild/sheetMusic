@@ -14,16 +14,26 @@ public class FocusCore : MonoBehaviour, IFocusable
 
     [Range(0.1f, 50.0f)]
     public float Proximity = 5.0f;
+
+    protected SphereCollider sphereCollider;
+    protected CircleCollider2D circleCollider2D;
+
     protected virtual void Awake()
     {
-        var container = this.gameObject.GetComponents<Collider>();
-        foreach (var item in container)
+        GameManager.CheckDemansionComponent(this.transform,ref sphereCollider,ref circleCollider2D);
+
+        if (sphereCollider != null)
         {
-            Destroy(item);
+            sphereCollider.radius = Proximity * 2f;
+            sphereCollider.isTrigger = true;
+            return;
         }
-        var sphere = this.gameObject.AddComponent<SphereCollider>();
-        sphere.radius = Proximity * 2f;
-        sphere.isTrigger = true;
+        if(circleCollider2D != null)
+        {
+            circleCollider2D.radius = Proximity * 2f;
+            circleCollider2D.isTrigger = true;
+            return;
+        }
     }
 
     public virtual void FocusEffect(CinemachineTargetGroup group)

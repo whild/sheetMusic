@@ -11,8 +11,9 @@ public class DialogNPC : TriggerInteractCore
     [SerializeField] SpriteRenderer image;
 
     [SerializeField] private bool isTalk; 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Init();
     }
 

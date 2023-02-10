@@ -11,6 +11,14 @@ public class ContactInteractCore : MonoBehaviour, IContactInteract
     [SerializeField] protected Dimension targetDimension;
     [SerializeField] protected MoveDirection contactDirection;
 
+    protected Collider col;
+    protected Collider2D col2D;
+
+    protected virtual void Awake()
+    {
+        GameManager.CheckDemansionComponent(this.transform,ref col,ref col2D);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))

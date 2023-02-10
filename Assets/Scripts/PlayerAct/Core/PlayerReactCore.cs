@@ -25,9 +25,9 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
     {
 
     }
-
     protected virtual void Setup2D()
     {
+
         var col = this.gameObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
         col.radius = 2;
