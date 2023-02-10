@@ -69,12 +69,18 @@ public class GameManager : Manager<GameManager>
     {
         if(trans.GetComponent<SpriteRenderer>() != null)
         {// 2D
-            d2d = trans.gameObject.AddComponent<C>();
+            if(!trans.TryGetComponent(out d2d))
+            {
+                d2d = trans.gameObject.AddComponent<C>();
+            }
             return;
         }
         else
         {// 3D
-            d3d = trans.gameObject.AddComponent<T>();
+            if (!trans.TryGetComponent(out d3d))
+            {
+                d3d = trans.gameObject.AddComponent<T>();
+            }
             return;
         }
     }

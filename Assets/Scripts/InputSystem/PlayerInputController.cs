@@ -15,7 +15,9 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] GameObject player_2d;
     [SerializeField] IMoveable Imove3d;
     [SerializeField] IMoveable Imove2d;
-
+    [SerializeField] IAnimatorControll I3DAni;
+    [SerializeField] IAnimatorControll I2DAni;
+ 
     [SerializeField] IInteract interact;
     [SerializeField] public List<IPlayerReact> playerReact = new List<IPlayerReact>();
 
@@ -29,6 +31,12 @@ public class PlayerInputController : Manager<PlayerInputController>
         currentInstrument
             .Subscribe(val =>
             {
+                if (I3DAni != null)
+                {
+                    I3DAni.ChangeAnimation();
+                }
+                //I2DAni.ChangeAnimation();
+
                 GameManager.Instance.data.currentInstrument = (int)val;
                 GameManager.Instance.SaveGameData();
                 //¸ðµ¨¸µ ¹Ù²ã¾ßÇÔ
@@ -45,7 +53,11 @@ public class PlayerInputController : Manager<PlayerInputController>
 
         player_3d.TryGetComponent(out Imove3d);
         player_2d.TryGetComponent(out Imove2d);
+
+        player_3d.TryGetComponent(out I3DAni);
+        player_2d.TryGetComponent(out I2DAni);
         
+
         _move = Imove3d;
         moveCore = player_3d.GetComponent<MoveCore>();
     }

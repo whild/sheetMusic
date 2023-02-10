@@ -44,10 +44,4 @@ public class Move3D : MoveCore
             direction.y = 0;
         }
     }
-
-    protected override void SetAnimation()
-    {
-        
-    }
-
 }
