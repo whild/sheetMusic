@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4b5526dd7b08bc47bceac04fbe4f916
+guid: d73cd17affe58124e8d40d2632259ce8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,74 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Automaton_Run_0
+      name: Character_Violin_Song-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734b5642e53ea7e43969578d2108355c
+      internalID: 954701576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Violin_Song-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dfbc8cb22ac02a45b5b475f3773f9cf
+      internalID: 758096883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Violin_Song-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b711647d2582284f88d541774e958ac
+      internalID: 1113633898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Violin_Song-Sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aabaa9e1a6213564c900ed0628dcb45c
-      internalID: 2105627814
+      spriteID: 3a4bbf60e22dc7a4ca8a3d2b37cf675d
+      internalID: -939942570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Run_1
+      name: Character_Violin_Song-Sheet_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 403633c55059eaa4eb24b563c3331ce0
-      internalID: -526743589
+      spriteID: ea0a9d8ed9092ac48b9759773995cde8
+      internalID: -810304872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Run_2
+      name: Character_Violin_Song-Sheet_5
       rect:
         serializedVersion: 2
         x: 2048
@@ -173,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40b9c8c1ef808a242937d6e45348ce08
-      internalID: -1331119195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Run_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7a1dbbfcd5930b49a5c55a9195ab4d4
-      internalID: -1400515367
+      spriteID: 11213a185d3819649b44ded0f60956f4
+      internalID: 1535492850
       vertices: []
       indices: 
       edges: []
@@ -203,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: be85141144ff07f4b8f47482cd26b8ba
+    spriteID: 43d82ce0f46649f48a03e29fa12ed213
     internalID: 0
     vertices: []
     indices: 
@@ -211,10 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Automaton_Run_1: -526743589
-      Character_Automaton_Run_2: -1331119195
-      Character_Automaton_Run_0: 2105627814
-      Character_Automaton_Run_3: -1400515367
+      Character_Violin_Song-Sheet_3: -939942570
+      Character_Violin_Song-Sheet_5: 1535492850
+      Character_Violin_Song-Sheet_4: -810304872
+      Character_Violin_Song-Sheet_2: 1113633898
+      Character_Violin_Song-Sheet_0: 954701576
+      Character_Violin_Song-Sheet_1: 758096883
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

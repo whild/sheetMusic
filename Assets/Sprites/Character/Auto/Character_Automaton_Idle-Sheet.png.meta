@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11eb044c19c91b741bcb78f3978b49e4
+guid: dd489134fa518734dad19f12f77b63e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,53 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Violin_Idle_0
+      name: Character_Automaton_Idle-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a82b44e8033aa4e805964bba1343dd
+      internalID: -2017519216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Automaton_Idle-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903d3c7ff6b1e4b4aba3ada20adbfc4a
+      internalID: -153428504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Automaton_Idle-Sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8aa59387328f00428c639979a4cc0ed
-      internalID: -157677893
+      spriteID: 8cd8110b19b665645a3d24a9c8c8b3c2
+      internalID: -1998140212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Violin_Idle_1
+      name: Character_Automaton_Idle-Sheet_3
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,50 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ebe08d4596d31049b6d3a43ea37f4c3
-      internalID: -1474222290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2035ff18f454a94d94e60c233a047b8
-      internalID: -2133064976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a034c9b43abcf144f9b6f3e333b34e60
-      internalID: -81710023
+      spriteID: 5bb01663c59b0d447a00ad50002a90d1
+      internalID: -237692330
       vertices: []
       indices: 
       edges: []
@@ -203,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: be24953aebcdd854bbe17d804614e963
+    spriteID: 999e79a4abf7e2447abcfe423e512e9a
     internalID: 0
     vertices: []
     indices: 
@@ -211,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Violin_Idle_3: -81710023
-      Character_Violin_Idle_2: -2133064976
-      Character_Violin_Idle_0: -157677893
-      Character_Violin_Idle_1: -1474222290
+      Character_Automaton_Idle-Sheet_1: -153428504
+      Character_Automaton_Idle-Sheet_2: -1998140212
+      Character_Automaton_Idle-Sheet_0: -2017519216
+      Character_Automaton_Idle-Sheet_3: -237692330
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

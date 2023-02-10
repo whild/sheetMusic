@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f4b9d24c2eccbb43a1dcf02476607a6
+guid: 850d0ffa721f9404484d0f10ab43bfad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,74 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Automaton_Idle_0
+      name: Character_Horn_Jump-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4179a88301c65042a1df2d62c7bec67
+      internalID: -1430607358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Horn_Jump-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158a11be6080fcc438fdfc294f79b64f
+      internalID: 1048245464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Horn_Jump-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0dc6207041a4b4184616bbb82c549a
+      internalID: 1636706190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Horn_Jump-Sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad69653bd24e77f41b0c87b9eda9cd32
-      internalID: 14057156
+      spriteID: e4811167f3306b24091b8001eec989ee
+      internalID: 89632911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Idle_1
+      name: Character_Horn_Jump-Sheet_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d1c9f6080442a42b7023e6b0c2a4d1
-      internalID: 2141415152
+      spriteID: 7319d9a98cb14c0468bb7e52b55a200f
+      internalID: 1493384694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Idle_2
+      name: Character_Horn_Jump-Sheet_5
       rect:
         serializedVersion: 2
         x: 2048
@@ -173,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a4593b7ea713948aff7e4a995bdfe2
-      internalID: 1168914911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af1d4f2aac3b61640b7c37ade6089450
-      internalID: -1838087450
+      spriteID: f07bda9e58a4eca4195f29165d69fe0d
+      internalID: 1598388806
       vertices: []
       indices: 
       edges: []
@@ -203,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8e749129e55fadb43a40c9548195da4b
+    spriteID: 828c229c58b434b43b424e166f3d9cf4
     internalID: 0
     vertices: []
     indices: 
@@ -211,10 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Automaton_Idle_2: 1168914911
-      Character_Automaton_Idle_0: 14057156
-      Character_Automaton_Idle_1: 2141415152
-      Character_Automaton_Idle_3: -1838087450
+      Character_Horn_Jump-Sheet_3: 89632911
+      Character_Horn_Jump-Sheet_1: 1048245464
+      Character_Horn_Jump-Sheet_4: 1493384694
+      Character_Horn_Jump-Sheet_2: 1636706190
+      Character_Horn_Jump-Sheet_5: 1598388806
+      Character_Horn_Jump-Sheet_0: -1430607358
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

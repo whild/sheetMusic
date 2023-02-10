@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c78349e2ee686f14f8a34f02b654ef18
+guid: 79b11a45c16facc47ac588af9cc17ba3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,53 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Violin_Run_0
+      name: Character_Horn_Run-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f651c7017512c3541b685f85e7be3e5c
+      internalID: 1041900463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Horn_Run-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962acb59464d48a4c883fec3e35c62fa
+      internalID: -207615357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Horn_Run-Sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acaee47bd45c1494fbd7057481c04413
-      internalID: -193844524
+      spriteID: 18c215d439de35148bfb043945959936
+      internalID: 518082290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Violin_Run_1
+      name: Character_Horn_Run-Sheet_3
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,50 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba450011e1c519a48ab08715fcf8e0fd
-      internalID: -2142780130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Run_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dac440be86a4284d82bfeb8cdb265ca
-      internalID: 235422681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Run_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e591f68c73224244cb8945ba3527a3b0
-      internalID: 1241791710
+      spriteID: fb08230565c7dec43bc58787db4811f5
+      internalID: 1438098263
       vertices: []
       indices: 
       edges: []
@@ -203,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d96451862b3b3214db9037ec2465ece2
+    spriteID: 1f7b28dff16baa4419e84c8c555ad916
     internalID: 0
     vertices: []
     indices: 
@@ -211,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Violin_Run_2: 235422681
-      Character_Violin_Run_3: 1241791710
-      Character_Violin_Run_0: -193844524
-      Character_Violin_Run_1: -2142780130
+      Character_Horn_Run-Sheet_2: 518082290
+      Character_Horn_Run-Sheet_0: 1041900463
+      Character_Horn_Run-Sheet_3: 1438098263
+      Character_Horn_Run-Sheet_1: -207615357
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

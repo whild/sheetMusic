@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0fce43a35f133f428ad8204746851fe
+guid: a72a938c5f25ab74985c594dac6e8c98
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -101,23 +101,74 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Violin_Jump_0
+      name: Character_paper_Jump-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fa8fa628a91a744a825c583add8287
+      internalID: 1296747403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_paper_Jump-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad46eee096e6dce4987c709e87c0fa7b
+      internalID: -728281914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_paper_Jump-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04119a4da5db8e428d67c9bf59e48ae
+      internalID: 2012000614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_paper_Jump-Sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6d530bd578d2994ab3149711b376d80
-      internalID: 1357576185
+      spriteID: 79f628db9e4271b49be9dcb95b0d9190
+      internalID: -1911210958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Violin_Jump_1
+      name: Character_paper_Jump-Sheet_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5d8956361b8eaf4989b3c5a4d5996fe
-      internalID: -1684930500
+      spriteID: aeba4e7ad2e0d004e994ac5e9a2205c1
+      internalID: 168982224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Violin_Jump_2
+      name: Character_paper_Jump-Sheet_5
       rect:
         serializedVersion: 2
         x: 2048
@@ -173,50 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5e1a6879e736bc4282d244d3667dc74
-      internalID: -1767776956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Jump_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f332b82b630a4d43bc1e4311fb3770b
-      internalID: -342088629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Violin_Jump_4
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 556dac95e04f151428eaa302f122562a
-      internalID: -1957145726
+      spriteID: 95abb00b3a6662c489b447c5b107c836
+      internalID: 1001473381
       vertices: []
       indices: 
       edges: []
@@ -224,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 29f3963061697b34eab00bf0e523aac8
+    spriteID: 770be94e1eb8de64db9f0876f74dacc0
     internalID: 0
     vertices: []
     indices: 
@@ -232,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Violin_Jump_3: -342088629
-      Character_Violin_Jump_1: -1684930500
-      Character_Violin_Jump_0: 1357576185
-      Character_Violin_Jump_2: -1767776956
-      Character_Violin_Jump_4: -1957145726
+      Character_paper_Jump-Sheet_1: -728281914
+      Character_paper_Jump-Sheet_5: 1001473381
+      Character_paper_Jump-Sheet_3: -1911210958
+      Character_paper_Jump-Sheet_2: 2012000614
+      Character_paper_Jump-Sheet_4: 168982224
+      Character_paper_Jump-Sheet_0: 1296747403
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

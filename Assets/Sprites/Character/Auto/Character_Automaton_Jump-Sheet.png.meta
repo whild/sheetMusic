@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8629da6ee65a9d3458e75b7abb136d85
+guid: 5f0085b93774f13449001abd9e7da14d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,23 +101,74 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Automaton_Song_0
+      name: Character_Automaton_Jump-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a9403b6a224f345bb89220fe8c7175
+      internalID: 856912500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Automaton_Jump-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6eb35a6105229409394dec1da83f59
+      internalID: -781690527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Automaton_Jump-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4eb8a449151728438742ae3461f0f63
+      internalID: 893191417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Automaton_Jump-Sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a108e80dd19cc5e419e0bbb8cdd986f5
-      internalID: 637201718
+      spriteID: 304c5df0317546b47b93539177b5a457
+      internalID: -435187328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Song_1
+      name: Character_Automaton_Jump-Sheet_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,92 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f78448b9bffa88488a36417702d6fa6
-      internalID: -1975042978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Song_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66987b67ef0916c4ba0d5db9b8a696d5
-      internalID: -955110668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Song_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0f0be5f5574f4a4e935a9cba98190d4
-      internalID: -881355297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Song_4
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d9db20168d288c46bf502b87f956555
-      internalID: 414415487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Song_5
-      rect:
-        serializedVersion: 2
-        x: 5120
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8698cb79eae7d284ba5ab265c3bfb9e3
-      internalID: 1615136765
+      spriteID: 1e7bc98d13cbf1646be60faadc85816f
+      internalID: 1826510879
       vertices: []
       indices: 
       edges: []
@@ -245,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d76f7635ca77a6f49a8a83666415cfb6
+    spriteID: 165b0f8ad60aa6040aee3465d62e2a67
     internalID: 0
     vertices: []
     indices: 
@@ -253,12 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Automaton_Song_2: -955110668
-      Character_Automaton_Song_5: 1615136765
-      Character_Automaton_Song_3: -881355297
-      Character_Automaton_Song_1: -1975042978
-      Character_Automaton_Song_4: 414415487
-      Character_Automaton_Song_0: 637201718
+      Character_Automaton_Jump-Sheet_4: 1826510879
+      Character_Automaton_Jump-Sheet_3: -435187328
+      Character_Automaton_Jump-Sheet_0: 856912500
+      Character_Automaton_Jump-Sheet_1: -781690527
+      Character_Automaton_Jump-Sheet_2: 893191417
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

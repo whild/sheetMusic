@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68f6323336bdd3248a29b71c4a76534f
+guid: 90a69ee25def9c8478af9319b80dca55
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -101,23 +101,53 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Automaton_Jump_0
+      name: Character_Paper_Run-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8bd5d4da54dc844ae686be994156c4
+      internalID: 949137426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Paper_Run-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d002fc06e25a0e2439a7bc2a9454dd37
+      internalID: 1516449249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Paper_Run-Sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01f8cdc736a73364283addc355db7fee
-      internalID: 409219268
+      spriteID: db22a50f3c9794844b6564ea7f497130
+      internalID: 358091673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Jump_1
+      name: Character_Paper_Run-Sheet_3
       rect:
         serializedVersion: 2
         x: 1024
@@ -152,71 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fffd2c1867a54d4d94cc2e99f721019
-      internalID: -2035288460
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Jump_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de49b244ca036e647ad8b3be11c5f6f9
-      internalID: 444833823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Jump_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41e2d5209dff67a44891f7a1c2ae0e14
-      internalID: 1952956853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Automaton_Jump_4
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f0db3405248483499d49ec46be3e127
-      internalID: 959734838
+      spriteID: e9cd4825bd0d1264ba6747282bb10226
+      internalID: -1511610536
       vertices: []
       indices: 
       edges: []
@@ -224,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 71d11fbfc01177747b01c79c94bc201a
+    spriteID: 37fc5550f07aef04999a7923d3fff453
     internalID: 0
     vertices: []
     indices: 
@@ -232,11 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Automaton_Jump_0: 409219268
-      Character_Automaton_Jump_3: 1952956853
-      Character_Automaton_Jump_4: 959734838
-      Character_Automaton_Jump_1: -2035288460
-      Character_Automaton_Jump_2: 444833823
+      Character_Paper_Run-Sheet_0: 949137426
+      Character_Paper_Run-Sheet_1: 1516449249
+      Character_Paper_Run-Sheet_3: -1511610536
+      Character_Paper_Run-Sheet_2: 358091673
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
