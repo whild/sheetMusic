@@ -16,6 +16,11 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
     private readonly string jump_ = "Jump";
     private readonly string playeract_ = "Playeract";
 
+    private readonly string isMove = "isMove";
+    private readonly string isDash = "isDash";
+    private readonly string Jump = "Jump";
+    private readonly string Playeract = "Playeract";
+
     private void Awake()
     {
         this.Animator = this.GetComponent<Animator>();
@@ -48,6 +53,25 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
         AnimatorOverrideController[name] = clip;
     }
 
+    public void Walk(bool val)
+    {
+        Animator.SetBool(isMove, val);
+    }
+
+    public void Dash(bool val)
+    {
+        Animator.SetBool(isDash, val);
+    }
+
+    public void JumpTrigger()
+    {
+        Animator.SetTrigger(Jump);
+    }
+
+    public void PlayerAct()
+    {
+        Animator.SetTrigger(Playeract);
+    }
 }
 
 

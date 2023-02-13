@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 734139839}
   - component: {fileID: 734139841}
   - component: {fileID: 734139842}
+  - component: {fileID: 734139843}
   m_Layer: 0
   m_Name: 2DPlayer
   m_TagString: Player
@@ -961,6 +962,8 @@ MonoBehaviour:
   speed: 5
   jumpPower: 8
   direction: {x: 0, y: 0, z: 0}
+  spriteRenderer: {fileID: 0}
+  animatorController: {fileID: 0}
   rigid: {fileID: 0}
   collider: {fileID: 0}
 --- !u!95 &734139842
@@ -983,6 +986,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &734139843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734139835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f84d5509c8c6074cbdcb8cc87744453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 0}
+  AnimatorOverrideController: {fileID: 0}
 --- !u!1 &824712261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1189,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1003381568
 MonoBehaviour:
@@ -1190,6 +1207,8 @@ MonoBehaviour:
   speed: 5
   jumpPower: 10
   direction: {x: 0, y: 0, z: 0}
+  spriteRenderer: {fileID: 0}
+  animatorController: {fileID: 0}
   rigid: {fileID: 0}
   collider: {fileID: 0}
 --- !u!136 &1003381571

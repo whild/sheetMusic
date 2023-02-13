@@ -13,9 +13,16 @@ public class MoveCore : MonoBehaviour, IMoveable
     public static float dashSpeed = 10;
     [SerializeField] protected Vector3 direction;
 
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] AnimatorController animatorController;
+
     protected virtual void Awake()
     {
         isLadder = false;
+
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        animatorController = this.gameObject.GetComponent<AnimatorController>();
+
     }
 
     private void FixedUpdate()
@@ -37,14 +44,24 @@ public class MoveCore : MonoBehaviour, IMoveable
     {
         if (direction != Vector3.zero)
         {
+            spriteRenderer.flipX = (direction.x < 0) ? true : false;
+            animatorController.Walk(true);
             transform.position += direction * speed * Time.deltaTime;
+        }
+        else
+        {
+            animatorController.Walk(false);
         }
     }
 
-    public virtual void Jump() { }
+    public virtual void Jump() 
+    {
+        animatorController.JumpTrigger();
+    }
 
     public void Dash(float val)
     {
+        animatorController.Dash((val == normalSpeed) ? false : true);
         this.speed = val;
     }
 
@@ -127,7 +144,7 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     public virtual void PlayerAct()
     {
-
+        animatorController.PlayerAct();
     }
 
     protected virtual void SetLadderMove(bool userGravity)

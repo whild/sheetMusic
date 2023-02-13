@@ -21,6 +21,7 @@ public class Move2D : MoveCore
     }
     public override void Jump()
     {
+        base.Jump();
         if (isGround)
         {
             isGround = false;

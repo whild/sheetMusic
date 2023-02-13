@@ -28,6 +28,17 @@ public class PlayerInputController : Manager<PlayerInputController>
         base.Awake();
         TryGetComponent(out _input);
 
+        player_3d = GameManager.Instance.player3D.gameObject;
+        player_2d = GameManager.Instance.player2D.gameObject;
+
+        player_3d.TryGetComponent(out Imove3d);
+        player_2d.TryGetComponent(out Imove2d);
+
+        player_3d.TryGetComponent(out I3DAni);
+        player_2d.TryGetComponent(out I2DAni);
+
+        currentInstrument.Value = Instrument.Automaton;
+
         currentInstrument
             .Subscribe(val =>
             {
@@ -48,15 +59,6 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void Start()
     {
-        player_3d = GameManager.Instance.player3D.gameObject;
-        player_2d = GameManager.Instance.player2D.gameObject;
-
-        player_3d.TryGetComponent(out Imove3d);
-        player_2d.TryGetComponent(out Imove2d);
-
-        player_3d.TryGetComponent(out I3DAni);
-        player_2d.TryGetComponent(out I2DAni);
-        
 
         _move = Imove3d;
         moveCore = player_3d.GetComponent<MoveCore>();

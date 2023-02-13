@@ -18,6 +18,7 @@ public class Move3D : MoveCore
 
     public override void Jump()
     {
+        base.Jump();
         if (isGround)
         {
             isGround = false;
@@ -27,7 +28,7 @@ public class Move3D : MoveCore
 
     public override void PlayerAct()
     {
-
+        base.PlayerAct();
     }
 
     protected override void SetLadderMove(bool useGravity)

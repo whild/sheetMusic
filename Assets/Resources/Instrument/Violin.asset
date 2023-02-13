@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24574a240a620d46aa6ab9046d05702, type: 3}
+  m_Name: Violin
+  m_EditorClassIdentifier: 
+  instrumentIndex_: 1
+  idle_: {fileID: 7400000, guid: 1851ad995df22c54e882f7331e220c03, type: 2}
+  walk_: {fileID: 7400000, guid: d6dc70cfb071c5b4894dae7c1ab45d44, type: 2}
+  dash_: {fileID: 7400000, guid: 48b777610492d62468c870d38a8bc82a, type: 2}
+  jump_: {fileID: 7400000, guid: 4c1d8008751b1ec47909f7d83affa83a, type: 2}
+  playerAct_: {fileID: 7400000, guid: 9061dbb95178d034db0bd2ab598fb025, type: 2}

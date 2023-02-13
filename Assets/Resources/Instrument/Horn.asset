@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24574a240a620d46aa6ab9046d05702, type: 3}
+  m_Name: Horn
+  m_EditorClassIdentifier: 
+  instrumentIndex_: 2
+  idle_: {fileID: 7400000, guid: 43785addfe8fd76478d6f03ea9179ef5, type: 2}
+  walk_: {fileID: 7400000, guid: 3fb702ddf4bb13949918aaa4096db83e, type: 2}
+  dash_: {fileID: 7400000, guid: 6ebbc9bf8c1467d409fbc5055064a661, type: 2}
+  jump_: {fileID: 7400000, guid: f54171377a0cf1348b5f0eaeff84bf35, type: 2}
+  playerAct_: {fileID: 7400000, guid: 4ca8ca0dc7bf3244ea51c23aa25ba290, type: 2}
