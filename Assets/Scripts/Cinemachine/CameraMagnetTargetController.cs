@@ -36,11 +36,11 @@ public class CameraMagnetTargetController : Manager<CameraMagnetTargetController
         container.Remove(container.Find(val => val.target == trans));
         targetGroup.m_Targets = container.ToArray();
         targetGroup.m_Targets[playerIndex].weight = 1;
-        GameManager.Instance.CameraZoom(60, null);
+        CinemachineController.Instance.CameraZoom(60, null);
     }
     public void AddForcusObjects(FocusCore target)
     {
-        GameManager.Instance.CameraZoom(30, targetGroup.Transform);
+        CinemachineController.Instance.CameraZoom(30, targetGroup.Transform);
         this.focusCores.Add(target);
     }
     // Update is called once per frame

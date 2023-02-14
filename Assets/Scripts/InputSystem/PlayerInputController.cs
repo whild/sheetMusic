@@ -172,7 +172,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         _move.SetDirection(dir);
 
         //MoveCamera
-        GameManager.Instance.MoveCameraTo(_move.Equals(Imove3d)); 
+        CinemachineController.Instance.MoveCameraTo(_move.Equals(Imove3d)); 
     }
     private void OnInteract(InputAction.CallbackContext obj)
     {

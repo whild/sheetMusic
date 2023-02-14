@@ -52,7 +52,10 @@ public class FocusCore : MonoBehaviour, IFocusable
     {
         if (!isOneTime)
         {
-            CameraMagnetTargetController.Instance.DeleteTargetGruop(targetTransform);
+            if (targetTransform != null)
+            {
+                CameraMagnetTargetController.Instance.DeleteTargetGruop(targetTransform);
+            }
         }
     }
 }

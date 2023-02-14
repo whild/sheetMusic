@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3494120531225050876}
   - component: {fileID: 3494120531225050875}
   - component: {fileID: 3494120531225050872}
+  - component: {fileID: 7216857971415400296}
   m_Layer: 0
   m_Name: Horn
   m_TagString: Untagged
@@ -114,3 +115,20 @@ MonoBehaviour:
   - Player
   targetDimension: 1
   instrument: 2
+--- !u!114 &7216857971415400296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494120531225050878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5f9fc27b7b66145845e9570e1f2753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  duration: 3
+  isOneTime: 0
+  MagnetStrength: 5
+  Proximity: 5

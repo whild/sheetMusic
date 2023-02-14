@@ -11,9 +11,6 @@ public class GameManager : Manager<GameManager>
     public static readonly string fileName = "saveData.json";
     public SaveData data = new SaveData();
 
-    [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
-    private CinemachineTargetGroup cinemachineTargetGroup;
-
     [SerializeField] public Transform player3D;
     [SerializeField] public Transform player2D;
     public static GameObject _3Dplayer;
@@ -25,24 +22,11 @@ public class GameManager : Manager<GameManager>
         _3Dplayer = player3D.gameObject;
         _2Dplayer = player2D.gameObject;
 
-        cinemachineTargetGroup = cinemachineVirtual.Follow.GetComponent<CinemachineTargetGroup>();
         //TryGetComponent(out mainCamera);
         //DontDestroyOnLoad(this.gameObject);
 
         LoadGameData();
         SaveGameData();
-    }
-
-    public void MoveCameraTo(bool player3d)
-    {
-        cinemachineTargetGroup.m_Targets[0].target = (player3d) ? player3D : player2D;
-    }
-
-    public void CameraZoom(int pov, Transform lookat)
-    {
-        cinemachineVirtual.m_Lens.FieldOfView = pov;
-        cinemachineVirtual.LookAt = lookat;
-        cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
     }
 
     public static T CheckNull<T>(Transform from) where T : Component
@@ -120,8 +104,6 @@ public class TagManager
     public static string player = "Player";
     public static string ground = "Ground";
     public static string ladder = "Ladder";
-
-
 
     public static bool IsRightTag(string[] targetTags, string targetTag)
     {
