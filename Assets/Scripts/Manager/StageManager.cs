@@ -25,9 +25,11 @@ public class StageManager : Manager<StageManager>
             {
                 ParseStage(data);
             });
+    }
 
+    private void Start()
+    {
         ChangeStage(FindStage());
-
     }
 
     private StageDataBase FindStage()

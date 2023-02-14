@@ -246,6 +246,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     private void DecideInstrument(InputAction.CallbackContext obj)
     {
         ChangeInstrumentWindow.Instance.DecideInstrument();
+        _input.SwitchCurrentActionMap("Player");
         Debug.Log("Decide Instrument");
     }
 
