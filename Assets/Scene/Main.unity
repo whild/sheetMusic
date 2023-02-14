@@ -903,7 +903,7 @@ Transform:
   m_GameObject: {fileID: 734139835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.6, y: 1.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 147190344}
@@ -1169,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 1003381559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGround: 0
-  speed: 5
+  speed: 8
   jumpPower: 10
   direction: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
@@ -1221,10 +1221,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: d2ccd01ffef7bc648bf5270c01dd0bef, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.3, y: -0.2, z: 0}
 --- !u!95 &1003381572
 Animator:
   serializedVersion: 4
@@ -1671,7 +1671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3836926742b7da46b525464c7698a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinemachineVirtual: {fileID: 1329161075}
   player3D: {fileID: 1003381563}
   player2D: {fileID: 734139838}
 --- !u!1 &1927883485
