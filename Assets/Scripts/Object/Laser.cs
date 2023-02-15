@@ -18,6 +18,8 @@ public class Laser : MonoBehaviour
 
     private List<Vector3> Positions = new List<Vector3>();
     private List<Mirror> mirrors = new List<Mirror>();
+    private int countContainer;
+
     private void Start()
     {
         if(!TryGetComponent(out lineRenderer))
@@ -53,6 +55,7 @@ public class Laser : MonoBehaviour
         dirContainer = direction * -1;
         mirrors = new List<Mirror>();
         Positions.RemoveRange(1, Positions.Count - 2);
+        countContainer = Positions.Count;
 
         item = CheckMirror(lineRenderer.GetPosition(0), direction * -1);
         foreach (var item in item)
@@ -61,7 +64,6 @@ public class Laser : MonoBehaviour
             {
                 Vector3 itempoint = item.point;
                 Positions[Positions.Count - 1] = GetCoordinatePosition(itempoint);
-                //lineRenderer.SetPosition(Positions.Count - 1,);
                 break;
             }
             Positions[Positions.Count - 1] = this.transform.position;
@@ -75,12 +77,6 @@ public class Laser : MonoBehaviour
         item = Physics.RaycastAll(orisinal, direction, length);
         var mirror = Array.Find(item, x => x.collider.CompareTag(TagManager.mirror));
 
-        foreach (var item in item)
-        {
-            PlayerHitEvent(item);
-            LaserEventCheck(item);
-        }
-
         if (mirror.transform != null)
         {
             var mir = mirror.collider.gameObject.GetComponent<Mirror>();
@@ -89,12 +85,17 @@ public class Laser : MonoBehaviour
                 mirrors.Add(mir);
                 Vector3 dir = mir.direction;
                 Positions.Insert(Positions.Count - 1, GetCoordinatePosition(mirror.transform.position));
-                
+
                 dirContainer = dir;
             }
-            return CheckMirror(Positions[Positions.Count - 2], dirContainer);
         }
 
+        Check3DPlayerHit(orisinal);
+        if (Positions.Count >countContainer)
+        {
+            countContainer = Positions.Count;
+            return CheckMirror(Positions[Positions.Count - 2], dirContainer);
+        }
         return item;
     }
 
@@ -103,6 +104,23 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag(TagManager.player))
         {
             Debug.Log("3D PlayerHit Effect");
+        }
+    }
+
+    private void Check3DPlayerHit(Vector3 orisinal)
+    {
+        int a = Positions.FindIndex(0, Positions.Count - 1, x => x == orisinal);
+        Vector3 dir_ = Positions[a + 1] - Positions[a];
+
+        float length = Vector3.Distance(Positions[a], Positions[a + 1]);
+
+        Debug.Log(dir_.normalized);
+        var hits = Physics.RaycastAll(orisinal, dir_.normalized, length);
+
+        foreach (var item in hits)
+        {
+            PlayerHitEvent(item);
+            LaserEventCheck(item);
         }
     }
 
