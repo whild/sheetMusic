@@ -6,6 +6,7 @@ using UnityEngine;
 public class CinemachineController : Manager<CinemachineController>
 {
     [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
+    [SerializeField] CinemachineVirtualCamera AutomatonCamera;
     private CinemachineTargetGroup cinemachineTargetGroup;
 
     protected override void Awake()
@@ -29,5 +30,10 @@ public class CinemachineController : Manager<CinemachineController>
         cinemachineVirtual.m_Lens.FieldOfView = pov;
         cinemachineVirtual.LookAt = CameraMagnetTargetController.Instance.targetGroup.Transform;
         cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
+    }
+
+    public void PlayerZoom(bool isFocus)
+    {
+        AutomatonCamera.Priority = (isFocus) ? 100 : 5;
     }
 }

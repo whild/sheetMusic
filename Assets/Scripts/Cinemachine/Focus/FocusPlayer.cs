@@ -12,7 +12,7 @@ public class FocusPlayer : FocusCore
 
     public override void FocusEffect(CinemachineTargetGroup group)
     {
-        CinemachineController.Instance.CameraZoom(30);
+        CinemachineController.Instance.PlayerZoom(true);
 
         StartCoroutine(WaitEndFocus());
     }
@@ -21,7 +21,7 @@ public class FocusPlayer : FocusCore
     {
         yield return new WaitForSeconds(duration);
 
-        CinemachineController.Instance.CameraZoom(60, null);
+        CinemachineController.Instance.PlayerZoom(false);
         Destroy(this);
     }
 }
