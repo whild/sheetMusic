@@ -104,6 +104,9 @@ public class TagManager
     public static string player = "Player";
     public static string ground = "Ground";
     public static string ladder = "Ladder";
+    public static string laserEvent = "LaserEvent";
+    public static string mirror = "Mirror";
+    public static string wall = "Wall";
 
     public static bool IsRightTag(string[] targetTags, string targetTag)
     {

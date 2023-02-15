@@ -11,7 +11,7 @@ public class Laser : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float laserWidth;
     [SerializeField] Vector3 direction;
-    [SerializeField] Vector3 dirContainer;
+    Vector3 dirContainer;
     [SerializeField] RaycastHit[] item;
     [SerializeField] RaycastHit2D item2d;
     [SerializeField] float length;
@@ -27,6 +27,7 @@ public class Laser : MonoBehaviour
         lineRenderer.startWidth = laserWidth;
         lineRenderer.endWidth = laserWidth;
         Vector3 pos = this.transform.position;
+        pos = pos - direction;
         SetStartPoint();
         lineRenderer.SetPosition(1, pos);
     }
@@ -36,7 +37,7 @@ public class Laser : MonoBehaviour
         item = Physics.RaycastAll(transform.position, direction, length);
         foreach (var item in item)
         {
-            if(item.collider.gameObject.CompareTag("Wall"))
+            if(item.collider.gameObject.CompareTag(TagManager.wall))
             {
                 Vector3 itempoint = item.point;
                 Positions.Add(itempoint);
@@ -56,7 +57,7 @@ public class Laser : MonoBehaviour
         item = CheckMirror(lineRenderer.GetPosition(0), direction * -1);
         foreach (var item in item)
         {
-            if (item.collider.CompareTag("Wall") || item.collider.CompareTag("Ground"))
+            if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground) || item.collider.CompareTag(TagManager.laserEvent))
             {
                 Vector3 itempoint = item.point;
                 Positions[Positions.Count - 1] = GetCoordinatePosition(itempoint);
@@ -66,35 +67,18 @@ public class Laser : MonoBehaviour
             Positions[Positions.Count - 1] = this.transform.position;
         }
         RefreshLineRenderer();
-
-        for (int i = 0; i < Positions.Count; i++)
-        {
-            Debug.Log(Positions[i]);
-        }
-
-        /*
-        item2d = Physics2D.Raycast(transform.position, direction, length);
-        if(item2d)
-        {
-            Vector3 itempoint = item2d.point;
-            if (TagManager.IsRightTag(targetTags, item2d.collider.gameObject.tag))
-            {
-                itempoint = item2d.point;
-                itempoint.z = item2d.collider.transform.position.z;
-            }
-            lineRenderer.SetPosition(0, itempoint);
-        }
-        */
+        Check2DPlayerHit();
     }
 
     private RaycastHit[] CheckMirror(Vector3 orisinal, Vector3 direction)
     {
         item = Physics.RaycastAll(orisinal, direction, length);
-        var mirror = Array.Find(item, x => x.collider.CompareTag("Mirror"));
+        var mirror = Array.Find(item, x => x.collider.CompareTag(TagManager.mirror));
 
         foreach (var item in item)
         {
             PlayerHitEvent(item);
+            LaserEventCheck(item);
         }
 
         if (mirror.transform != null)
@@ -116,10 +100,21 @@ public class Laser : MonoBehaviour
 
     private void PlayerHitEvent(RaycastHit hit)
     {
-        if (hit.collider.gameObject.CompareTag("Player"))
+        if (hit.collider.CompareTag(TagManager.player))
         {
             Debug.Log("3D PlayerHit Effect");
         }
+    }
+
+    private void Check2DPlayerHit()
+    {
+        item2d = Physics2D.Raycast(transform.position, direction, length);
+        if (item2d.transform != null && item2d.collider.CompareTag(TagManager.player))
+        {
+            lineRenderer.enabled = false;
+            return;
+        }
+        lineRenderer.enabled = true;
     }
 
     private void RefreshLineRenderer()
@@ -136,6 +131,14 @@ public class Laser : MonoBehaviour
         float newz = (dirContainer.z == 0) ? pos.z : targetPos.z;
         pos = new Vector3(newx, newy, newz);
         return pos;
+    }
+
+    private void LaserEventCheck(RaycastHit hit)
+    {
+        if(hit.collider.CompareTag(TagManager.laserEvent))
+        {
+            hit.transform.GetComponent<LaserEvent>().Event();
+        }
     }
 
 }

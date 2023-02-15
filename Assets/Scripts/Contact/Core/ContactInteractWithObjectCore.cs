@@ -5,7 +5,7 @@ using UnityEngine;
 public class ContactInteractWithObjectCore : ContactInteractCore
 {
     [SerializeField] GameObject targetObj;
-    protected IObejctEvent objectEvent;
+    protected IObjectEvent objectEvent;
 
     protected override void Awake()
     {
@@ -14,6 +14,6 @@ public class ContactInteractWithObjectCore : ContactInteractCore
         {
             targetObj = this.gameObject;
         }
-        this.objectEvent = targetObj.GetComponent<IObejctEvent>();
+        this.objectEvent = targetObj.GetComponent<IObjectEvent>();
     }
 }

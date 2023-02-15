@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectEventCore : MonoBehaviour, IObejctEvent
+public class ObjectEventCore : MonoBehaviour, IObjectEvent
 {
     public virtual void Event()
     {

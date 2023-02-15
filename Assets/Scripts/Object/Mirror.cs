@@ -8,6 +8,6 @@ public class Mirror : MonoBehaviour
 
     private void Awake()
     {
-        this.gameObject.tag = "Mirror";
+        this.gameObject.tag = TagManager.mirror;
     }
 }
