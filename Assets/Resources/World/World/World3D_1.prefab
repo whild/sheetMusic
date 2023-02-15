@@ -3745,7 +3745,7 @@ GameObject:
   - component: {fileID: 6159146439417626751}
   - component: {fileID: 4823331878056979780}
   - component: {fileID: 2413573857315244682}
-  - component: {fileID: 2863108503236808116}
+  - component: {fileID: 2729407436846170458}
   m_Layer: 0
   m_Name: DragableCube
   m_TagString: DragableCube
@@ -3831,7 +3831,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2863108503236808116
+--- !u!114 &2729407436846170458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3840,13 +3840,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6785956776419293572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad14776348f445489af5485308ecf08, type: 3}
+  m_Script: {fileID: 11500000, guid: 67432a6ea275896439ff1926e97bf117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimension: 1
+  meshRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   rigid: {fileID: 0}
-  rigid2d: {fileID: 0}
-  mass: 0
+  value: 10
+  mass: 1
 --- !u!1 &6902862984756341083
 GameObject:
   m_ObjectHideFlags: 0
@@ -18883,7 +18884,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2512442909550308773, guid: cd2943d881d2ea74a8336cfdf7a13f96, type: 3}
   m_PrefabInstance: {fileID: 5654752354227227987}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7812296286233346705
+--- !u!114 &465637247687567838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18892,12 +18893,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7828464299033321718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad14776348f445489af5485308ecf08, type: 3}
+  m_Script: {fileID: 11500000, guid: 67432a6ea275896439ff1926e97bf117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimension: 1
+  meshRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   rigid: {fileID: 0}
-  rigid2d: {fileID: 0}
+  value: 0
   mass: 0
 --- !u!1001 &5737971284484997830
 PrefabInstance:
