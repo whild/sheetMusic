@@ -109,7 +109,7 @@ public class Laser : MonoBehaviour
 
     private void PlayerHitEvent(RaycastHit hit)
     {
-        if (hit.collider.CompareTag(TagManager.player))
+        if (hit.collider.CompareTag(TagManager.player) && lineRenderer.enabled)
         {
             Debug.Log("3D PlayerHit Effect");
         }
