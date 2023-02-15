@@ -201,6 +201,7 @@ MonoBehaviour:
   - Player
   - Wall
   - Mirror
+  - LaserEvent
   lineRenderer: {fileID: 0}
   laserWidth: 1
   direction: {x: 0, y: 0, z: 1}

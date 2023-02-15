@@ -10,7 +10,7 @@ public class LaserEvent : MonoBehaviour
     private void Awake()
     {
         this.gameObject.tag = TagManager.laserEvent;
-
+        objectEvent = targetObj.GetComponent<IObjectEvent>();
     }
 
     public void Event()

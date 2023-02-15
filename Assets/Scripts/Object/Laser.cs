@@ -22,7 +22,7 @@ public class Laser : MonoBehaviour
 
     private void Start()
     {
-        if(!TryGetComponent(out lineRenderer))
+        if (!TryGetComponent(out lineRenderer))
         {
             lineRenderer = this.gameObject.AddComponent<LineRenderer>();
         }
@@ -39,7 +39,7 @@ public class Laser : MonoBehaviour
         item = Physics.RaycastAll(transform.position, direction, length);
         foreach (var item in item)
         {
-            if(item.collider.gameObject.CompareTag(TagManager.wall))
+            if (item.collider.CompareTag(TagManager.wall))
             {
                 Vector3 itempoint = item.point;
                 Positions.Add(itempoint);
@@ -57,15 +57,23 @@ public class Laser : MonoBehaviour
         Positions.RemoveRange(1, Positions.Count - 2);
         countContainer = Positions.Count;
 
+        float distance = float.MaxValue;
         item = CheckMirror(lineRenderer.GetPosition(0), direction * -1);
         foreach (var item in item)
         {
             if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground) || item.collider.CompareTag(TagManager.laserEvent))
             {
                 Vector3 itempoint = item.point;
-                Positions[Positions.Count - 1] = GetCoordinatePosition(itempoint);
-                break;
+                float dis = Vector3.Distance(itempoint, Positions[Positions.Count - 2]);
+                if (dis < distance)
+                {
+                    distance = dis;
+                    Positions[Positions.Count - 1] = GetCoordinatePosition(itempoint);
+                }
             }
+        }
+        if (distance == float.MaxValue)
+        {
             Positions[Positions.Count - 1] = this.transform.position;
         }
         RefreshLineRenderer();
@@ -91,7 +99,7 @@ public class Laser : MonoBehaviour
         }
 
         Check3DPlayerHit(orisinal);
-        if (Positions.Count >countContainer)
+        if (Positions.Count > countContainer)
         {
             countContainer = Positions.Count;
             return CheckMirror(Positions[Positions.Count - 2], dirContainer);
@@ -153,7 +161,7 @@ public class Laser : MonoBehaviour
 
     private void LaserEventCheck(RaycastHit hit)
     {
-        if(hit.collider.CompareTag(TagManager.laserEvent))
+        if (hit.collider.CompareTag(TagManager.laserEvent))
         {
             hit.transform.GetComponent<LaserEvent>().Event();
         }
