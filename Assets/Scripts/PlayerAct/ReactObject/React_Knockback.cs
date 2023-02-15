@@ -17,14 +17,14 @@ public class React_Knockback : PlayerReactCore
             rigid = this.gameObject.AddComponent<Rigidbody>();
         }
         rigid.mass = mass;
-        rigid.isKinematic = true;
+        StopMove(true);
     }
 
     public override void PlayerReact(int instrumentValue)
     {
         if (instrumentIndex == instrumentValue)
         {
-            rigid.isKinematic = false;
+            StopMove(false);
 
             var direction = this.transform.position - GameManager.Instance.player3D.position;
             rigid.AddForce(direction.normalized * value);
@@ -44,6 +44,19 @@ public class React_Knockback : PlayerReactCore
             return false;
         });
 
-        rigid.isKinematic = true;
+        StopMove(true);
+    }
+
+    private void StopMove(bool val)
+    {
+        if (val)
+        {
+            rigid.constraints = (RigidbodyConstraints)10;
+            //rigid.constraints = RigidbodyConstraints.FreezePositionZ;
+        }
+        else
+        {
+            rigid.constraints = RigidbodyConstraints.None;
+        }
     }
 }
