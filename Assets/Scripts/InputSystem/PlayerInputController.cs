@@ -185,6 +185,7 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnPlayerAct(InputAction.CallbackContext obj)
     {
+        _move.PlayerAct();
         foreach (var reacts in playerReact)
         {
             reacts.PlayerReact((int)this.currentInstrument.Value);

@@ -20,6 +20,7 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
     private readonly string isDash = "isDash";
     private readonly string Jump = "Jump";
     private readonly string Playeract = "Playeract";
+    private readonly string isGround = "isGround";
 
     private void Awake()
     {
@@ -65,12 +66,18 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
 
     public void JumpTrigger()
     {
+        Animator.SetBool(isGround, false);
         Animator.SetTrigger(Jump);
     }
 
     public void PlayerAct()
     {
         Animator.SetTrigger(Playeract);
+    }
+
+    public void CheckGround()
+    {
+        Animator.SetBool(isGround, true);
     }
 }
 
