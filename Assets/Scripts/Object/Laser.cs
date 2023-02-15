@@ -112,6 +112,7 @@ public class Laser : MonoBehaviour
         if (hit.collider.CompareTag(TagManager.player) && lineRenderer.enabled)
         {
             Debug.Log("3D PlayerHit Effect");
+            StageManager.Instance.Retry();
         }
     }
 
