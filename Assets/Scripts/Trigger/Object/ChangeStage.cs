@@ -22,6 +22,6 @@ public class ChangeStage : TriggerInteractCore
                 return;
             }
         }
-        StageManager.Instance.ChangeStage(this.nextStageBase);
+        StageManager.Instance.NextStage(this.nextStageBase);
     }
 }

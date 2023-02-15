@@ -54,6 +54,14 @@ public class StageManager : Manager<StageManager>
         CinemachineController.Instance.CameraZoom(60, null);
     }
 
+    public void NextStage(StageDataBase stageData)
+    {
+        SceneChange.SceneChageEvent(() =>
+        {
+            ChangeStage(stageData);
+        });
+    }
+
     public void ChangeStage(StageDataBase stageData)
     {
         this.stageData.Value = null;
@@ -64,6 +72,6 @@ public class StageManager : Manager<StageManager>
 
     public void Retry()
     {
-        ChangeStage(this.stageData.Value);
+        NextStage(this.stageData.Value);
     }
 }

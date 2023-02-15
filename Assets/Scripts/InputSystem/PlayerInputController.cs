@@ -70,6 +70,7 @@ public class PlayerInputController : Manager<PlayerInputController>
         SetOptionInput();
         SetChangeInstrumentInput();
     }
+    
 
     private void SetPlayerInput()
     {

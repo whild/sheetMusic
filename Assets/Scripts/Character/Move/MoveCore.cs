@@ -155,6 +155,7 @@ public class MoveCore : MonoBehaviour, IMoveable
         direction.z = 0;
         isGround = false;
     }
+    
 
     public static Vector3 GetDirection(MoveDirection direction)
     {
