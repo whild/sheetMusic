@@ -6,12 +6,17 @@ using UnityEngine.Events;
 
 public class React_Break : PlayerReactCore
 {
+    [SerializeField] GameObject breakObject;
     private int instrumentIndex = 0;
     [SerializeField] UnityEvent breakEvent;
     private Material targetMaterial;
     protected override void Awake()
     {
         base.Awake();
+        if(breakObject == null)
+        {
+            breakObject = this.gameObject;
+        }
     }
 
     public override void PlayerReact(int instrumentValue)

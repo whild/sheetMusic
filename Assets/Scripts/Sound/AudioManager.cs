@@ -60,10 +60,9 @@ public class AudioManager : Manager<AudioManager>
             audioSource.Stop();
         }
 
-        audioSource.outputAudioMixerGroup = AudioManager.Instance.audioMixer.FindMatchingGroups("Master/" + groupName)[0];
+        audioSource.outputAudioMixerGroup = AudioManager.Instance.audioMixer.FindMatchingGroups(groupName)[0];
 
         audioSource.Play();
     }
-
 
 }
