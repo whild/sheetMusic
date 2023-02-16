@@ -17,7 +17,7 @@ public class Elevator : ContactInteractWithObjectCore
             {
                 if(val >= criteriaValue)
                 {
-                    objectEvent.Event();
+                    InvokeEvent();
                 }
             });
     }

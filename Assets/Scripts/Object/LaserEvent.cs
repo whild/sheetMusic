@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class LaserEvent : MonoBehaviour
 {
-    [SerializeField] GameObject targetObj;
-    private IObjectEvent objectEvent;
+    [SerializeField] int syncroIndex;
+    private IObjectEvent[] objectEvents;
 
     private void Awake()
     {
         this.gameObject.tag = TagManager.laserEvent;
-        objectEvent = targetObj.GetComponent<IObjectEvent>();
+        objectEvents = SyncroOjbect.GetSyncroObjects(syncroIndex);
     }
 
     public void Event()
     {
-        objectEvent.Event();
+        foreach (var eve in objectEvents)
+        {
+            eve.Event();
+        }
     }
 }

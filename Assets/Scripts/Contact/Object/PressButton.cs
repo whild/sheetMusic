@@ -57,7 +57,7 @@ public class PressButton : ContactInteractWithObjectCore
             .OnUpdate(() =>
             {
                 currentDuration = (Y - transform.position.y) / pressValue;
-                this.objectEvent.Event(currentDuration);
+                InvokeEvent(currentDuration);
                 if (!isContact)
                 {
                     down.Kill();
@@ -67,7 +67,7 @@ public class PressButton : ContactInteractWithObjectCore
             .OnComplete(() =>
             {
                 currentDuration = 1;
-                this.objectEvent.Event(currentDuration);
+                InvokeEvent(currentDuration);
             });
     }
 
@@ -100,7 +100,7 @@ public class PressButton : ContactInteractWithObjectCore
             .OnUpdate(() =>
             {
                 currentDuration = (Y - transform.position.y) / pressValue;
-                this.objectEvent.Event(currentDuration);
+                InvokeEvent(currentDuration);
                 if (isContact)
                 {
                     up.Kill();
@@ -109,7 +109,7 @@ public class PressButton : ContactInteractWithObjectCore
             .OnComplete(() =>
            {
                currentDuration = 0;
-               this.objectEvent.Event(currentDuration);
+               InvokeEvent(currentDuration);
            }));
     }
 }
