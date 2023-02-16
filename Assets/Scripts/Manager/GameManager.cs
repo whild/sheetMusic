@@ -68,6 +68,12 @@ public class GameManager : Manager<GameManager>
             return;
         }
     }
+
+    public static void InputEnable(bool val)
+    {
+        PlayerInputController.Instance.gameObject.SetActive(val);
+    }
+
     public void LoadGameData()
     {
         string filePath = Application.persistentDataPath + "/" + fileName;

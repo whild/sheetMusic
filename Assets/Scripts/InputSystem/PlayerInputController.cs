@@ -166,14 +166,17 @@ public class PlayerInputController : Manager<PlayerInputController>
     }
     private void OnChangeCharacter(InputAction.CallbackContext obj)
     {
-        Vector3 dir = _move.GetDirection();
-        _move.SetDirection(Vector3.zero);
-        _move = (_move.Equals(Imove3d) ? Imove2d : Imove3d);
-        moveCore = (_move.Equals(Imove3d) ? player_2d.GetComponent<MoveCore>() : player_3d.GetComponent<MoveCore>());
-        _move.SetDirection(dir);
+        if (GameManager.Instance.data.withPaper)
+        {
+            Vector3 dir = _move.GetDirection();
+            _move.SetDirection(Vector3.zero);
+            _move = (_move.Equals(Imove3d) ? Imove2d : Imove3d);
+            moveCore = (_move.Equals(Imove3d) ? player_2d.GetComponent<MoveCore>() : player_3d.GetComponent<MoveCore>());
+            _move.SetDirection(dir);
 
-        //MoveCamera
-        CinemachineController.Instance.MoveCameraTo(_move.Equals(Imove3d)); 
+            //MoveCamera
+            CinemachineController.Instance.MoveCameraTo(_move.Equals(Imove3d));
+        }
     }
     private void OnInteract(InputAction.CallbackContext obj)
     {

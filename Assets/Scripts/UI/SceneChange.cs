@@ -20,7 +20,7 @@ public class SceneChange : MonoBehaviour
     {
         bg.gameObject.SetActive(true);
         bg.sizeDelta = max;
-        PlayerInputController.Instance.gameObject.SetActive(false);
+        GameManager.InputEnable(false);
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(bg.DOSizeDelta(zero, 1)
@@ -33,7 +33,7 @@ public class SceneChange : MonoBehaviour
         sequence.Append(bg.DOSizeDelta(max, 1)
             .OnComplete(() =>
             {
-                PlayerInputController.Instance.gameObject.SetActive(true);
+                GameManager.InputEnable(true);
                 bg.gameObject.SetActive(false);
             })
         );
