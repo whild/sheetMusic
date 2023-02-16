@@ -10,7 +10,7 @@ public class LaserEvent : MonoBehaviour
     private void Awake()
     {
         this.gameObject.tag = TagManager.laserEvent;
-        objectEvents = SyncroOjbect.GetSyncroObjects(syncroIndex);
+        StartCoroutine(Syncro());
     }
 
     public void Event()
@@ -19,5 +19,11 @@ public class LaserEvent : MonoBehaviour
         {
             eve.Event();
         }
+    }
+
+    IEnumerator Syncro()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.objectEvents = SyncroOjbect.GetSyncroObjects(syncroIndex);
     }
 }

@@ -10,7 +10,7 @@ public class ContactInteractWithObjectCore : ContactInteractCore
     protected override void Awake()
     {
         base.Awake();
-        this.objectEvent = SyncroOjbect.GetSyncroObjects(syncroIndex);
+        StartCoroutine(Syncro());
     }
 
     protected void InvokeEvent()
@@ -26,5 +26,11 @@ public class ContactInteractWithObjectCore : ContactInteractCore
         {
             eve.Event(val);
         }
+    }
+
+    IEnumerator Syncro()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.objectEvent = SyncroOjbect.GetSyncroObjects(syncroIndex);
     }
 }
