@@ -44,7 +44,7 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
         {
             col = this.gameObject.AddComponent<SphereCollider>();
         }
-        col.isTrigger = true;
+        //col.isTrigger = true;
         col.radius = 2;
         */
     }

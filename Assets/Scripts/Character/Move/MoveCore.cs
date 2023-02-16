@@ -156,6 +156,10 @@ public class MoveCore : MonoBehaviour, IMoveable
         isGround = false;
     }
     
+    public virtual void InstrumentParticle()
+    {
+
+    }
 
     public static Vector3 GetDirection(MoveDirection direction)
     {

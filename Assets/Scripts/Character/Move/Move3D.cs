@@ -9,6 +9,10 @@ public class Move3D : MoveCore
 
     [SerializeField] protected SphereCollider playeractRange;
     [SerializeField] protected Vector2 actRangeStorage = new Vector2(3, 5);
+
+    [SerializeField] ParticleSystem walkParticle;
+    [SerializeField] ParticleSystem jumpParticle;
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +27,7 @@ public class Move3D : MoveCore
     {
         base.FixedUpdate();
         SetShadow();
+        WalkParticle();
     }
 
     public override void Jump()
@@ -32,6 +37,7 @@ public class Move3D : MoveCore
         {
             isGround = false;
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            jumpParticle.Play();
         }
     }
 
@@ -64,6 +70,30 @@ public class Move3D : MoveCore
             rigid.AddForce(Vector3.up * 3, ForceMode.Impulse);
             direction.z = direction.y;
             direction.y = 0;
+        }
+    }
+
+    public override void InstrumentParticle()
+    {
+        var particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
+        foreach (var item in particles)
+        {
+            item.Play();
+        }
+    }
+
+    private void WalkParticle()
+    {
+        if (direction == Vector3.zero || !isGround)
+        {
+            walkParticle.Stop();
+        }
+        else
+        {
+            if (!walkParticle.isPlaying)
+            {
+                walkParticle.Play();
+            }
         }
     }
 

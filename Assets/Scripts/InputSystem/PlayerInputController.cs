@@ -46,6 +46,10 @@ public class PlayerInputController : Manager<PlayerInputController>
                 {
                     I3DAni.ChangeAnimation();
                 }
+                if (moveCore != null)
+                {
+                    moveCore.InstrumentParticle();
+                }
                 //I2DAni.ChangeAnimation();
 
                 GameManager.Instance.data.currentInstrument = (int)val;
