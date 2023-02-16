@@ -39,6 +39,7 @@ public class InGamePuaseWindow :OptionWindowCore
             default:
                 break;
         }
+
     }
 
     private void ReturnGame()
@@ -60,6 +61,7 @@ public class InGamePuaseWindow :OptionWindowCore
     private void Option()
     {
         Debug.Log("Option");
+        GameObject.FindObjectOfType<OptionWindow>().OpenOptionWindow();
     }
 
     private void Title()
