@@ -101,89 +101,101 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Automaton_Rin-Sheet_0
+      name: Character_Automaton_Run-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 1024
         width: 1024
         height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: febb4ea0b45e6ed4cb2f7ce959682fb8
-      internalID: 426376817
+      spriteID: b0761b9e15480054f9524cd8c0329239
+      internalID: 1498076425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Rin-Sheet_1
+      name: Character_Automaton_Run-Sheet_1
       rect:
         serializedVersion: 2
         x: 1024
         y: 1024
         width: 1024
         height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7040731d6ec77514abb4415d2aeb1bd6
-      internalID: -2027375643
+      spriteID: 5d5166d4c32c2a94c98fd7d9f4080eb0
+      internalID: -583924386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Rin-Sheet_2
+      name: Character_Automaton_Run-Sheet_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1024
         height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eb51f259f7a8e04689d0f61cb817794
-      internalID: -2087047553
+      spriteID: 664285285b01c08458ba7caa87c1a902
+      internalID: -1124662422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Automaton_Rin-Sheet_3
+      name: Character_Automaton_Run-Sheet_3
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 1024
         height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11df8406f8d6d6a41a1e0878df5297c3
-      internalID: 208672498
+      spriteID: 4ee0da0deb3018c44adf5de9786a569a
+      internalID: 29786441
       vertices: []
       indices: 
       edges: []
@@ -199,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Automaton_Rin-Sheet_3: 208672498
-      Character_Automaton_Rin-Sheet_1: -2027375643
-      Character_Automaton_Rin-Sheet_0: 426376817
-      Character_Automaton_Rin-Sheet_2: -2087047553
+      Character_Automaton_Run-Sheet_2: -1124662422
+      Character_Automaton_Run-Sheet_0: 1498076425
+      Character_Automaton_Run-Sheet_1: -583924386
+      Character_Automaton_Run-Sheet_3: 29786441
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
