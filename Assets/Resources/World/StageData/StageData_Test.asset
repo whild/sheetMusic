@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa925c2ed9dfeb1458672adc0420358a, type: 3}
-  m_Name: StageData 2
+  m_Name: StageData_Test
   m_EditorClassIdentifier: 
-  stageIndex: 1
-  stage_3D: {fileID: 7669995525730325206, guid: 91fb4ade9cfc5e444ba79de6527be05b, type: 3}
+  stageIndex: 9
+  stage_3D: {fileID: 7669995525730325206, guid: 63993e94474d09a4b862fef119390469, type: 3}
   stage_2D: {fileID: 1891056174770594533, guid: 41fb87e5a90119a4b88f2c09b22bab34, type: 3}
-  spawnPos_3D: {x: 0, y: 0, z: 0}
-  spawnPos_2D: {x: 0, y: 0, z: 0}
-  needKey: 1
+  spawnPos_3D: {x: -116, y: 7, z: 0}
+  spawnPos_2D: {x: -116, y: -6, z: 0}
+  needKey: 0

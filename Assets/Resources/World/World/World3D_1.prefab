@@ -2026,8 +2026,8 @@ GameObject:
   - component: {fileID: 5893334536650136620}
   - component: {fileID: 6159146439417626751}
   - component: {fileID: 4823331878056979780}
-  - component: {fileID: 2413573857315244682}
   - component: {fileID: 2729407436846170458}
+  - component: {fileID: 5383292507496483715}
   m_Layer: 0
   m_Name: DragableCube
   m_TagString: DragableCube
@@ -2044,7 +2044,7 @@ Transform:
   m_GameObject: {fileID: 6785956776419293572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 11.5, z: 6}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2226484569570359218}
@@ -2057,7 +2057,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6785956776419293572}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -7079651919960056387, guid: f799decf5a1334d46a3185a5f9bb7dda, type: 3}
 --- !u!23 &4823331878056979780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2078,7 +2078,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bdd65272b6afc574c9d3fc459c773d99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2100,19 +2100,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2413573857315244682
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6785956776419293572}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2729407436846170458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2128,8 +2115,21 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   spriteRenderer: {fileID: 0}
   rigid: {fileID: 0}
-  value: 10
+  value: 500
   mass: 1
+--- !u!65 &5383292507496483715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785956776419293572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6902862984756341083
 GameObject:
   m_ObjectHideFlags: 0
@@ -15705,6 +15705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpSpring
       objectReference: {fileID: 0}
+    - target: {fileID: 2512442909550308792, guid: cd2943d881d2ea74a8336cfdf7a13f96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 25a6abce3369e1b4fb888f46c8bf12b3, type: 2}
     - target: {fileID: 2512442909550308798, guid: cd2943d881d2ea74a8336cfdf7a13f96, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -15788,8 +15792,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   spriteRenderer: {fileID: 0}
   rigid: {fileID: 0}
-  value: 0
-  mass: 0
+  value: 500
+  mass: 1
 --- !u!1001 &5661891770425986903
 PrefabInstance:
   m_ObjectHideFlags: 0

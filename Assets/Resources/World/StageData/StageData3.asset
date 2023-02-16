@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa925c2ed9dfeb1458672adc0420358a, type: 3}
+  m_Name: StageData3
+  m_EditorClassIdentifier: 
+  stageIndex: 2
+  stage_3D: {fileID: 7669995525730325206, guid: 91fb4ade9cfc5e444ba79de6527be05b, type: 3}
+  stage_2D: {fileID: 1891056174770594533, guid: 41fb87e5a90119a4b88f2c09b22bab34, type: 3}
+  spawnPos_3D: {x: 0, y: 0, z: 0}
+  spawnPos_2D: {x: 0, y: 0, z: 0}
+  needKey: 1
