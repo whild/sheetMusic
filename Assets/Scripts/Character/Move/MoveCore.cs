@@ -115,7 +115,7 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         var interactContianer = other.GetComponent<IInteract>();
         if (interactContianer != null)

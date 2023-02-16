@@ -38,6 +38,7 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
 
     protected virtual void Setup3D()
     {
+        /*
         SphereCollider col;
         if (!TryGetComponent(out col))
         {
@@ -45,5 +46,6 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
         }
         col.isTrigger = true;
         col.radius = 2;
+        */
     }
 }

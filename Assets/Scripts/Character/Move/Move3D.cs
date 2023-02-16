@@ -5,16 +5,18 @@ using UnityEngine;
 public class Move3D : MoveCore
 {
     [SerializeField] protected Rigidbody rigid;
-    [SerializeField] protected Collider collider;
     [SerializeField] protected Transform shadow;
 
+    [SerializeField] protected SphereCollider playeractRange;
+    [SerializeField] protected Vector2 actRangeStorage = new Vector2(3, 5);
     protected override void Awake()
     {
         base.Awake();
         GameManager.Instance.player3D = this.transform;
         isLadder = false;
         TryGetComponent(out rigid);
-        TryGetComponent(out collider);
+        TryGetComponent(out playeractRange);
+        playeractRange.enabled = false;
     }
 
     protected override void FixedUpdate()
@@ -36,6 +38,18 @@ public class Move3D : MoveCore
     public override void PlayerAct()
     {
         base.PlayerAct();
+        playeractRange.radius = actRangeStorage.x;
+        StartCoroutine(this.TurnOffReactRangeCollier());
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        var react = other.gameObject.GetComponent<IPlayerReact>();
+        if(react != null)
+        {
+            react.PlayerReact((int)PlayerInputController.Instance.currentInstrument.Value);
+        }
     }
 
     protected override void SetLadderMove(bool useGravity)
@@ -71,5 +85,15 @@ public class Move3D : MoveCore
                 }
             }
         }
+    }
+
+    IEnumerator TurnOffReactRangeCollier()
+    {
+        playeractRange.enabled = true;
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        playeractRange.enabled = false;
     }
 }
