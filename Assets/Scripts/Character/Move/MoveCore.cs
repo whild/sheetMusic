@@ -25,7 +25,7 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }

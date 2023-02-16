@@ -6,6 +6,7 @@ public class Move3D : MoveCore
 {
     [SerializeField] protected Rigidbody rigid;
     [SerializeField] protected Collider collider;
+    [SerializeField] protected Transform shadow;
 
     protected override void Awake()
     {
@@ -14,6 +15,12 @@ public class Move3D : MoveCore
         isLadder = false;
         TryGetComponent(out rigid);
         TryGetComponent(out collider);
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        SetShadow();
     }
 
     public override void Jump()
@@ -43,6 +50,26 @@ public class Move3D : MoveCore
             rigid.AddForce(Vector3.up * 3, ForceMode.Impulse);
             direction.z = direction.y;
             direction.y = 0;
+        }
+    }
+
+    private void SetShadow()
+    {
+        float distance = float.MaxValue;
+        var hits = Physics.RaycastAll(this.transform.position, Vector3.down, 16);
+        foreach (var item in hits)
+        {
+            if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground))
+            {
+                Vector3 itempoint = item.point;
+                float dis = Vector3.Distance(itempoint, transform.position);
+                if (dis < distance)
+                {
+                    distance = dis;
+                    itempoint.y += 0.1f;
+                    shadow.position = itempoint;
+                }
+            }
         }
     }
 }
