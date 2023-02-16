@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3403826957025171320}
   m_Layer: 0
   m_Name: A3D_sample_trap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

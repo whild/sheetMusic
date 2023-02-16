@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 708429203328510283}
   - component: {fileID: 7820992973836272843}
-  - component: {fileID: 1526597822191318193}
   m_Layer: 0
   m_Name: A3D_sample_stairs
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,19 +53,6 @@ MonoBehaviour:
   _localRotation: {x: 0, y: 0, z: 0, w: 0}
   _isBaked: 0
   View: {fileID: 4685207522919510011}
---- !u!65 &1526597822191318193
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121943576394473903}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4685207522919541083
 PrefabInstance:
   m_ObjectHideFlags: 0
