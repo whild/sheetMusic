@@ -64,7 +64,7 @@ public class OptionWindowCore : Manager<OptionWindowCore>
 
     private void ShowSelectedOption()
     {
-        AudioManager.PlayAudio(optionChangeSound);
+        AudioManager.PlayAudio(optionChangeSound, AudioManager.Effect);
         for (int i = 0; i < optionTransforms.Count; i++)
         {
             int temp = i;
