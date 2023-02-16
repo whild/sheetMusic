@@ -13,8 +13,8 @@ public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
     [SerializeField] List<RectTransform> Icons = new List<RectTransform>();
     [SerializeField] IntReactiveProperty currentInstrument = new IntReactiveProperty();
 
-    private Vector2 orisinalPos = new Vector2(50, 50);
-    private Vector2 endPos = new Vector2(80, 80);
+    private Vector2 orisinalPos = new Vector2(0, 0);
+    private Vector2 endPos = new Vector2(20, 20);
 
     protected override void Awake()
     {
