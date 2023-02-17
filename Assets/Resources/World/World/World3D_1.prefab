@@ -1784,6 +1784,9 @@ MonoBehaviour:
   syncroIndex: 0
   breakObject: {fileID: 0}
   breakMaterial: {fileID: 0}
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5961961065253089409
 GameObject:
   m_ObjectHideFlags: 0
@@ -14089,6 +14092,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2226484569570359218}
     m_Modifications:
+    - target: {fileID: 480101834294603677, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
+      propertyPath: nextStageBase
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b76f289ae9aa784aa4e803b67e24716, type: 2}
+    - target: {fileID: 480101834294603677, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
+      propertyPath: targetDimension
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4210166122040233395, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
       propertyPath: m_RootOrder
       value: 6

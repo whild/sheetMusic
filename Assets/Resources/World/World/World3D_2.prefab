@@ -6123,6 +6123,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2226484569570359218}
     m_Modifications:
+    - target: {fileID: 480101834294603677, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
+      propertyPath: nextStageBase
+      value: 
+      objectReference: {fileID: 11400000, guid: d388e249eaade8241acb6a64fbc33f29, type: 2}
+    - target: {fileID: 480101834294603677, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
+      propertyPath: targetDimension
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4210166122040233395, guid: 6430c6dab7434844fbff2c9a3fa6317b, type: 3}
       propertyPath: m_RootOrder
       value: 11
