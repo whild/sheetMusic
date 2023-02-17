@@ -69,8 +69,11 @@ public class MoveCore : MonoBehaviour, IMoveable
     {
         if (collision.gameObject.CompareTag(TagManager.ground))
         {
-            isGround = true;
-            animatorController.CheckGround();
+            if (this.transform.position.y > collision.transform.position.y)
+            {
+                isGround = true;
+                animatorController.CheckGround();
+            }
         }
         if (collision.gameObject.CompareTag(TagManager.ladder))
         {
@@ -83,8 +86,11 @@ public class MoveCore : MonoBehaviour, IMoveable
     {
         if (collision.gameObject.CompareTag(TagManager.ground))
         {
-            isGround = true;
-            animatorController.CheckGround();
+            if (this.transform.position.y > collision.transform.position.y)
+            {
+                isGround = true;
+                animatorController.CheckGround();
+            }
         }
         if (collision.gameObject.CompareTag(TagManager.ladder))
         {
