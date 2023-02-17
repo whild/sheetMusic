@@ -27,25 +27,11 @@ public class PlayerReactCore : MonoBehaviour, IPlayerReact
     }
     protected virtual void Setup2D()
     {
-        CircleCollider2D col;
-        if (!TryGetComponent(out col))
-        {
-            col = this.gameObject.AddComponent<CircleCollider2D>();
-        }
-        col.isTrigger = true;
-        col.radius = 2;
+
     }
 
     protected virtual void Setup3D()
     {
-        /*
-        SphereCollider col;
-        if (!TryGetComponent(out col))
-        {
-            col = this.gameObject.AddComponent<SphereCollider>();
-        }
-        //col.isTrigger = true;
-        col.radius = 2;
-        */
+
     }
 }

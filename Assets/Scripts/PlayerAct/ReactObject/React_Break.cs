@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class React_Break : PlayerReactCore
 {
     [SerializeField] GameObject breakObject;
     private int instrumentIndex = 0;
-    [SerializeField] UnityEvent breakEvent;
-    private Material targetMaterial;
+
+    [SerializeField] Material breakMaterial;
+    private Material[] targetMaterials;
+    int lengthContainer;
     protected override void Awake()
     {
         base.Awake();
@@ -17,6 +20,7 @@ public class React_Break : PlayerReactCore
         {
             breakObject = this.gameObject;
         }
+        breakMaterial = ResourceData<Material>.GetData("Material/" + "BreakMaterial");
     }
 
     public override void PlayerReact(int instrumentValue)
@@ -24,20 +28,46 @@ public class React_Break : PlayerReactCore
         if (instrumentIndex == instrumentValue)
         {
             Debug.Log("Break");
+            CheckBreak();
         }
-
-        breakEvent.Invoke();
     }
 
     protected override void Setup2D()
     {
-        base.Setup2D();
-        targetMaterial = spriteRenderer.material;
+        targetMaterials = spriteRenderer.materials;
+        lengthContainer = targetMaterials.Length;
     }
 
     protected override void Setup3D()
     {
-        base.Setup3D();
-        targetMaterial = meshRenderer.material;
+        targetMaterials = meshRenderer.materials;
+        lengthContainer = targetMaterials.Length;
     }
+
+    private void CheckBreak()
+    {
+        if (targetMaterials.Length == lengthContainer)
+        {
+            AddBreakMaterial();
+        }
+        else if (targetMaterials.Length == lengthContainer + 1)
+        {
+            Destroy(breakObject);
+        }
+    }
+
+    private void AddBreakMaterial()
+    {
+        Array.Resize(ref targetMaterials, lengthContainer + 1);
+        targetMaterials[lengthContainer] = breakMaterial;
+        if(meshRenderer != null)
+        {//3D
+            meshRenderer.materials = targetMaterials;
+        }
+        else
+        {
+            spriteRenderer.materials = targetMaterials;
+        }
+    }
+
 }
