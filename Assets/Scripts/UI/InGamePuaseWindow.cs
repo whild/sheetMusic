@@ -19,6 +19,7 @@ public class InGamePuaseWindow :OptionWindowCore
 
     public override void DecideCurrentOption()
     {
+        base.DecideCurrentOption();
         switch (optionValue.Value)
         {
             case 0:

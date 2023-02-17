@@ -10,7 +10,10 @@ public class DialogNPC : TriggerInteractCore
     [SerializeField] GameObject dialog;
     [SerializeField] SpriteRenderer image;
 
-    [SerializeField] private bool isTalk; 
+    [SerializeField] private bool isTalk;
+
+    [SerializeField] AudioSource talkAudio;
+    [SerializeField] List<AudioClip> talkClips = new List<AudioClip>();
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +54,9 @@ public class DialogNPC : TriggerInteractCore
         {
             int temp = i;
             image.sprite = npcDialogBase.sprites[temp];
+
+            talkAudio.clip = (talkAudio.clip == talkClips[0] || talkAudio.clip == null) ? talkClips[1] : talkClips[0];
+            talkAudio.Play();
 
             dialog.transform.localScale = Vector3.zero;
             dialog.transform

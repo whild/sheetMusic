@@ -78,10 +78,19 @@ public class OptionWindowCore : Manager<OptionWindowCore>
         }
     }
 
+    [System.Obsolete]
     public virtual void DecideCurrentOption()
     {
         var effectObj = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/UiDicideEffect"), this.transform.parent);
         var effect = effectObj.GetComponent<ParticleSystem>();
         effect.Play();
+        StartCoroutine(DeleteEffect(effect));
+    }
+
+    [System.Obsolete]
+    IEnumerator DeleteEffect(ParticleSystem effect)
+    {
+        yield return new WaitForSeconds(effect.startLifetime);
+        GameObject.Destroy(effect.gameObject);
     }
 }
