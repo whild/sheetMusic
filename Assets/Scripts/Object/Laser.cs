@@ -8,6 +8,10 @@ public class Laser : MonoBehaviour
 {
     [TagSelector]
     [SerializeField] protected string[] targetTags = new string[] { };
+
+    [SerializeField] ParticleSystem flash;
+    [SerializeField] ParticleSystem hit;
+
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float laserWidth;
     [SerializeField] Vector3 direction;
@@ -63,6 +67,7 @@ public class Laser : MonoBehaviour
         {
             if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground) || item.collider.CompareTag(TagManager.laserEvent))
             {
+                hit.Play();
                 Vector3 itempoint = item.point;
                 float dis = Vector3.Distance(itempoint, Positions[Positions.Count - 2]);
                 if (dis < distance)
@@ -75,9 +80,13 @@ public class Laser : MonoBehaviour
         if (distance == float.MaxValue)
         {
             Positions[Positions.Count - 1] = this.transform.position;
+            hit.Stop();
         }
         RefreshLineRenderer();
         Check2DPlayerHit();
+
+        flash.gameObject.transform.position = Positions[0];
+        hit.gameObject.transform.position = Positions[Positions.Count - 1];
     }
 
     private RaycastHit[] CheckMirror(Vector3 orisinal, Vector3 direction)
