@@ -17,13 +17,16 @@ public class LaserEvent : MonoBehaviour
     {
         foreach (var eve in objectEvents)
         {
-            eve.Event();
+            if (syncroIndex == eve.GetSyncroIndex())
+            {
+                eve.Event();
+            }
         }
     }
 
     IEnumerator Syncro()
     {
         yield return new WaitForSeconds(0.5f);
-        this.objectEvents = SyncroOjbect.GetSyncroObjects<ObjectEventCore>(syncroIndex);
+        this.objectEvents = SyncroOjbect.GetSyncroObjects<ObjectEventCore>();
     }
 }

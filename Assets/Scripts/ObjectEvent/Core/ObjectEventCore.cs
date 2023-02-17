@@ -14,4 +14,9 @@ public class ObjectEventCore : MonoBehaviour, IObjectEvent
     {
 
     }
+
+    public virtual int GetSyncroIndex()
+    {
+        return -1;
+    }
 }

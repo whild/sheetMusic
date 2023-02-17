@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SyncroOjbect
 {
-    public static T[] GetSyncroObjects<T>(int index) where T : Object
+    public static T[] GetSyncroObjects<T>() where T : Object
     {
         return (T[])Resources.FindObjectsOfTypeAll(typeof(T));
     }

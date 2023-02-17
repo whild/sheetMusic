@@ -80,6 +80,8 @@ public class OptionWindowCore : Manager<OptionWindowCore>
 
     public virtual void DecideCurrentOption()
     {
-
+        var effectObj = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/UiDicideEffect"), this.transform.parent);
+        var effect = effectObj.GetComponent<ParticleSystem>();
+        effect.Play();
     }
 }

@@ -17,20 +17,26 @@ public class ContactInteractWithObjectCore : ContactInteractCore
     {
         foreach (var eve in objectEvent)
         {
-            eve.Event();
+            if (eve.GetSyncroIndex() == syncroIndex)
+            {
+                eve.Event();
+            }
         }
     }
     protected void InvokeEvent(float val)
     {
         foreach (var eve in objectEvent)
         {
-            eve.Event(val);
+            if (eve.GetSyncroIndex() == syncroIndex)
+            {
+                eve.Event(val);
+            }
         }
     }
 
     IEnumerator Syncro()
     {
         yield return new WaitForSeconds(0.5f);
-        this.objectEvent = SyncroOjbect.GetSyncroObjects<ObjectEventCore>(syncroIndex);
+        this.objectEvent = SyncroOjbect.GetSyncroObjects<ObjectEventCore>();
     }
 }

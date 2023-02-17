@@ -38,4 +38,9 @@ public class ObjectMoveEvent : ObjectEventCore
             .SetEase(Ease.Linear);
     }
 
+    public override int GetSyncroIndex()
+    {
+        return syncroIndex;
+    }
+
 }

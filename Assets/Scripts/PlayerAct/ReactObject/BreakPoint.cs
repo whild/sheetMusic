@@ -11,7 +11,7 @@ public class BreakPoint : MonoBehaviour, IPlayerReact
 
     private void Start()
     {
-        reacts = SyncroOjbect.GetSyncroObjects<React_Break>(syncroIndex).ToList();
+        reacts = SyncroOjbect.GetSyncroObjects<React_Break>().ToList();
     }
 
     public void PlayerReact(int instrumentValue)
