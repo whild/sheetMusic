@@ -15,6 +15,10 @@ public class StageManager : Manager<StageManager>
 
     [SerializeField] private ReactiveProperty<StageDataBase> stageData = new ReactiveProperty<StageDataBase>();
 
+    [SerializeField] AudioSource stageEndAudio;
+    [SerializeField] AudioClip clearClip;
+    [SerializeField] AudioClip overClip;
+
     protected override void Awake()
     {
         base.Awake();
@@ -56,6 +60,8 @@ public class StageManager : Manager<StageManager>
 
     public void NextStage(StageDataBase stageData)
     {
+        stageEndAudio.clip = clearClip;
+        stageEndAudio.Play();
         SceneChange.SceneChageEvent(() =>
         {
             ChangeStage(stageData);
@@ -73,5 +79,7 @@ public class StageManager : Manager<StageManager>
     public void Retry()
     {
         NextStage(this.stageData.Value);
+        stageEndAudio.clip = overClip;
+        stageEndAudio.Play();
     }
 }

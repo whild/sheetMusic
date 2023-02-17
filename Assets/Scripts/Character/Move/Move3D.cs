@@ -14,6 +14,7 @@ public class Move3D : MoveCore
     [SerializeField] ParticleSystem jumpParticle;
 
     [SerializeField] AudioSource playeractAudio;
+    [SerializeField] AudioSource transformAudio;
 
     protected override void Awake()
     {
@@ -85,6 +86,7 @@ public class Move3D : MoveCore
         {
             item.Play();
         }
+        transformAudio.Play();
     }
 
     private void WalkParticle()
