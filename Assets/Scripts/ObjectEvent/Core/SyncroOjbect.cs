@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class SyncroOjbect
 {
-    public static IObjectEvent[] GetSyncroObjects(int index)
+    public static T[] GetSyncroObjects<T>(int index) where T : Object
     {
-        List<IObjectEvent> objects = new List<IObjectEvent>();
-
-        var container = (ObjectEventCore[])Resources.FindObjectsOfTypeAll(typeof(ObjectEventCore));
-
-        foreach (var item in container)
-        {
-            if(item.syncroIndex == index)
-            {
-                objects.Add(item);
-            }
-        }
-
-        return objects.ToArray();
+        return (T[])Resources.FindObjectsOfTypeAll(typeof(T));
     }
 
 }

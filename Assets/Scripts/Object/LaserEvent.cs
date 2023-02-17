@@ -24,6 +24,6 @@ public class LaserEvent : MonoBehaviour
     IEnumerator Syncro()
     {
         yield return new WaitForSeconds(0.5f);
-        this.objectEvents = SyncroOjbect.GetSyncroObjects(syncroIndex);
+        this.objectEvents = SyncroOjbect.GetSyncroObjects<ObjectEventCore>(syncroIndex);
     }
 }

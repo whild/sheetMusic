@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class React_Break : PlayerReactCore
 {
+    [SerializeField] public int syncroIndex;
     [SerializeField] GameObject breakObject;
     private int instrumentIndex = 0;
 
@@ -27,7 +28,6 @@ public class React_Break : PlayerReactCore
     {
         if (instrumentIndex == instrumentValue)
         {
-            Debug.Log("Break");
             CheckBreak();
         }
     }

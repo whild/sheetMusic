@@ -19,8 +19,6 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] IAnimatorControll I2DAni;
  
     [SerializeField] IInteract interact;
-    [SerializeField] public List<IPlayerReact> playerReact = new List<IPlayerReact>();
-
     [SerializeField] public ReactiveProperty<Instrument> currentInstrument = new ReactiveProperty<Instrument>();
 
     protected override void Awake()
@@ -194,10 +192,6 @@ public class PlayerInputController : Manager<PlayerInputController>
     private void OnPlayerAct(InputAction.CallbackContext obj)
     {
         _move.PlayerAct();
-        foreach (var reacts in playerReact)
-        {
-            reacts.PlayerReact((int)this.currentInstrument.Value);
-        }
     }
     public void SetInteract(IInteract interact)
     {
@@ -213,10 +207,6 @@ public class PlayerInputController : Manager<PlayerInputController>
         return false;
     }
 
-    public void SetPlayerReact(IPlayerReact playerReact)
-    {
-        this.playerReact.Add(playerReact);
-    }
 
     #endregion
 

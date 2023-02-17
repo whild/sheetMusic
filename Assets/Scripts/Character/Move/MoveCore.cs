@@ -128,11 +128,6 @@ public class MoveCore : MonoBehaviour, IMoveable
         {
             PlayerInputController.Instance.SetInteract(interactContianer);
         }
-        var PlayerReactContianer = other.GetComponent<IPlayerReact>();
-        if(PlayerReactContianer != null)
-        {
-            PlayerInputController.Instance.SetPlayerReact(PlayerReactContianer);
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -141,12 +136,6 @@ public class MoveCore : MonoBehaviour, IMoveable
         if (PlayerInputController.Instance.AlreadyHaveInteract(interactContianer))
         {
             PlayerInputController.Instance.SetInteract(null);
-        }
-
-        var PlayerReactContianer = other.GetComponent<IPlayerReact>();
-        if (PlayerInputController.Instance.playerReact.Contains(PlayerReactContianer))
-        {
-            PlayerInputController.Instance.playerReact.Remove(PlayerReactContianer);
         }
     }
 

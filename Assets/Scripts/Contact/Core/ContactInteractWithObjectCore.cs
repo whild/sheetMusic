@@ -31,6 +31,6 @@ public class ContactInteractWithObjectCore : ContactInteractCore
     IEnumerator Syncro()
     {
         yield return new WaitForSeconds(0.5f);
-        this.objectEvent = SyncroOjbect.GetSyncroObjects(syncroIndex);
+        this.objectEvent = SyncroOjbect.GetSyncroObjects<ObjectEventCore>(syncroIndex);
     }
 }
