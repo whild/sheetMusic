@@ -16,6 +16,12 @@ public class MoveCore : MonoBehaviour, IMoveable
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] AnimatorController animatorController;
 
+    [Header("*Sound")]
+    [SerializeField] AudioSource playerMoveAudio;
+    [SerializeField] AudioSource playerJumpAudio;
+    [SerializeField] AudioClip walkClip;
+    [SerializeField] AudioClip dashClip;
+
     protected virtual void Awake()
     {
         isLadder = false;
@@ -33,6 +39,7 @@ public class MoveCore : MonoBehaviour, IMoveable
     public virtual void SetDirection(Vector3 direction)
     {
         this.direction = direction;
+        playerMoveAudio.mute = (direction != Vector3.zero) ? false : true;
     }
 
     public Vector3 GetDirection()
@@ -57,11 +64,14 @@ public class MoveCore : MonoBehaviour, IMoveable
     public virtual void Jump() 
     {
         animatorController.JumpTrigger();
+        AudioManager.PlayAudio(playerJumpAudio);
     }
 
     public void Dash(float val)
     {
         animatorController.Dash((val == normalSpeed) ? false : true);
+        playerMoveAudio.clip = (val == normalSpeed) ? walkClip : dashClip;
+        playerMoveAudio.Play();
         this.speed = val;
     }
 
@@ -156,6 +166,11 @@ public class MoveCore : MonoBehaviour, IMoveable
 
     }
 
+    public virtual void SetPlayerActAudio()
+    {
+
+    }
+
     public static Vector3 GetDirection(MoveDirection direction)
     {
         switch (direction)
@@ -176,4 +191,5 @@ public class MoveCore : MonoBehaviour, IMoveable
                 return Vector3.zero;
         }
     }
+
 }

@@ -13,6 +13,8 @@ public class Move3D : MoveCore
     [SerializeField] ParticleSystem walkParticle;
     [SerializeField] ParticleSystem jumpParticle;
 
+    [SerializeField] AudioSource playeractAudio;
+
     protected override void Awake()
     {
         base.Awake();
@@ -44,6 +46,9 @@ public class Move3D : MoveCore
     public override void PlayerAct()
     {
         base.PlayerAct();
+
+        playeractAudio.Play();
+
         playeractRange.radius = actRangeStorage.x;
         StartCoroutine(this.TurnOffReactRangeCollier());
     }
@@ -95,6 +100,12 @@ public class Move3D : MoveCore
                 walkParticle.Play();
             }
         }
+    }
+
+    public override void SetPlayerActAudio()
+    {
+        var instrument = ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
+        playeractAudio.clip = instrument.actAudio;
     }
 
     private void SetShadow()

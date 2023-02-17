@@ -47,6 +47,7 @@ public class PlayerInputController : Manager<PlayerInputController>
                 if (moveCore != null)
                 {
                     moveCore.InstrumentParticle();
+                    moveCore.SetPlayerActAudio();
                 }
                 //I2DAni.ChangeAnimation();
 

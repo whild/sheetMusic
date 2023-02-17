@@ -28,7 +28,7 @@ public class AudioManager : Manager<AudioManager>
     public void ChangeVolume(string groupName, float volume)
     {
         PlayerPrefs.SetInt(groupName, (int)volume);
-        audioMixer.SetFloat(groupName, volume);
+        audioMixer.SetFloat(groupName, GetAudioValue(groupName));
     }
 
     private float GetAudioValue(string name)
@@ -61,6 +61,36 @@ public class AudioManager : Manager<AudioManager>
         }
 
         audioSource.outputAudioMixerGroup = AudioManager.Instance.audioMixer.FindMatchingGroups(groupName)[0];
+
+        audioSource.Play();
+    }
+
+    public static void PlayAudio(AudioSource audioSource, AudioClip clip)
+    {
+        if(audioSource == null)
+        {
+            Debug.LogError("There isn't audio");
+            return;
+        }
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        audioSource.clip = clip;
+
+        audioSource.Play();
+    }
+    public static void PlayAudio(AudioSource audioSource)
+    {
+        if(audioSource == null)
+        {
+            Debug.LogError("There isn't audio");
+            return;
+        }
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
 
         audioSource.Play();
     }

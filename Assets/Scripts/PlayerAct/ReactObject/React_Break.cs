@@ -14,6 +14,9 @@ public class React_Break : PlayerReactCore
     [SerializeField] Material breakMaterial;
     private Material[] targetMaterials;
     int lengthContainer;
+
+    [SerializeField] UnityEvent breakEvent;
+
     protected override void Awake()
     {
         base.Awake();
@@ -53,6 +56,7 @@ public class React_Break : PlayerReactCore
         else if (targetMaterials.Length == lengthContainer + 1)
         {
             Destroy(breakObject);
+            breakEvent.Invoke();
         }
     }
 
@@ -69,5 +73,4 @@ public class React_Break : PlayerReactCore
             spriteRenderer.materials = targetMaterials;
         }
     }
-
 }

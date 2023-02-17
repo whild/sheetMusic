@@ -18,3 +18,4 @@ MonoBehaviour:
   dash_: {fileID: 7400000, guid: 3d0d68da19573d54d932ff69527ada97, type: 2}
   jump_: {fileID: 7400000, guid: 046f718d2f558be42ae24024a98e5ac7, type: 2}
   playerAct_: {fileID: 7400000, guid: 0a212a76bbc77dd4a8779856abaf2981, type: 2}
+  actAudio_: {fileID: 8300000, guid: 7e5c0e70c0b709642adf3170e2c1524b, type: 3}
