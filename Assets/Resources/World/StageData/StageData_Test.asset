@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StageData_Test
   m_EditorClassIdentifier: 
   stageIndex: 1
-  stage_3D: {fileID: 7669995525730325206, guid: 739962a14f8290440b7efc309afd83a0, type: 3}
-  stage_2D: {fileID: 1891056174770594533, guid: a9e64b14eff5a2944a4cb9dd9f4b098b, type: 3}
+  stage_3D: {fileID: 7669995525730325206, guid: b3a4fc168043066408c4a74c5ba62d13, type: 3}
+  stage_2D: {fileID: 1891056174770594533, guid: 6431308d0b351944d9030f42234c1c18, type: 3}
   spawnPos_3D: {x: -116, y: 7, z: 0}
   spawnPos_2D: {x: -116, y: -6, z: 0}
   needKey: 0
