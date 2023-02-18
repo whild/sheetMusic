@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92f3d5f928bfe04b8e145b009b5274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncroIndex: 0
+  syncroIndex: 1
   currentValue:
     value: 0
   direction: 2
@@ -22957,6 +22957,10 @@ PrefabInstance:
       propertyPath: targetObj
       value: 
       objectReference: {fileID: 574307001977208451}
+    - target: {fileID: 9065626674137577112, guid: 7384581f1eebd1d40bf61c22e6f248d9, type: 3}
+      propertyPath: syncroIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9065626674137577112, guid: 7384581f1eebd1d40bf61c22e6f248d9, type: 3}
       propertyPath: targetTags.Array.size
       value: 2

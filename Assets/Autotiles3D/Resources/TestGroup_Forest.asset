@@ -48,3 +48,10 @@ MonoBehaviour:
     Random: 0
     _name: ForestIncline
     Rules: []
+  - _group: TestGroup_Forest
+    _tileID: -1969555147
+    Default: {fileID: 8117315267339697463, guid: 7bdeb9187f3fc724392f0993882dbb19, type: 3}
+    Randoms: []
+    Random: 0
+    _name: TransparentCube
+    Rules: []
