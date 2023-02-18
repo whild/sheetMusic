@@ -55,3 +55,17 @@ MonoBehaviour:
     Random: 0
     _name: TransparentCube
     Rules: []
+  - _group: TestGroup_Forest
+    _tileID: -1520700255
+    Default: {fileID: 1650218971984195701, guid: e21466939bf3bba43a55b62569049f57, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Pillar
+    Rules: []
+  - _group: TestGroup_Forest
+    _tileID: 2006897967
+    Default: {fileID: 5086695805094649428, guid: 13421ec10c3e6de4885a7f1729955aa1, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Half
+    Rules: []
