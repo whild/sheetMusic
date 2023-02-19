@@ -513,7 +513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
-  audioSource: {fileID: 0}
   rmsValue: 100
   modulate: 10000
   resultValue: 100
@@ -3409,7 +3408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8e95b6c33b34d9a4b8fe5d51b2d51dd7, type: 2}
+  m_Material: {fileID: 2100000, guid: c7135bd0b48b24c4ea27d392b277cf22, type: 2}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
