@@ -514,9 +514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
   rmsValue: 100
-  modulate: 10000
+  modulate: 1000
   resultValue: 100
-  cutValue: 50
 --- !u!82 &355533093
 AudioSource:
   m_ObjectHideFlags: 0

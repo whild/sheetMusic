@@ -28,12 +28,12 @@ public class Move2D : MoveCore
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
-
-    public override void PlayerAct()
+    /*
+    public override void PlayerAct(bool isMike)
     {
 
     }
-
+    */
     protected override void SetLadderMove(bool useGravity)
     {
         base.SetLadderMove(useGravity);

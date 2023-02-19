@@ -44,13 +44,13 @@ public class Move3D : MoveCore
         }
     }
 
-    public override void PlayerAct()
+    public override void PlayerAct(bool isMike)
     {
-        base.PlayerAct();
+        base.PlayerAct(isMike);
 
         playeractAudio.Play();
 
-        playeractRange.radius = actRangeStorage.x;
+        playeractRange.radius = isMike ? actRangeStorage.y : actRangeStorage.x;
         StartCoroutine(this.TurnOffReactRangeCollier());
     }
 

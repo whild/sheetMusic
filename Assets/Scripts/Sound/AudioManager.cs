@@ -13,17 +13,21 @@ public class AudioManager : Manager<AudioManager>
     public readonly static string Effect = "Effect";
     public readonly static string Mike = "Mike";
 
-    public FloatReactiveProperty currentLoud = new FloatReactiveProperty();
+    public IntReactiveProperty currentLoud = new IntReactiveProperty();
 
+    public static bool isMike;
     protected override void Awake()
     {
         base.Awake();
 
         currentLoud
-            .Where(val => val > 0.01f)
+            .Where(val => val >= 100)
+            .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(val =>
             {
                 Debug.Log(val);
+                isMike = true;
+                PlayerInputController.Instance.AutoActWithMike();
             });
 
         MixerSetup();
@@ -105,5 +109,4 @@ public class AudioManager : Manager<AudioManager>
 
         audioSource.Play();
     }
-
 }

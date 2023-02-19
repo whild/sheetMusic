@@ -192,7 +192,7 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnPlayerAct(InputAction.CallbackContext obj)
     {
-        _move.PlayerAct();
+        _move.PlayerAct(false);
     }
     public void SetInteract(IInteract interact)
     {
@@ -271,5 +271,14 @@ public class PlayerInputController : Manager<PlayerInputController>
         _move.SetDirection(Vector3.zero);
 
         Debug.Log("SwitchActionMap");
+    }
+
+    public void AutoActWithMike()
+    {
+        if(_move == Imove3d)
+        {
+            _move.PlayerAct(true);
+            AudioManager.Instance.currentLoud.Value = -1;
+        }
     }
 }

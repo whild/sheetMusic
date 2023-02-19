@@ -10,5 +10,5 @@ public interface IMoveable
 
     public void Dash(float val);
 
-    public void PlayerAct();
+    public void PlayerAct(bool isMike);
 }

@@ -149,7 +149,7 @@ public class MoveCore : MonoBehaviour, IMoveable
         }
     }
 
-    public virtual void PlayerAct()
+    public virtual void PlayerAct(bool isMike)
     {
         animatorController.PlayerAct();
     }

@@ -31,7 +31,16 @@ public class React_Break : PlayerReactCore
     {
         if (instrumentIndex == instrumentValue)
         {
-            CheckBreak();
+            if (AudioManager.isMike)
+            {
+                Break();
+                return;
+            }
+            else
+            {
+                CheckBreak();
+                return;
+            }
         }
     }
 
@@ -55,9 +64,14 @@ public class React_Break : PlayerReactCore
         }
         else if (targetMaterials.Length == lengthContainer + 1)
         {
-            Destroy(breakObject);
-            breakEvent.Invoke();
+            Break();
         }
+    }
+
+    private void Break()
+    {
+        Destroy(breakObject);
+        breakEvent.Invoke();
     }
 
     private void AddBreakMaterial()

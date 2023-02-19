@@ -12,7 +12,6 @@ public class MicrophoneListener : MonoBehaviour
     public float rmsValue;
     public float modulate;
     public float resultValue;
-    public int cutValue;
     private void Start()
     {
         samples = new float[sampleRate];
@@ -32,9 +31,14 @@ public class MicrophoneListener : MonoBehaviour
         rmsValue = rmsValue * modulate;
         rmsValue = Mathf.Clamp(rmsValue, 0, 100);
         resultValue = Mathf.RoundToInt(rmsValue);
-        if(resultValue < cutValue)
+        if(resultValue < 100)
         {
+            AudioManager.Instance.currentLoud.Value = -1;
+            AudioManager.isMike = false;
             resultValue = 0;
+            return;
         }
+        AudioManager.Instance.currentLoud.Value = (int)resultValue;
+
     }
 }
