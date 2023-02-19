@@ -15,7 +15,7 @@ public class MicrophoneListener : MonoBehaviour
     private void Start()
     {
         samples = new float[sampleRate];
-        clip = Microphone.Start(Microphone.devices[1].ToString(), true, 1, sampleRate);
+        clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("Mike")].ToString(), true, 1, sampleRate);
     }
 
     private void Update()
@@ -40,5 +40,10 @@ public class MicrophoneListener : MonoBehaviour
         }
         AudioManager.Instance.currentLoud.Value = (int)resultValue;
 
+    }
+
+    public void ChangeMke()
+    {
+        clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("Mike")].ToString(), true, 1, sampleRate);
     }
 }

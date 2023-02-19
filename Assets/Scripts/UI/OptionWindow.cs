@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+using TMPro;
 using DG.Tweening;
 
 public class OptionWindow : MonoBehaviour
@@ -17,13 +19,13 @@ public class OptionWindow : MonoBehaviour
     [Header("*Type")]
     [SerializeField] Toggle playType;
     [SerializeField] RectTransform blockImage_type;
-    [SerializeField] Toggle windowMode;
-    [SerializeField] RectTransform blockImage_mode;
+    [SerializeField] TMP_Dropdown mikeDropdown;
 
     private readonly string _playType = "PlayType";
-    private readonly string _windowMode = "WindowMode";
+    private readonly string _currnetMike = "Mike";
     private Vector2 blockPos = new Vector2(-150, 150);
 
+    private MicrophoneListener microphoneListener;
 
     private void Start()
     {
@@ -32,6 +34,7 @@ public class OptionWindow : MonoBehaviour
         setToggleEvent();
         Refresh();
         container.SetActive(false);
+        microphoneListener = AudioManager.Instance.gameObject.GetComponent<MicrophoneListener>();
     }
 
     private void Init()
@@ -52,9 +55,9 @@ public class OptionWindow : MonoBehaviour
         {
             PlayerPrefs.SetInt(_playType, 1);
         }
-        if (!PlayerPrefs.HasKey(_windowMode))
+        if (!PlayerPrefs.HasKey(_currnetMike))
         {
-            PlayerPrefs.SetInt(_windowMode, 1);
+            PlayerPrefs.SetInt(_currnetMike, 0);
         }
     }
 
@@ -83,7 +86,7 @@ public class OptionWindow : MonoBehaviour
     private void setToggleEvent()
     {
         playType.onValueChanged.RemoveAllListeners();
-        windowMode.onValueChanged.RemoveAllListeners();
+        mikeDropdown.onValueChanged.RemoveAllListeners();
 
         playType.onValueChanged.AddListener((isMike) =>
         {
@@ -103,20 +106,15 @@ public class OptionWindow : MonoBehaviour
             PlayerPrefs.SetInt(_playType, (isMike) ? 1 : 0);
         });
 
-        windowMode.onValueChanged.AddListener((isFullScreen) =>
+        mikeDropdown.options = new List<TMP_Dropdown.OptionData>();
+        foreach (var item in Microphone.devices)
         {
-            DOTween.Complete(blockImage_mode);
-            if (isFullScreen)
-            {
-                blockImage_mode.anchoredPosition = new Vector2(blockPos.y, blockImage_type.anchoredPosition.y);
-                blockImage_mode.DOAnchorPosX(blockPos.x, 1f);
-            }
-            else
-            {
-                blockImage_mode.anchoredPosition = new Vector2(blockPos.x, blockImage_type.anchoredPosition.y);
-                blockImage_mode.DOAnchorPosX(blockPos.y, 1f);
-            }
-            PlayerPrefs.SetInt(_playType, (isFullScreen) ? 1 : 0);
+            mikeDropdown.options.Add(new TMP_Dropdown.OptionData(item));
+        }
+        mikeDropdown.onValueChanged.AddListener((val) =>
+        {
+            PlayerPrefs.SetInt(_currnetMike, val);
+            microphoneListener.ChangeMke();
         });
     }
 
@@ -127,7 +125,7 @@ public class OptionWindow : MonoBehaviour
         mike.value = PlayerPrefs.GetInt(AudioManager.Mike);
 
         playType.isOn = (PlayerPrefs.GetInt(_playType) == 1 ? true : false);
-        windowMode.isOn = (PlayerPrefs.GetInt(_windowMode) == 1 ? true : false);
+
     }
 
     public void OpenOptionWindow()
