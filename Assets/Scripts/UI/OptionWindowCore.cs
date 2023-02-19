@@ -84,6 +84,7 @@ public class OptionWindowCore : Manager<OptionWindowCore>
         var effectObj = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/UiDicideEffect"), this.transform.parent);
         var effect = effectObj.GetComponent<ParticleSystem>();
         effect.Play();
+        effectObj.transform.position = optionTransforms[optionValue.Value].position;
         StartCoroutine(DeleteEffect(effect));
     }
 
