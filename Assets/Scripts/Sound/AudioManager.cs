@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UniRx;
 
 public class AudioManager : Manager<AudioManager>
 {
@@ -12,9 +13,19 @@ public class AudioManager : Manager<AudioManager>
     public readonly static string Effect = "Effect";
     public readonly static string Mike = "Mike";
 
+    public FloatReactiveProperty currentLoud = new FloatReactiveProperty();
+
     protected override void Awake()
     {
         base.Awake();
+
+        currentLoud
+            .Where(val => val > 0.01f)
+            .Subscribe(val =>
+            {
+                Debug.Log(val);
+            });
+
         MixerSetup();
     }
 
