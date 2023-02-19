@@ -132,7 +132,6 @@ public class Laser : MonoBehaviour
 
         float length = Vector3.Distance(Positions[a], Positions[a + 1]);
 
-        Debug.Log(dir_.normalized);
         var hits = Physics.RaycastAll(orisinal, dir_.normalized, length);
 
         foreach (var item in hits)

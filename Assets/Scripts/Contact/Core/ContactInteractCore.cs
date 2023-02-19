@@ -78,17 +78,17 @@ public class ContactInteractCore : MonoBehaviour, IContactInteract
     {
         switch (contactDirection)
         {
-            case MoveDirection.forward:
+            case MoveDirection.left:
                 return trans.position.x > this.transform.position.x;
-            case MoveDirection.back:
+            case MoveDirection.right:
                 return trans.position.x < this.transform.position.x;
             case MoveDirection.up:
                 return trans.position.y > this.transform.position.y;
             case MoveDirection.down:
                 return trans.position.y < this.transform.position.y;
-            case MoveDirection.right:
+            case MoveDirection.forward:
                 return trans.position.z > this.transform.position.z;
-            case MoveDirection.left:
+            case MoveDirection.back:
                 return trans.position.z < this.transform.position.z;
             default:
                 return false;
