@@ -33,7 +33,7 @@ public class StageManager : Manager<StageManager>
 
     private void Start()
     {
-        ChangeStage(FindStage());
+        ChangeStagePerData(FindStage());
     }
 
     private StageDataBase FindStage()
@@ -62,14 +62,16 @@ public class StageManager : Manager<StageManager>
     {
         stageEndAudio.clip = clearClip;
         stageEndAudio.Play();
+
         SceneChange.SceneChageEvent(() =>
         {
-            ChangeStage(stageData);
+            ChangeStagePerData(stageData);
         });
     }
 
-    public void ChangeStage(StageDataBase stageData)
+    public void ChangeStagePerData(StageDataBase stageData)
     {
+        ChangeStage.ReData(stageData.goal3d, stageData.goal2d, stageData.needKey);
         this.stageData.Value = null;
         this.stageData.Value = stageData;
         GameManager.Instance.data.currentStage = stageData.stageIndex;

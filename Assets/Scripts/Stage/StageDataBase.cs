@@ -11,5 +11,8 @@ public class StageDataBase: ScriptableObject
     public GameObject stage_2D;
     public Vector3 spawnPos_3D;
     public Vector3 spawnPos_2D;
+
+    public bool goal3d;
+    public bool goal2d;
     public bool needKey;
 }
