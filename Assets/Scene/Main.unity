@@ -1187,7 +1187,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2753479589602069136, guid: 7fa0842af2c1b2d48afb305679ae9cab, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b0471bcf9d95993499725436068bdecf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b576930dc080f5148b60687b95ca16de, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1608,7 +1608,7 @@ MonoBehaviour:
   walkClip: {fileID: 8300000, guid: 0a40fe841bd22724fa3c73004a0482e8, type: 3}
   dashClip: {fileID: 8300000, guid: cf3890f76a235b747835bb10ba651ae9, type: 3}
   rigid: {fileID: 0}
-  collider: {fileID: 0}
+  collider_: {fileID: 0}
 --- !u!95 &734139842
 Animator:
   serializedVersion: 4
@@ -2256,7 +2256,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2753479589602069136, guid: 7fa0842af2c1b2d48afb305679ae9cab, type: 2}
   m_audioClip: {fileID: 8300000, guid: f5c3cba1f1c1ee54b9441b50471c03ee, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2884,8 +2884,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2753479589602069136, guid: 7fa0842af2c1b2d48afb305679ae9cab, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f5c3cba1f1c1ee54b9441b50471c03ee, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 0a40fe841bd22724fa3c73004a0482e8, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
