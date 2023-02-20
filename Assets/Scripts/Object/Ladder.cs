@@ -5,11 +5,11 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
     private Dimension dimension;
-    private Collider collider;
+    private Collider collider_;
 
     private void Start()
     {
-        collider = GameManager.CheckNull<Collider>(this.transform);
+        collider_ = GameManager.CheckNull<Collider>(this.transform);
         this.gameObject.tag = TagManager.ladder;
     }
 }

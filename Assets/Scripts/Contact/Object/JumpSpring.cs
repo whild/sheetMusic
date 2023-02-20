@@ -5,17 +5,17 @@ using UnityEngine;
 public class JumpSpring : ContactInteractCore
 {
     [SerializeField] private float jumpPower;
-    [SerializeField] Collider collider;
+    [SerializeField] Collider collider_;
     [SerializeField] Collider2D collider2d;
 
     AudioSource source;
 
-    private void Awake()
+    protected override void Awake()
     {
         source = this.GetComponent<AudioSource>();
-        if(targetDimension == Dimension._3D && !TryGetComponent<Collider>(out collider))
+        if(targetDimension == Dimension._3D && !TryGetComponent<Collider>(out collider_))
         {
-            collider = this.gameObject.AddComponent<BoxCollider>();
+            collider_ = this.gameObject.AddComponent<BoxCollider>();
         }
         if(targetDimension == Dimension._2D && !TryGetComponent<Collider2D>(out collider2d))
         {

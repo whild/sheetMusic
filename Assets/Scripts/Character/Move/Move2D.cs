@@ -5,14 +5,14 @@ using UnityEngine;
 public class Move2D : MoveCore
 {
     [SerializeField] protected Rigidbody2D rigid;
-    [SerializeField] protected Collider2D collider;
+    [SerializeField] protected Collider2D collider_;
 
     protected override void Awake()
     {
         base.Awake();
         GameManager.Instance.player2D = this.transform;
         TryGetComponent(out rigid);
-        TryGetComponent(out collider);
+        TryGetComponent(out collider_);
     }
     public override void SetDirection(Vector3 direction)
     {
