@@ -48,6 +48,10 @@ public class Move3D : MoveCore
     {
         base.PlayerAct(isMike);
 
+        var effectobj = GameObject.Instantiate(GameManager.Instance.GetCurrentInstrument().effect, this.transform);
+        var effect = effectobj.GetComponentInChildren<ParticleSystem>();
+        effect.startSize = 5 + ((isMike) ? actRangeStorage.y : actRangeStorage.x);
+        Destroy(effectobj, effect.GetComponentInChildren<ParticleSystem>().startLifetime);
         playeractAudio.Play();
 
         playeractRange.radius = isMike ? actRangeStorage.y : actRangeStorage.x;
@@ -106,8 +110,7 @@ public class Move3D : MoveCore
 
     public override void SetPlayerActAudio()
     {
-        var instrument = ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
-        playeractAudio.clip = instrument.actAudio;
+        playeractAudio.clip = GameManager.Instance.GetCurrentInstrument().actAudio;
     }
 
     private void SetShadow()

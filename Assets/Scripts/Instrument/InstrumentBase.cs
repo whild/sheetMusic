@@ -25,6 +25,7 @@ public class InstrumentBase : ScriptableObject
     [SerializeField] private AnimationClip playerAct_;
 
     [SerializeField] private AudioClip actAudio_;
+    [SerializeField] private GameObject effect_;
 
     public int instrumentIndex
     {
@@ -54,9 +55,14 @@ public class InstrumentBase : ScriptableObject
         get { return playerAct_; }
     }
 
+
     public AudioClip actAudio
     {
         get { return actAudio_; }
+    }
+    public GameObject effect
+    {
+        get { return effect_; }
     }
 
 }

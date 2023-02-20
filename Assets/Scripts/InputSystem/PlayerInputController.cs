@@ -199,7 +199,10 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void OnPlayerAct(InputAction.CallbackContext obj)
     {
-        _move.PlayerAct(false);
+        if (PlayerPrefs.GetInt("PlayType") == 0)
+        {
+            _move.PlayerAct(false);
+        }
     }
     public void SetInteract(IInteract interact)
     {

@@ -15,6 +15,10 @@ public class LaserEvent : MonoBehaviour
 
     public void Event()
     {
+        if(objectEvents == null)
+        {
+            return;
+        }
         foreach (var eve in objectEvents)
         {
             if (syncroIndex == eve.GetSyncroIndex())

@@ -40,7 +40,7 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
 
     public void ChangeAnimation()
     {
-        var instrument = ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
+        var instrument = GameManager.Instance.GetCurrentInstrument(); 
 
         SetAnimation(instrument.idle, idle_);
         SetAnimation(instrument.walk, walk_);

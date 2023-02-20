@@ -103,6 +103,11 @@ public class GameManager : Manager<GameManager>
         Debug.Log(ToJsonData);
     }
 
+    public InstrumentBase GetCurrentInstrument()
+    {
+        return ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
+    }
+
 }
 
 public class TagManager 
