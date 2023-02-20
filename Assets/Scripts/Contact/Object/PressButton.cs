@@ -20,7 +20,13 @@ public class PressButton : ContactInteractWithObjectCore
     protected override void Awake()
     {
         base.Awake();
-        audioSource = this.GetComponent<AudioSource>();
+        if (!TryGetComponent(out audioSource))
+        {
+            audioSource = this.gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.loop = false;
+            audioSource.clip = ResourceData<AudioClip>.GetData("Sound/Field_button");
+        }
         Y = this.transform.position.y;
     }
 

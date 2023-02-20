@@ -22,8 +22,7 @@ public class ResourceData<T> where T: Object
 
     public static T[] GetDatas(string path)
     {
-
-        if (Data.ContainsKey(path))
+        if (Datas.ContainsKey(path))
         {
             return Datas[path];
         }
