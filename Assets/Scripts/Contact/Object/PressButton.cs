@@ -15,11 +15,12 @@ public class PressButton : ContactInteractWithObjectCore
     /// </summary>
     [SerializeField] private float duration;
     [SerializeField] private float currentDuration;
-
+    AudioSource audioSource;
 
     protected override void Awake()
     {
         base.Awake();
+        audioSource = this.GetComponent<AudioSource>();
         Y = this.transform.position.y;
     }
 
@@ -50,6 +51,7 @@ public class PressButton : ContactInteractWithObjectCore
         float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
         float duration_ = (duration != 0) ? current * duration : 0;
 
+        audioSource.Play();
         var down = DOTween.Sequence();
         down.Append(this.transform
             .DOMoveY(Y - pressValue, duration_)
