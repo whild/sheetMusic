@@ -495,7 +495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4067572441600958723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -737,6 +737,7 @@ MonoBehaviour:
   - {fileID: 9212263654885778728}
   currentInstrument:
     value: 0
+  audioClip: {fileID: 8300000, guid: 5339126b728500345a0791fda061cee4, type: 3}
 --- !u!1 &4682725041680690177
 GameObject:
   m_ObjectHideFlags: 0

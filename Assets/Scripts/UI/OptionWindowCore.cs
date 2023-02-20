@@ -28,8 +28,7 @@ public class OptionWindowCore : MonoBehaviour
 
     protected virtual void Awake()
     {
-        AddAudio();
-
+        AudioManager.SetUiAudio(this.transform, ref optionChangeSound, audioClip);
         AddOptions(ref optionTransforms, selection);
 
         optionValue
@@ -96,14 +95,6 @@ public class OptionWindowCore : MonoBehaviour
             int temp = i;
             container.Add(parent.GetChild(temp));
         }
-    }
-
-    private void AddAudio()
-    {
-        optionChangeSound = this.gameObject.AddComponent<AudioSource>();
-        optionChangeSound.playOnAwake = false;
-        optionChangeSound.maxDistance = 2000;
-        optionChangeSound.clip = audioClip;
     }
 
     public virtual void Move(Vector2 input)

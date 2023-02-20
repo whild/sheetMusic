@@ -109,4 +109,12 @@ public class AudioManager : Manager<AudioManager>
 
         audioSource.Play();
     }
+    public static void SetUiAudio(Transform from, ref AudioSource source, AudioClip clip)
+    {
+        source = from.gameObject.AddComponent<AudioSource>();
+        source.playOnAwake = false;
+        source.maxDistance = 2000;
+        source.clip = clip;
+    }
+
 }

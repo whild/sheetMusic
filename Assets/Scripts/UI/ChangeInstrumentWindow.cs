@@ -16,10 +16,14 @@ public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
     private Vector2 orisinalPos = new Vector2(0, 0);
     private Vector2 endPos = new Vector2(20, 20);
 
+    [SerializeField] AudioClip audioClip;
+    AudioSource audioSource;
     protected override void Awake()
     {
         base.Awake();
         ShowChangeInstrument(false);
+
+        AudioManager.SetUiAudio(this.transform, ref audioSource, audioClip);
 
         currentInstrument
             .Where(val => val >= 0 && val <= GameManager.Instance.data.instrumentData.Length - 1)
@@ -36,6 +40,7 @@ public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
         this.container.gameObject.SetActive(val);
         if (val)
         {
+            audioSource.Play();
             currentInstrument.Value = (int)PlayerInputController.Instance.currentInstrument.Value;
             Highlight(currentInstrument.Value);
         }
@@ -52,7 +57,7 @@ public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
         SaveData data = GameManager.Instance.data;
         if (val == Vector2.up && data.instrumentData[0]) currentInstrument.Value = 0;
         if (val == Vector2.right && data.instrumentData[1]) currentInstrument.Value = 1;
-        if (val == Vector2.left && data.instrumentData[2]) currentInstrument.Value= 2;
+        if (val == Vector2.left && data.instrumentData[2]) currentInstrument.Value = 2;
         if (val == Vector2.down && data.instrumentData[3]) currentInstrument.Value = 3;
     }
 
@@ -78,4 +83,5 @@ public class ChangeInstrumentWindow : Manager<ChangeInstrumentWindow>
             }
         }
     }
+
 }
