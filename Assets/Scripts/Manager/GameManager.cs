@@ -114,6 +114,14 @@ public class GameManager : Manager<GameManager>
         PlayerPrefs.DeleteAll();
     }
 
+    public static void SetScreenSize()
+    {
+        int setWidth = 1920;
+        int setHeight = 1080;
+
+        Screen.SetResolution(setWidth, setHeight, true);
+    }
+
 }
 
 public class TagManager 

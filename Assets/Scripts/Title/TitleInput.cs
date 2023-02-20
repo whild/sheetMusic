@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,36 +7,37 @@ using UnityEngine.InputSystem;
 public class TitleInput : MonoBehaviour
 {
     [SerializeField] PlayerInput _input;
-    [SerializeField] TitleOptionWindow titleManager;
-
-    OptionWindowCore optionWindow;
+    [SerializeField] TitleOptionWindow titleWindow;
+    [SerializeField] OptionWindow optionWindow;
+    OptionWindowCore core;
 
     private void Awake()
     {
-        optionWindow = FindObjectOfType<OptionWindowCore>();
-        titleManager = this.GetComponent<TitleOptionWindow>();
-        _input.actions["ControllOptions"].performed += ControllOptions;
-        _input.actions["Decide"].performed += Decide;
+        core = titleWindow;
+        var optionInput = _input.actions.FindActionMap("Title");
+        optionInput["Decide"].started += OptionDecide;
+        optionInput["Cancle"].started += OptionCancle;
+        optionInput["Move"].started += OptionMove;
     }
 
-    private void ControllOptions(InputAction.CallbackContext obj)
+    private void OptionMove(InputAction.CallbackContext obj)
     {
         var value = obj.ReadValue<Vector2>();
-        if (value == Vector2.up)
-        {
-            optionWindow.MoveOptionUp();
-            return;
-        }
-        if (value == Vector2.down)
-        {
-            optionWindow.MoveOptionDown();
-            return;
-        }
+        core.Move(value);
     }
-    private void Decide(InputAction.CallbackContext obj)
+    private void OptionDecide(InputAction.CallbackContext obj)
     {
-        optionWindow.DecideCurrentOption();
-        Debug.Log("Decide");
+        core.DecideCurrentOption();
+        core = optionWindow;
+        Debug.Log("Select Current Option");
     }
 
+    public void OptionCancle(InputAction.CallbackContext obj)
+    {
+        if(core == optionWindow)
+        {
+            optionWindow.ShowOption(false);
+            core = titleWindow;
+        }
+    }
 }

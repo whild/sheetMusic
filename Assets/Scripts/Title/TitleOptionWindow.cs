@@ -8,6 +8,7 @@ public class TitleOptionWindow : OptionWindowCore
     {
         base.Awake();
         CheckData();
+        GameManager.SetScreenSize();
     }
 
     private void CheckData()
@@ -68,8 +69,11 @@ public class TitleOptionWindow : OptionWindowCore
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void Option()
-    {
+    private void Option() 
+    { 
+        var option = GameObject.FindObjectOfType<OptionWindow>();
+        option.Init();
+        option.OpenOptionWindow();
         Debug.Log("Option");
     }
 
