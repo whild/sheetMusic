@@ -40,4 +40,9 @@ public class Move2D : MoveCore
         rigid.gravityScale = (useGravity) ? 1 : 0;
         rigid.velocity = Vector3.zero;
     }
+
+    protected override void Drop()
+    {
+        rigid.velocity = new Vector3(0, -10, 0);
+    }
 }

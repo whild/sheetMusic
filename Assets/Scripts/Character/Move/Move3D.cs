@@ -142,6 +142,11 @@ public class Move3D : MoveCore
         }
     }
 
+    protected override void Drop()
+    {
+        rigid.velocity = new Vector3(0, -10, 0);
+    }
+
     IEnumerator TurnOffReactRangeCollier()
     {
         playeractRange.enabled = true;

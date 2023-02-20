@@ -83,13 +83,18 @@ public class MoveCore : MonoBehaviour, IMoveable
             {
                 isGround = true;
                 animatorController.CheckGround();
+                return;
             }
+            Drop();
+            return;
         }
         if (collision.gameObject.CompareTag(TagManager.ladder))
         {
             isLadder = true;
             SetLadderMove(false);
+            return;
         }
+        Drop();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -100,13 +105,18 @@ public class MoveCore : MonoBehaviour, IMoveable
             {
                 isGround = true;
                 animatorController.CheckGround();
+                return;
             }
+            Drop();
+            return;
         }
         if (collision.gameObject.CompareTag(TagManager.ladder))
         {
             isLadder = true;
             SetLadderMove(false);
+            return;
         }
+        Drop();
     }
 
     private void OnCollisionExit(Collision collision)
@@ -167,6 +177,11 @@ public class MoveCore : MonoBehaviour, IMoveable
     }
 
     public virtual void SetPlayerActAudio()
+    {
+
+    }
+
+    protected virtual void Drop()
     {
 
     }
