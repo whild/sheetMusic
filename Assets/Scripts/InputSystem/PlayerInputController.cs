@@ -53,9 +53,6 @@ public class PlayerInputController : Manager<PlayerInputController>
                     moveCore.SetPlayerActAudio();
                 }
                 //I2DAni.ChangeAnimation();
-
-                GameManager.Instance.data.currentInstrument = (int)val;
-                GameManager.Instance.SaveGameData();
                 //모델링 바꿔야함
                 //애니메이션 바뀌는 거 확인 해야함
                 //

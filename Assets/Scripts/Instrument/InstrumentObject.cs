@@ -14,6 +14,5 @@ public class InstrumentObject : TriggerInteractCore
     public override void OnTrigger(Collider collision)
     {
         GameManager.Instance.data.instrumentData[(int)instrument] = true;
-        GameManager.Instance.SaveGameData();
     }
 }

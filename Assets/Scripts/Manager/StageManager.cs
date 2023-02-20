@@ -67,6 +67,8 @@ public class StageManager : Manager<StageManager>
         {
             ChangeStagePerData(stageData);
         });
+        GameManager.Instance.data.currentStage = stageData.stageIndex;
+        GameManager.Instance.SaveGameData();
     }
 
     public void ChangeStagePerData(StageDataBase stageData)
@@ -74,8 +76,6 @@ public class StageManager : Manager<StageManager>
         ChangeStage.ReData(stageData.goal3d, stageData.goal2d, stageData.needKey);
         this.stageData.Value = null;
         this.stageData.Value = stageData;
-        GameManager.Instance.data.currentStage = stageData.stageIndex;
-        GameManager.Instance.SaveGameData();
     }
 
     public void Retry()
