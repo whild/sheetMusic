@@ -5,27 +5,32 @@ using UnityEngine.UI;
 using UniRx;
 using DG.Tweening;
 
-public class OptionWindowCore : Manager<OptionWindowCore>
+public class OptionWindowCore : MonoBehaviour
 {
     protected IntReactiveProperty optionValue = new IntReactiveProperty();
+    protected IntReactiveProperty horizontalOptionValue = new IntReactiveProperty();
+    protected IntReactiveProperty verticalOptionValue = new IntReactiveProperty();
 
     [SerializeField] protected bool showFirst;
     [SerializeField] protected GameObject container;
     [SerializeField] protected Transform selection;
     [SerializeField] protected List<Transform> optionTransforms = new List<Transform>();
 
-    [SerializeField] AudioSource optionChangeSound;
+    [SerializeField] protected List<Transform> horizontalParent = new List<Transform>();
+    protected List<Transform> horizontalOptions = new List<Transform>();
 
-    protected override void Awake()
+    [SerializeField] protected List<Transform> verticalParent = new List<Transform>();
+    protected List<Transform> verticalOptions = new List<Transform>();
+
+
+    [SerializeField] AudioClip audioClip;
+    AudioSource optionChangeSound;
+
+    protected virtual void Awake()
     {
-        base.Awake();
+        AddAudio();
 
-        optionTransforms = new List<Transform>();
-        for (int i = 0; i < selection.childCount; i++)
-        {
-            int temp = i;
-            optionTransforms.Add(selection.GetChild(temp));
-        }
+        AddOptions(ref optionTransforms, selection);
 
         optionValue
             .Subscribe(val =>
@@ -40,20 +45,108 @@ public class OptionWindowCore : Manager<OptionWindowCore>
                     optionValue.Value = 0;
                     return;
                 }
-
-                ShowSelectedOption();
+                optionChangeSound.Play();
+                ShowSelectedOption(optionTransforms,val);
             });
+
+        horizontalOptionValue
+            .Subscribe(val =>
+            {
+                if (val < 0)
+                {
+                    horizontalOptionValue.Value = horizontalOptions.Count - 1;
+                    return;
+                }
+                else if (val > horizontalOptions.Count - 1)
+                {
+                    horizontalOptionValue.Value = 0;
+                    return;
+                }
+                optionChangeSound.Play();
+                ShowSelectedOption(horizontalOptions,val);
+            });
+
+        verticalOptionValue
+            .Subscribe(val =>
+            {
+                if (val < 0)
+                {
+                    verticalOptionValue.Value = verticalOptions.Count - 1;
+                    return;
+                }
+                else if (val > verticalOptions.Count - 1)
+                {
+                    verticalOptionValue.Value = 0;
+                    return;
+                }
+                optionChangeSound.Play();
+                ShowSelectedOption(verticalOptions,val);
+            });
+
+
 
         ShowOption(showFirst);
     }
 
-    public void MoveOptionUp()
+    protected void AddOptions(ref List<Transform> container, Transform parent)
+    {
+        container = new List<Transform>();
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            int temp = i;
+            container.Add(parent.GetChild(temp));
+        }
+    }
+
+    private void AddAudio()
+    {
+        optionChangeSound = this.gameObject.AddComponent<AudioSource>();
+        optionChangeSound.playOnAwake = false;
+        optionChangeSound.maxDistance = 2000;
+        optionChangeSound.clip = audioClip;
+    }
+
+    public virtual void Move(Vector2 input)
+    {
+        if(input == Vector2.up)
+        {
+            MoveOptionUp();
+            return;
+        }
+        if(input == Vector2.down)
+        {
+            MoveOptionDown();
+            return;
+        }
+        if(input == Vector2.left)
+        {
+            MoveOptionLeft();
+            return;
+        }
+        if(input == Vector2.right)
+        {
+            MoveOptionRight();
+            return;
+        }
+    }
+
+    public virtual void MoveOptionUp()
     {
         optionValue.Value--;
     }
-    public void MoveOptionDown()
+    public virtual void MoveOptionDown()
     {
         optionValue.Value++;
+    }
+
+    public virtual void MoveOptionLeft()
+    {
+
+    }
+
+    public virtual void MoveOptionRight()
+    {
+
     }
 
     public void ShowOption(bool val)
@@ -62,23 +155,26 @@ public class OptionWindowCore : Manager<OptionWindowCore>
         optionValue.Value = 0;
     }
 
-    private void ShowSelectedOption()
+    private void ShowSelectedOption(List<Transform> options, int value)
     {
         AudioManager.PlayAudio(optionChangeSound, AudioManager.Effect);
-        for (int i = 0; i < optionTransforms.Count; i++)
+        for (int i = 0; i < options.Count; i++)
         {
             int temp = i;
-            DOTween.Kill(optionTransforms[temp].transform);
-            optionTransforms[temp].transform.localScale = new Vector3(1, 1, 1);
-            if(optionValue.Value == temp)
+            DOTween.Kill(options[temp].transform);
+            options[temp].transform.localScale = new Vector3(1, 1, 1);
+            if(value == temp)
             {
-                optionTransforms[temp].transform
+                options[temp].transform
                     .DOScale(1.1f, 0.2f);
             }
         }
     }
-
-    [System.Obsolete]
+    protected virtual void ReturnGame(OptionWindowCore core)
+    {
+        PlayerInputController.Instance.TurnOption(false);
+        PlayerInputController.Instance.SetOptionWindow(core);
+    }
     public virtual void DecideCurrentOption()
     {
         var effectObj = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/UiDicideEffect"), this.transform.parent);
@@ -88,7 +184,6 @@ public class OptionWindowCore : Manager<OptionWindowCore>
         StartCoroutine(DeleteEffect(effect));
     }
 
-    [System.Obsolete]
     IEnumerator DeleteEffect(ParticleSystem effect)
     {
         yield return new WaitForSeconds(effect.startLifetime);

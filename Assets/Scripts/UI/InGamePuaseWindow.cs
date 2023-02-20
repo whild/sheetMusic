@@ -17,13 +17,14 @@ public class InGamePuaseWindow :OptionWindowCore
         base.Awake();
     }
 
+
     public override void DecideCurrentOption()
     {
         base.DecideCurrentOption();
         switch (optionValue.Value)
         {
             case 0:
-                ReturnGame();
+                ReturnGame(this);
                 break;
             case 1:
                 Retry();
@@ -43,15 +44,10 @@ public class InGamePuaseWindow :OptionWindowCore
 
     }
 
-    private void ReturnGame()
-    {
-        PlayerInputController.Instance.TurnOption(false);
-    }
-
     private void Retry()
     {
         StageManager.Instance.Retry();
-        ReturnGame();
+        ReturnGame(this);
     }
 
     private void SelectLevel()
@@ -62,7 +58,11 @@ public class InGamePuaseWindow :OptionWindowCore
     private void Option()
     {
         Debug.Log("Option");
-        GameObject.FindObjectOfType<OptionWindow>().OpenOptionWindow();
+        container.SetActive(false);
+        var option = GameObject.FindObjectOfType<OptionWindow>();
+        PlayerInputController.Instance.SetOptionWindow(option);
+        option.Init();
+        option.OpenOptionWindow();
     }
 
     private void Title()

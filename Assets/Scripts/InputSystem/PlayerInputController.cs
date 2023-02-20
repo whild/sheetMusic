@@ -17,13 +17,16 @@ public class PlayerInputController : Manager<PlayerInputController>
     [SerializeField] IMoveable Imove2d;
     [SerializeField] IAnimatorControll I3DAni;
     [SerializeField] IAnimatorControll I2DAni;
- 
+
+    [SerializeField] OptionWindowCore optionWindow;
+    [SerializeField] OptionWindowCore pauseWindowContainer;
     [SerializeField] IInteract interact;
     [SerializeField] public ReactiveProperty<Instrument> currentInstrument = new ReactiveProperty<Instrument>();
 
     protected override void Awake()
     {
         base.Awake();
+        pauseWindowContainer = optionWindow;
         TryGetComponent(out _input);
 
         player_3d = GameManager.Instance.player3D.gameObject;
@@ -74,6 +77,10 @@ public class PlayerInputController : Manager<PlayerInputController>
         SetChangeInstrumentInput();
     }
     
+    public void SetOptionWindow(OptionWindowCore core)
+    {
+        this.optionWindow = core;
+    }
 
     private void SetPlayerInput()
     {
@@ -95,13 +102,13 @@ public class PlayerInputController : Manager<PlayerInputController>
     private void SetOptionInput()
     {
         var optionInput = _input.actions.FindActionMap("Option");
-        optionInput["MoveUp"].started += OptionMoveUp;
-        optionInput["MoveDown"].started += OptionMoveDown;
+        //optionInput["MoveUp"].started += OptionMoveUp;
+        //optionInput["MoveDown"].started += OptionMoveDown;
         optionInput["Decide"].started += OptionDecide;
         optionInput["Cancle"].started += OptionCancle;
         optionInput["Cancle"].started += SwitchActionMapEvent;
+        optionInput["Move"].started += OptionMove;
     }
-
 
     private void SetChangeInstrumentInput()
     {
@@ -121,7 +128,7 @@ public class PlayerInputController : Manager<PlayerInputController>
 
     private void TurnOnOption(InputAction.CallbackContext obj)
     {
-        OptionWindowCore.Instance.ShowOption(true);
+        optionWindow.ShowOption(true);
         _input.SwitchCurrentActionMap("Option");
     }
 
@@ -214,30 +221,26 @@ public class PlayerInputController : Manager<PlayerInputController>
     #region Option
     private void OptionDecide(InputAction.CallbackContext obj)
     {
-        OptionWindowCore.Instance.DecideCurrentOption();
+        optionWindow.DecideCurrentOption();
         Debug.Log("Select Current Option");
     }
 
-    private void OptionMoveDown(InputAction.CallbackContext obj)
+    private void OptionMove(InputAction.CallbackContext obj)
     {
-        OptionWindowCore.Instance.MoveOptionDown();
-        Debug.Log("OptionDown");
+        var value = obj.ReadValue<Vector2>();
+        optionWindow.Move(value);
     }
 
-    private void OptionMoveUp(InputAction.CallbackContext obj)
-    {
-        OptionWindowCore.Instance.MoveOptionUp();
-        Debug.Log("OptionUp");
-    }
     public void OptionCancle(InputAction.CallbackContext obj)
     {
         TurnOption(false);
+        optionWindow = pauseWindowContainer;
         Debug.Log("Switch ActionMap to Player");
     }
 
     public void TurnOption(bool val)
     {
-        OptionWindowCore.Instance.ShowOption(val);
+        optionWindow.ShowOption(val);
         _input.SwitchCurrentActionMap("Player");
     }
     #endregion

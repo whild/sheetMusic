@@ -2,30 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.Audio;
 using TMPro;
 using DG.Tweening;
 
-public class OptionWindow : MonoBehaviour
+public class OptionWindow : OptionWindowCore
 {
-    [Header("*Container")]
-    [SerializeField] GameObject container;
-
     [Header("*SoundSlider")]
     [SerializeField] Slider bgm;
     [SerializeField] Slider effect;
     [SerializeField] Slider mike;
+    private Slider controllSlider;
 
     [Header("*Type")]
     [SerializeField] Toggle playType;
     [SerializeField] RectTransform blockImage_type;
-    [SerializeField] TMP_Dropdown mikeDropdown;
+    [SerializeField] Dropdown mikeDropdown;
 
     private readonly string _playType = "PlayType";
     private readonly string _currnetMike = "Mike";
     private Vector2 blockPos = new Vector2(-150, 150);
 
     private MicrophoneListener microphoneListener;
+
+    bool controllOption;
 
     private void Start()
     {
@@ -37,8 +38,17 @@ public class OptionWindow : MonoBehaviour
         microphoneListener = AudioManager.Instance.gameObject.GetComponent<MicrophoneListener>();
     }
 
-    private void Init()
+    public void Init()
     {
+        controllOption = false;
+        controllSlider = null;
+
+        //horizontalOptions = new List<Transform>();
+        horizontalOptionValue.Value = 0;
+
+        //verticalOptions = new List<Transform>();
+        verticalOptionValue.Value = 0;
+
         if (!PlayerPrefs.HasKey(AudioManager.BGM))
         {
             PlayerPrefs.SetInt(AudioManager.BGM, 100);
@@ -106,11 +116,12 @@ public class OptionWindow : MonoBehaviour
             PlayerPrefs.SetInt(_playType, (isMike) ? 1 : 0);
         });
 
-        mikeDropdown.options = new List<TMP_Dropdown.OptionData>();
+        mikeDropdown.options = new List<Dropdown.OptionData>();
         foreach (var item in Microphone.devices)
         {
-            mikeDropdown.options.Add(new TMP_Dropdown.OptionData(item));
+            mikeDropdown.options.Add(new Dropdown.OptionData(item));
         }
+        mikeDropdown.value = PlayerPrefs.GetInt(_currnetMike);
         mikeDropdown.onValueChanged.AddListener((val) =>
         {
             PlayerPrefs.SetInt(_currnetMike, val);
@@ -126,6 +137,97 @@ public class OptionWindow : MonoBehaviour
 
         playType.isOn = (PlayerPrefs.GetInt(_playType) == 1 ? true : false);
 
+    }
+
+    public override void DecideCurrentOption()
+    {
+        base.DecideCurrentOption();
+        if (!controllOption)
+        {
+            switch (optionValue.Value)
+            {
+                case 0:
+                    controllSlider = bgm;
+                    break;
+                case 1:
+                    controllSlider = effect;
+                    break;
+                case 2:
+                    controllSlider = mike;
+                    break;
+                case 3:
+                    AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
+                    break;
+                case 4:
+                    AddOptions(ref verticalOptions, verticalParent[optionValue.Value]);
+                    break;
+                default:
+                    break;
+            }
+            controllOption = true;
+        }
+        else
+        {
+            if(horizontalOptions != null)
+            {
+                playType.isOn = (horizontalOptionValue.Value == 0) ? true : false;
+            }
+            if(verticalOptions != null)
+            {
+                
+            }
+            Init();
+        }
+    }
+
+    public override void MoveOptionUp()
+    {
+        if (!controllOption)
+        {
+            base.MoveOptionUp();
+        }
+        else
+        {
+            verticalOptionValue.Value--;
+        }
+    }
+
+    public override void MoveOptionDown()
+    {
+        if (!controllOption)
+        {
+            base.MoveOptionDown();
+        }
+        else
+        {
+            verticalOptionValue.Value++;
+        }
+    }
+
+    public override void MoveOptionLeft()
+    {
+        if (controllOption)
+        {
+            ChangeSliderValue(false);
+            horizontalOptionValue.Value--;
+        }
+    }
+
+    public override void MoveOptionRight()
+    {
+        if (controllOption)
+        {
+            ChangeSliderValue(true);
+            horizontalOptionValue.Value++;
+        }
+    }
+
+    private void ChangeSliderValue(bool isUp)
+    {
+        if (controllSlider != null)
+        {
+            controllSlider.value += (isUp) ? 1 : -1;
+        }
     }
 
     public void OpenOptionWindow()
