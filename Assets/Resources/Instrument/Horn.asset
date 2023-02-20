@@ -19,4 +19,5 @@ MonoBehaviour:
   jump_: {fileID: 7400000, guid: f54171377a0cf1348b5f0eaeff84bf35, type: 2}
   playerAct_: {fileID: 7400000, guid: 4ca8ca0dc7bf3244ea51c23aa25ba290, type: 2}
   actAudio_: {fileID: 8300000, guid: bbc7231abd3fa7d40857077bca704d4a, type: 3}
+  mikeEffectSize_: 1.25
   effect_: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}

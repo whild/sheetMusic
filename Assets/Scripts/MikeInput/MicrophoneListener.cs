@@ -15,7 +15,14 @@ public class MicrophoneListener : MonoBehaviour
     private void Start()
     {
         samples = new float[sampleRate];
-        clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("Mike")].ToString(), true, 1, sampleRate);
+        if (Microphone.devices.Length > PlayerPrefs.GetInt("currentMike"))
+        {
+            clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("currentMike")].ToString(), true, 1, sampleRate);
+        }
+        else
+        {
+            clip = Microphone.Start(Microphone.devices[0].ToString(), true, 1, sampleRate);
+        }
     }
 
     private void Update()

@@ -48,14 +48,23 @@ public class Move3D : MoveCore
     {
         base.PlayerAct(isMike);
 
-        var effectobj = GameObject.Instantiate(GameManager.Instance.GetCurrentInstrument().effect, this.transform);
-        var effect = effectobj.GetComponentInChildren<ParticleSystem>();
-        effect.startSize = 5 + ((isMike) ? actRangeStorage.y : actRangeStorage.x);
-        Destroy(effectobj, effect.GetComponentInChildren<ParticleSystem>().startLifetime);
+        SummonEffect(isMike);
         playeractAudio.Play();
 
         playeractRange.radius = isMike ? actRangeStorage.y : actRangeStorage.x;
         StartCoroutine(this.TurnOffReactRangeCollier());
+    }
+
+    private void SummonEffect(bool isMike)
+    {
+        var insturment = GameManager.Instance.GetCurrentInstrument();
+        var effectobj = GameObject.Instantiate(insturment.effect, this.transform);
+        var effects = effectobj.GetComponentsInChildren<ParticleSystem>();
+        foreach (var item in effects)
+        {
+            item.startSize *= (isMike) ? 1 : insturment.mikeEffectSize;
+        }
+        Destroy(effectobj, effects[0].startLifetime);
     }
 
     protected override void OnTriggerEnter(Collider other)

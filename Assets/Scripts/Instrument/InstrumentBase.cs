@@ -24,7 +24,11 @@ public class InstrumentBase : ScriptableObject
     [SerializeField] private AnimationClip jump_;
     [SerializeField] private AnimationClip playerAct_;
 
+    [Header("*Audio")]
     [SerializeField] private AudioClip actAudio_;
+
+    [Header("*Effect")]
+    [SerializeField] private float mikeEffectSize_;
     [SerializeField] private GameObject effect_;
 
     public int instrumentIndex
@@ -59,6 +63,12 @@ public class InstrumentBase : ScriptableObject
     public AudioClip actAudio
     {
         get { return actAudio_; }
+    }
+
+
+    public float mikeEffectSize
+    {
+        get { return mikeEffectSize_; }
     }
     public GameObject effect
     {

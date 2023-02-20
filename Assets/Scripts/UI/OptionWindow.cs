@@ -21,7 +21,7 @@ public class OptionWindow : OptionWindowCore
     [SerializeField] Dropdown mikeDropdown;
 
     private readonly string _playType = "PlayType";
-    private readonly string _currnetMike = "Mike";
+    private readonly string _currnetMike = "currentMike";
     private Vector2 blockPos = new Vector2(-150, 150);
 
     private MicrophoneListener microphoneListener;
