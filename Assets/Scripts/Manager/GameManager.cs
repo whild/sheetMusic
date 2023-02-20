@@ -108,6 +108,12 @@ public class GameManager : Manager<GameManager>
         return ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
     }
 
+    [ContextMenu("ResetPlayerPrefs")]
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }
 
 public class TagManager 
