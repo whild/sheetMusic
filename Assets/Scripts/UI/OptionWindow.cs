@@ -160,7 +160,10 @@ public class OptionWindow : OptionWindowCore
                     AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
                     break;
                 case 4:
-                    AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
+                    foreach (var item in Microphone.devices)
+                    {
+                        horizontalOptions.Add(mikeNames.transform);
+                    }
                     valueChangeEvent.AddListener(() =>
                     {
                         mikeNames.text = Microphone.devices[horizontalOptionValue.Value];
@@ -179,6 +182,7 @@ public class OptionWindow : OptionWindowCore
             }
             if(optionValue.Value == 4)
             {
+                PlayerPrefs.SetInt(_currnetMike, horizontalOptionValue.Value);
                 GameObject.FindObjectOfType<MicrophoneListener>().ChangeMke();
             }
             Init();

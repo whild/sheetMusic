@@ -62,7 +62,7 @@ public class Move3D : MoveCore
         var effects = effectobj.GetComponentsInChildren<ParticleSystem>();
         foreach (var item in effects)
         {
-            item.startSize *= (isMike) ? 1 : insturment.mikeEffectSize;
+            item.startSize *= (isMike) ? insturment.mikeEffectSize : 1;
         }
         Destroy(effectobj, effects[0].startLifetime);
     }
