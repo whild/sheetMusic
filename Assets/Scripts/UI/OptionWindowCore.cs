@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UniRx;
 using DG.Tweening;
 
@@ -26,6 +27,8 @@ public class OptionWindowCore : MonoBehaviour
     [SerializeField] AudioClip audioClip;
     AudioSource optionChangeSound;
 
+    protected UnityEvent valueChangeEvent = new UnityEvent();
+
     protected virtual void Awake()
     {
         AudioManager.SetUiAudio(this.transform, ref optionChangeSound, audioClip);
@@ -46,6 +49,7 @@ public class OptionWindowCore : MonoBehaviour
                 }
                 optionChangeSound.Play();
                 ShowSelectedOption(optionTransforms,val);
+                valueChangeEvent.Invoke();
             });
 
         horizontalOptionValue
@@ -63,6 +67,7 @@ public class OptionWindowCore : MonoBehaviour
                 }
                 optionChangeSound.Play();
                 ShowSelectedOption(horizontalOptions,val);
+                valueChangeEvent.Invoke();
             });
 
         verticalOptionValue
@@ -80,6 +85,7 @@ public class OptionWindowCore : MonoBehaviour
                 }
                 optionChangeSound.Play();
                 ShowSelectedOption(verticalOptions,val);
+                valueChangeEvent.Invoke();
             });
 
 
@@ -180,4 +186,5 @@ public class OptionWindowCore : MonoBehaviour
         yield return new WaitForSeconds(effect.startLifetime);
         GameObject.Destroy(effect.gameObject);
     }
+
 }

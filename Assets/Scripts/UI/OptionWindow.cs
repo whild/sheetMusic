@@ -1,11 +1,8 @@
-using System.Collections;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.Audio;
-using TMPro;
-using DG.Tweening;
+using UniRx;
 
 public class OptionWindow : OptionWindowCore
 {
@@ -18,13 +15,13 @@ public class OptionWindow : OptionWindowCore
     [Header("*Type")]
     [SerializeField] Toggle playType;
     [SerializeField] RectTransform blockImage_type;
-    [SerializeField] Dropdown mikeDropdown;
 
     private readonly string _playType = "PlayType";
     private readonly string _currnetMike = "currentMike";
     private Vector2 blockPos = new Vector2(-150, 150);
 
     private MicrophoneListener microphoneListener;
+    [SerializeField] Text mikeNames;
 
     bool controllOption;
 
@@ -32,10 +29,20 @@ public class OptionWindow : OptionWindowCore
     {
         Init();
         SetSoundEvent();
-        setToggleEvent();
+        SetToggleEvent();
+        SetMikeEvent();
         Refresh();
         container.SetActive(false);
         microphoneListener = AudioManager.Instance.gameObject.GetComponent<MicrophoneListener>();
+
+        /*
+        this.horizontalOptionValue = new IntReactiveProperty();
+        horizontalOptionValue
+            .Subscribe(val =>
+            {
+                if(val )
+            });
+        */
     }
 
     public void Init()
@@ -43,10 +50,10 @@ public class OptionWindow : OptionWindowCore
         controllOption = false;
         controllSlider = null;
 
-        //horizontalOptions = new List<Transform>();
+        horizontalOptions = new List<Transform>();
         horizontalOptionValue.Value = 0;
 
-        //verticalOptions = new List<Transform>();
+        verticalOptions = new List<Transform>();
         verticalOptionValue.Value = 0;
 
         if (!PlayerPrefs.HasKey(AudioManager.BGM))
@@ -93,10 +100,9 @@ public class OptionWindow : OptionWindowCore
         });
     }
 
-    private void setToggleEvent()
+    private void SetToggleEvent()
     {
         playType.onValueChanged.RemoveAllListeners();
-        mikeDropdown.onValueChanged.RemoveAllListeners();
 
         playType.onValueChanged.AddListener((isMike) =>
         {
@@ -115,18 +121,12 @@ public class OptionWindow : OptionWindowCore
             }
             PlayerPrefs.SetInt(_playType, (isMike) ? 1 : 0);
         });
+    }
 
-        mikeDropdown.options = new List<Dropdown.OptionData>();
-        foreach (var item in Microphone.devices)
-        {
-            mikeDropdown.options.Add(new Dropdown.OptionData(item));
-        }
-        mikeDropdown.value = PlayerPrefs.GetInt(_currnetMike);
-        mikeDropdown.onValueChanged.AddListener((val) =>
-        {
-            PlayerPrefs.SetInt(_currnetMike, val);
-            microphoneListener.ChangeMke();
-        });
+    private void SetMikeEvent()
+    {
+        int current = PlayerPrefs.GetInt(_currnetMike);
+        mikeNames.text = Microphone.devices[current];//center
     }
 
     private void Refresh()
@@ -142,6 +142,7 @@ public class OptionWindow : OptionWindowCore
     public override void DecideCurrentOption()
     {
         base.DecideCurrentOption();
+        valueChangeEvent.RemoveAllListeners();
         if (!controllOption)
         {
             switch (optionValue.Value)
@@ -159,7 +160,11 @@ public class OptionWindow : OptionWindowCore
                     AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
                     break;
                 case 4:
-                    AddOptions(ref verticalOptions, verticalParent[optionValue.Value]);
+                    AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
+                    valueChangeEvent.AddListener(() =>
+                    {
+                        mikeNames.text = Microphone.devices[horizontalOptionValue.Value];
+                    });
                     break;
                 default:
                     break;
@@ -168,13 +173,13 @@ public class OptionWindow : OptionWindowCore
         }
         else
         {
-            if(horizontalOptions != null)
+            if(optionValue.Value == 3)
             {
                 playType.isOn = (horizontalOptionValue.Value == 0) ? true : false;
             }
-            if(verticalOptions != null)
+            if(optionValue.Value == 4)
             {
-                
+                GameObject.FindObjectOfType<MicrophoneListener>().ChangeMke();
             }
             Init();
         }

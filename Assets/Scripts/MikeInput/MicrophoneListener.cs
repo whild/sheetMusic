@@ -51,6 +51,6 @@ public class MicrophoneListener : MonoBehaviour
 
     public void ChangeMke()
     {
-        clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("Mike")].ToString(), true, 1, sampleRate);
+        clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("currentMike")].ToString(), true, 1, sampleRate);
     }
 }
