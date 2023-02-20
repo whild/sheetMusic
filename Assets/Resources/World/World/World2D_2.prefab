@@ -2412,7 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  syncroIndex: 0
+  syncroIndex: 10
   breakObject: {fileID: 0}
   breakMaterial: {fileID: 0}
   breakEvent:
