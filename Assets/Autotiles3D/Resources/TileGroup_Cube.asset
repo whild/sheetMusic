@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5548579e4c37e8e41a18fc96b9fd397b, type: 3}
+  m_Name: TileGroup_Cube
+  m_EditorClassIdentifier: 
+  Tiles:
+  - _group: TileGroup_Cube
+    _tileID: 735541757
+    Default: {fileID: 3822130263314347058, guid: 281e030dc49557646a11384a19917a3d, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Grass
+    Rules:
+    - IsActive: 1
+      Object: {fileID: 8670719590301074177, guid: 7eb833d36754a6946921fc033454bba2, type: 3}
+      Random: 0
+      Randoms: []
+      Relations: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000
+      AllowRotation: 000000
+      _ruleID: 247433860
+  - _group: TileGroup_Cube
+    _tileID: 1994545346
+    Default: {fileID: 8871468186525603914, guid: 47e19dd2de598434da70a87b50f055cc, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Dirt1
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: 1001686911
+    Default: {fileID: 4100365991881041841, guid: 6e613e02aa79d254ca32d3abb311bc4d, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Dirt2
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -1746964150
+    Default: {fileID: 2051642442824277741, guid: 37f8beb444154ae48863acd61423adc8, type: 3}
+    Randoms:
+    - {fileID: 518632226008153316, guid: 75ff1ab5179af094dafc5a19a4bbbee4, type: 3}
+    Random: 1
+    _name: Brick1
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -367247554
+    Default: {fileID: 1322852231511905416, guid: 9c9e99b4cae39f442aeff32d64a3c16b, type: 3}
+    Randoms:
+    - {fileID: 8481024563759060467, guid: 1a20602a7e5a42b4a87c6aa9ef0dcc68, type: 3}
+    Random: 1
+    _name: Brick2
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -710794589
+    Default: {fileID: 1293286244690479706, guid: dedadcb7130b0b74693d8c6e309e1ce0, type: 3}
+    Randoms:
+    - {fileID: 5552582982021254754, guid: c991fdacf2fb23c4893a7756e31908a5, type: 3}
+    Random: 1
+    _name: Brick3
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: 1410957505
+    Default: {fileID: 8362810241371554151, guid: 6baa08a39036e1540b5445c8c9d12477, type: 3}
+    Randoms:
+    - {fileID: 574958272766981532, guid: b80de33e99debae42b81f1cc0f9e0515, type: 3}
+    Random: 1
+    _name: Brick4
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -237157157
+    Default: {fileID: 6942373581952384297, guid: 4cebc06bf0b575b488e4bc7ae4335e06, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone_Half
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -1233400334
+    Default: {fileID: 6121083885990632788, guid: 1373fe564e6a01a438da0a7cd00db1df, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone_Torch
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: 523512379
+    Default: {fileID: 5980513821535773452, guid: 9dc933783db78804c9c43d5ba87a5b0e, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone_Stair
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: 1905110737
+    Default: {fileID: 3500062295338323870, guid: 51ba67e5f55bacd4da3fa3da9db2a345, type: 3}
+    Randoms:
+    - {fileID: 4837167496975995712, guid: 5de832261d9a8704dbc48aa7a80930d6, type: 3}
+    Random: 0
+    _name: Stone1
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -1897570749
+    Default: {fileID: 807320481335111462, guid: 6e989538f0767744e91b50c71b35b06c, type: 3}
+    Randoms:
+    - {fileID: 7745431465162801163, guid: 378c7d3e18b6d8c47a46e2d325ef2589, type: 3}
+    Random: 0
+    _name: Stone2
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -100524548
+    Default: {fileID: 7745431465162801163, guid: 378c7d3e18b6d8c47a46e2d325ef2589, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone3
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: 1837710019
+    Default: {fileID: 4837167496975995712, guid: 5de832261d9a8704dbc48aa7a80930d6, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone4
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -770429054
+    Default: {fileID: 1928486338093542993, guid: 2720becd77b1c314b99f19ebaa7abb42, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Stone5
+    Rules: []
