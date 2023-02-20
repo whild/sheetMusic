@@ -31,17 +31,16 @@ public class TriggerInteractCore : MonoBehaviour, ITriggerInteract
 
         if (TagManager.IsRightTag(targetTags, other.gameObject.tag))
         {
-            OnTrigger(other);
+            OnUnTrigger(other);
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (TagManager.IsRightTag(targetTags, other.gameObject.tag))
         {
-            OnUnTrigger(other);
+            OnTrigger(other);
         }
     }
 
