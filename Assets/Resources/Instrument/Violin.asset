@@ -19,3 +19,4 @@ MonoBehaviour:
   jump_: {fileID: 7400000, guid: 4c1d8008751b1ec47909f7d83affa83a, type: 2}
   playerAct_: {fileID: 7400000, guid: 9061dbb95178d034db0bd2ab598fb025, type: 2}
   actAudio_: {fileID: 8300000, guid: 3bb0e845e358e1f49ba7e7e396c3cc25, type: 3}
+  effect_: {fileID: 1399491476850481373, guid: 7e691a0229efacd4cba2922df3888456, type: 3}
