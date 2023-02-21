@@ -70,6 +70,11 @@ public class Move3D : MoveCore
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
+        var react = other.gameObject.GetComponent<IPlayerReact>();
+        if(react != null)
+        {
+            react.PlayerReact((int)PlayerInputController.Instance.currentInstrument.Value);
+        }
     }
 
     protected override void SetLadderMove(bool useGravity)

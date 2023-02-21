@@ -10,6 +10,12 @@ public class PurificationObject : MonoBehaviour
     public GameObject cleanObject;
     public UnityEvent cleanEvent;
 
+    private void Start()
+    {
+        corruptedObject.SetActive(true);
+        cleanObject.SetActive(false);
+    }
+
     public void Purification()
     {
         GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/Purification"), corruptedObject.transform);
