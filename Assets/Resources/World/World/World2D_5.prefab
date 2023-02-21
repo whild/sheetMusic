@@ -6193,6 +6193,7 @@ GameObject:
   - component: {fileID: 6440609189042429129}
   - component: {fileID: 6249120787776713156}
   - component: {fileID: 1013843224302540587}
+  - component: {fileID: 872482901061478448}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -6518,6 +6519,24 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &872482901061478448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981340694855947015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncroIndex: 51
+  corruptedObject: {fileID: 8489517322109316694}
+  cleanObject: {fileID: 130252036821001374}
+  cleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3029201164860146353
 GameObject:
   m_ObjectHideFlags: 0
@@ -9080,7 +9099,6 @@ GameObject:
   - component: {fileID: 8134419617682401439}
   - component: {fileID: 5731114958089179908}
   - component: {fileID: 3198432481532050098}
-  - component: {fileID: 6245678704713072805}
   - component: {fileID: 1945584371860084399}
   m_Layer: 0
   m_Name: CorruptedMap_51
@@ -9331,24 +9349,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &6245678704713072805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8489517322109316694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncroIndex: 51
-  corruptedObject: {fileID: 8489517322109316694}
-  cleanObject: {fileID: 130252036821001374}
-  cleanEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1945584371860084399
 MonoBehaviour:
   m_ObjectHideFlags: 0
