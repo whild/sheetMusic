@@ -64,7 +64,7 @@ public class ChangeStage : TriggerInteractCore
     {
         if (goal3D && goal2D && haveKey)
         {
-            if (goalEvent == null)
+            if (goalEvent.GetPersistentEventCount() == 0)
             {
                 StageManager.Instance.NextStage(this.nextStageBase);
             }

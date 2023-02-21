@@ -90,10 +90,10 @@ public class PlayerInputController : Manager<PlayerInputController>
         playerInput["ChangeCharacter"].performed += OnChangeCharacter;
         playerInput["Interact"].started += OnInteract;
         playerInput["PlayerAct"].started += OnPlayerAct;
-        playerInput["Option"].started += TurnOnOption;
         playerInput["Option"].started += SwitchActionMapEvent;
-        playerInput["ChangeInstrument"].started += ChangeInstrument;
+        playerInput["Option"].started += TurnOnOption;
         playerInput["ChangeInstrument"].started += SwitchActionMapEvent;
+        playerInput["ChangeInstrument"].started += ChangeInstrument;
     }
 
     private void SetOptionInput()
@@ -101,9 +101,9 @@ public class PlayerInputController : Manager<PlayerInputController>
         var optionInput = _input.actions.FindActionMap("Option");
         //optionInput["MoveUp"].started += OptionMoveUp;
         //optionInput["MoveDown"].started += OptionMoveDown;
+        optionInput["Cancle"].started += SwitchActionMapEvent;
         optionInput["Decide"].started += OptionDecide;
         optionInput["Cancle"].started += OptionCancle;
-        optionInput["Cancle"].started += SwitchActionMapEvent;
         optionInput["Move"].started += OptionMove;
     }
 
@@ -111,10 +111,10 @@ public class PlayerInputController : Manager<PlayerInputController>
     {
         var changeInstrument = _input.actions.FindActionMap("ChangeInstrument");
         changeInstrument["SelectInstrument"].performed += SelectInstrument;
-        changeInstrument["Decide"].started += DecideInstrument;
         changeInstrument["Decide"].started += SwitchActionMapEvent;
-        changeInstrument["Cancle"].started += ChangeCancle;
+        changeInstrument["Decide"].started += DecideInstrument;
         changeInstrument["Cancle"].started += SwitchActionMapEvent;
+        changeInstrument["Cancle"].started += ChangeCancle;
     }
 
     private void ChangeInstrument(InputAction.CallbackContext obj)
