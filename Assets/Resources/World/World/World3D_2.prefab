@@ -4303,9 +4303,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2226484569570359218}
     m_Modifications:
+    - target: {fileID: 1311157365345631360, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f057d59d41ae59c4dbd5cf1ce2fe2a07, type: 2}
     - target: {fileID: 6848168569202626607, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_Name
       value: MoveWall_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860662609642785688, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: e9edfce6155f54345ade2e5501db1c59, type: 3}
+    - target: {fileID: 8224059649420203456, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: endValue
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8224059649420203456, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: syncroIndex
@@ -4316,12 +4328,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14384,6 +14408,10 @@ PrefabInstance:
       value: MoveWall_12
       objectReference: {fileID: 0}
     - target: {fileID: 8224059649420203456, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
+      propertyPath: endValue
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224059649420203456, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: syncroIndex
       value: 12
       objectReference: {fileID: 0}
@@ -14397,7 +14425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8232327465767373762, guid: 3374770c8c29e1e409f29105fc33fc0a, type: 3}
       propertyPath: m_LocalPosition.z
