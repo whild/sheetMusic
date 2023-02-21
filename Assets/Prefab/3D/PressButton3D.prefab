@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9065626674137577112}
   - component: {fileID: 2488588692504456108}
   m_Layer: 0
-  m_Name: PressButton
+  m_Name: PressButton3D
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
