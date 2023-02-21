@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChangeStage : TriggerInteractCore
 {
@@ -10,6 +11,8 @@ public class ChangeStage : TriggerInteractCore
     public static bool goal3D;
     public static bool goal2D;
     public static bool haveKey;
+
+    [SerializeField] UnityEvent goalEvent = new UnityEvent();
 
     protected override void Awake()
     {
@@ -61,7 +64,14 @@ public class ChangeStage : TriggerInteractCore
     {
         if (goal3D && goal2D && haveKey)
         {
-            StageManager.Instance.NextStage(this.nextStageBase);
+            if (goalEvent == null)
+            {
+                StageManager.Instance.NextStage(this.nextStageBase);
+            }
+            else
+            {
+                goalEvent.Invoke();
+            }
         }
     }
 }
