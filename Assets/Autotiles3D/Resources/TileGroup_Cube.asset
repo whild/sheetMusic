@@ -131,3 +131,20 @@ MonoBehaviour:
     Random: 0
     _name: Stone5
     Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -1851482753
+    Default: {fileID: 3500062295338323870, guid: 51ba67e5f55bacd4da3fa3da9db2a345, type: 3}
+    Randoms:
+    - {fileID: 807320481335111462, guid: 6e989538f0767744e91b50c71b35b06c, type: 3}
+    - {fileID: 7745431465162801163, guid: 378c7d3e18b6d8c47a46e2d325ef2589, type: 3}
+    - {fileID: 4837167496975995712, guid: 5de832261d9a8704dbc48aa7a80930d6, type: 3}
+    Random: 1
+    _name: Stone6
+    Rules: []
+  - _group: TileGroup_Cube
+    _tileID: -882532912
+    Default: {fileID: 8871468186525603914, guid: eac2752c81910324f81da5de65f40f29, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Corrupt
+    Rules: []

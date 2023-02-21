@@ -965,8 +965,9 @@ GameObject:
   - component: {fileID: 3199659394158652764}
   - component: {fileID: 9098973315399049379}
   - component: {fileID: 766886396096110744}
+  - component: {fileID: 225778692948069233}
   m_Layer: 0
-  m_Name: CorruptedMap
+  m_Name: CorruptedMap_51
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1262,6 +1263,24 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &225778692948069233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354896239173200054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncroIndex: 51
+  corruptedObject: {fileID: 5354896239173200054}
+  cleanObject: {fileID: 6389654430950590081}
+  cleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6203605919522787134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1332,7 @@ GameObject:
   - component: {fileID: 8059393581078368054}
   - component: {fileID: 8941735873687762605}
   m_Layer: 0
-  m_Name: CleansedMap
+  m_Name: CleansedMap_51
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

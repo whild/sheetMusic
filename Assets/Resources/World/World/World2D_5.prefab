@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4024722079524256222}
   - component: {fileID: 2724619951359163272}
   m_Layer: 0
-  m_Name: CleansedMap
+  m_Name: CleansedMap_51
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7729,8 +7729,9 @@ GameObject:
   - component: {fileID: 8134419617682401439}
   - component: {fileID: 5731114958089179908}
   - component: {fileID: 3198432481532050098}
+  - component: {fileID: 6245678704713072805}
   m_Layer: 0
-  m_Name: CorruptedMap
+  m_Name: CorruptedMap_51
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7978,6 +7979,24 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &6245678704713072805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489517322109316694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncroIndex: 51
+  corruptedObject: {fileID: 8489517322109316694}
+  cleanObject: {fileID: 130252036821001374}
+  cleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &653630984605048063
 PrefabInstance:
   m_ObjectHideFlags: 0
