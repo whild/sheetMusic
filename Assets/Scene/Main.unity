@@ -2090,8 +2090,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
   animatorController: {fileID: 0}
-  playerMoveAudio: {fileID: 1784060945}
-  playerJumpAudio: {fileID: 626931930}
+  playerMoveAudio: {fileID: 1134832235}
+  playerJumpAudio: {fileID: 448569558}
   walkClip: {fileID: 8300000, guid: f5c3cba1f1c1ee54b9441b50471c03ee, type: 3}
   dashClip: {fileID: 8300000, guid: 7e0c9aaab63e23e4e84733bf2015841b, type: 3}
   rigid: {fileID: 0}
