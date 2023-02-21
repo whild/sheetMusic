@@ -57,6 +57,7 @@ public class MoveCore : MonoBehaviour, IMoveable
         }
         else
         {
+            playerMoveAudio.Play();
             animatorController.Walk(false);
         }
     }
