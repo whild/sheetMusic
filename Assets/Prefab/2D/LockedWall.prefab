@@ -127,4 +127,4 @@ MonoBehaviour:
   targetTags:
   - Player
   targetDimension: 0
-  contactDirection: 2
+  contactDirection: 5

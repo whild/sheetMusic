@@ -11,5 +11,11 @@ public class Key : TriggerInteractCore
     public override void OnTrigger(Collider collision)
     {
         StageManager.Instance.isGetKey = true;
+        Destroy(this.gameObject);
+    }
+    public override void OnTrigger(Collider2D collision)
+    {
+        StageManager.Instance.isGetKey = true;
+        Destroy(this.gameObject);
     }
 }
