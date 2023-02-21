@@ -11,7 +11,7 @@ public class AudioManager : Manager<AudioManager>
 
     public readonly static string BGM = "BGM";
     public readonly static string Effect = "Effect";
-    public readonly static string Mike = "Mike";
+    public readonly static string Player = "Player";
 
     public IntReactiveProperty currentLoud = new IntReactiveProperty();
 
@@ -37,7 +37,7 @@ public class AudioManager : Manager<AudioManager>
     {
         audioMixer.SetFloat(BGM, GetAudioValue(BGM));
         audioMixer.SetFloat(Effect, GetAudioValue(Effect));
-        audioMixer.SetFloat(Mike, GetAudioValue(Mike));
+        audioMixer.SetFloat(Player, GetAudioValue(Player));
     }
 
     public void ChangeVolume(string groupName, float volume)

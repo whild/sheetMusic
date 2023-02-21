@@ -7,9 +7,9 @@ using UniRx;
 public class OptionWindow : OptionWindowCore
 {
     [Header("*SoundSlider")]
+    [SerializeField] Slider player;
     [SerializeField] Slider bgm;
     [SerializeField] Slider effect;
-    [SerializeField] Slider mike;
     private Slider controllSlider;
 
     [Header("*Type")]
@@ -64,9 +64,9 @@ public class OptionWindow : OptionWindowCore
         {
             PlayerPrefs.SetInt(AudioManager.Effect, 100);
         }
-        if (!PlayerPrefs.HasKey(AudioManager.Mike))
+        if (!PlayerPrefs.HasKey(AudioManager.Player))
         {
-            PlayerPrefs.SetInt(AudioManager.Mike, 100);
+            PlayerPrefs.SetInt(AudioManager.Player, 100);
         }
         if (!PlayerPrefs.HasKey(_playType))
         {
@@ -82,7 +82,7 @@ public class OptionWindow : OptionWindowCore
     {
         bgm.onValueChanged.RemoveAllListeners();
         effect.onValueChanged.RemoveAllListeners();
-        mike.onValueChanged.RemoveAllListeners();
+        player.onValueChanged.RemoveAllListeners();
 
         bgm.onValueChanged.AddListener((val) =>
         {
@@ -94,9 +94,9 @@ public class OptionWindow : OptionWindowCore
             AudioManager.Instance.ChangeVolume(AudioManager.Effect, (int)val);
         });
 
-        mike.onValueChanged.AddListener((val) =>
+        player.onValueChanged.AddListener((val) =>
         {
-            AudioManager.Instance.ChangeVolume(AudioManager.Mike, (int)val);
+            AudioManager.Instance.ChangeVolume(AudioManager.Player, (int)val);
         });
     }
 
@@ -133,7 +133,7 @@ public class OptionWindow : OptionWindowCore
     {
         bgm.value = PlayerPrefs.GetInt(AudioManager.BGM);
         effect.value = PlayerPrefs.GetInt(AudioManager.Effect);
-        mike.value = PlayerPrefs.GetInt(AudioManager.Mike);
+        player.value = PlayerPrefs.GetInt(AudioManager.Player);
 
         playType.isOn = (PlayerPrefs.GetInt(_playType) == 1 ? true : false);
 
@@ -148,13 +148,13 @@ public class OptionWindow : OptionWindowCore
             switch (optionValue.Value)
             {
                 case 0:
-                    controllSlider = bgm;
+                    controllSlider = player;
                     break;
                 case 1:
-                    controllSlider = effect;
+                    controllSlider = bgm;
                     break;
                 case 2:
-                    controllSlider = mike;
+                    controllSlider = effect;
                     break;
                 case 3:
                     AddOptions(ref horizontalOptions, horizontalParent[optionValue.Value]);
