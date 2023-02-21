@@ -20,3 +20,4 @@ MonoBehaviour:
   goal3d: 1
   goal2d: 1
   needKey: 0
+  stageBGM: {fileID: 8300000, guid: e74ee1017690055459108020874dd038, type: 3}

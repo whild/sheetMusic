@@ -15,4 +15,6 @@ public class StageDataBase: ScriptableObject
     public bool goal3d;
     public bool goal2d;
     public bool needKey;
+
+    public AudioClip stageBGM;
 }

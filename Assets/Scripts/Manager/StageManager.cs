@@ -15,6 +15,7 @@ public class StageManager : Manager<StageManager>
 
     [SerializeField] private ReactiveProperty<StageDataBase> stageData = new ReactiveProperty<StageDataBase>();
 
+    [SerializeField] AudioSource stageBGMAudio;
     [SerializeField] AudioSource stageEndAudio;
     [SerializeField] AudioClip clearClip;
     [SerializeField] AudioClip overClip;
@@ -44,7 +45,8 @@ public class StageManager : Manager<StageManager>
 
     private void ParseStage(StageDataBase data)
     {
-        Debug.Log("??");
+        stageBGMAudio.clip = data.stageBGM;
+        stageBGMAudio.Play();
         GameObject.Destroy(Current3D);
         GameObject.Destroy(Current2D);
         Current3D = GameObject.Instantiate(data.stage_3D, _3Dparent);
