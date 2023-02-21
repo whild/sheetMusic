@@ -2229,7 +2229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 679372783, guid: 79b6543c617f823469e6c4e67e844284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7895,7 +7895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747398214283903524, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_Name
-      value: MoveWall2D_5
+      value: MoveWall2D_4
       objectReference: {fileID: 0}
     - target: {fileID: 8302059488284326734, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_RootOrder
@@ -7961,7 +7961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747398214283903524, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_Name
-      value: MoveWall2D_4
+      value: MoveWall2D_3
       objectReference: {fileID: 0}
     - target: {fileID: 8302059488284326734, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_RootOrder
@@ -8047,7 +8047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3393722342146961375, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
       propertyPath: m_Name
-      value: PressButton2D_6
+      value: PressButton2D_12
       objectReference: {fileID: 0}
     - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
       propertyPath: syncroIndex
@@ -8159,7 +8159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3393722342146961375, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
       propertyPath: m_Name
-      value: PressButton2D_2
+      value: PressButton2D_11
       objectReference: {fileID: 0}
     - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
       propertyPath: syncroIndex
@@ -8185,7 +8185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747398214283903524, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_Name
-      value: MoveWall2D_3
+      value: MoveWall2D_2
       objectReference: {fileID: 0}
     - target: {fileID: 8302059488284326734, guid: 645da3923afb5734a8119f6ceac3479d, type: 3}
       propertyPath: m_RootOrder
