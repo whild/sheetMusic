@@ -2424,6 +2424,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2226484569570359218}
     m_Modifications:
+    - target: {fileID: 5188629839315415658, guid: 8a559771484cdab46a9ed39e45dbbf55, type: 3}
+      propertyPath: value
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5188629839315415659, guid: 8a559771484cdab46a9ed39e45dbbf55, type: 3}
       propertyPath: m_Name
       value: React_Knockback

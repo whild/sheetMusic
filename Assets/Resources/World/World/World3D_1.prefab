@@ -17589,7 +17589,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   spriteRenderer: {fileID: 0}
   rigid: {fileID: 0}
-  value: 300
+  value: 500
   mass: 1
 --- !u!1001 &5656002988840255826
 PrefabInstance:

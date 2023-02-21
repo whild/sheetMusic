@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTags:
   - Player
+  - DragableCube
   targetDimension: 1
   contactDirection: 2
   syncroIndex: 0

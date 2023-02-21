@@ -115,7 +115,7 @@ MonoBehaviour:
   - Player
   targetDimension: 1
   contactDirection: 2
-  jumpPower: 15
+  jumpPower: 25
   collider_: {fileID: 0}
   collider2d: {fileID: 0}
 --- !u!82 &6781148279560721673

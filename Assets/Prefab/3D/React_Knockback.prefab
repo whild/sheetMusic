@@ -101,7 +101,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 5188629839315415657}
   spriteRenderer: {fileID: 0}
   rigid: {fileID: 5188629839315415662}
-  value: 500
+  value: 400
   mass: 1
 --- !u!65 &5188629839315415660
 BoxCollider:

@@ -4181,7 +4181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92f3d5f928bfe04b8e145b009b5274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncroIndex: 8
+  syncroIndex: 12
   currentValue:
     value: 0
   direction: 1
@@ -17942,7 +17942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216900420212051284, guid: daa5e03689abeff459ef3d68a2dc486f, type: 3}
       propertyPath: syncroIndex
-      value: 7
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216900420212051284, guid: daa5e03689abeff459ef3d68a2dc486f, type: 3}
+      propertyPath: currentValue.value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6369339750411348628, guid: daa5e03689abeff459ef3d68a2dc486f, type: 3}
       propertyPath: m_RootOrder
