@@ -58,15 +58,15 @@ public class OptionWindow : OptionWindowCore
 
         if (!PlayerPrefs.HasKey(AudioManager.BGM))
         {
-            PlayerPrefs.SetInt(AudioManager.BGM, 100);
+            PlayerPrefs.SetInt(AudioManager.BGM, 10);
         }
         if (!PlayerPrefs.HasKey(AudioManager.Effect))
         {
-            PlayerPrefs.SetInt(AudioManager.Effect, 100);
+            PlayerPrefs.SetInt(AudioManager.Effect, 10);
         }
         if (!PlayerPrefs.HasKey(AudioManager.Player))
         {
-            PlayerPrefs.SetInt(AudioManager.Player, 100);
+            PlayerPrefs.SetInt(AudioManager.Player, 10);
         }
         if (!PlayerPrefs.HasKey(_playType))
         {

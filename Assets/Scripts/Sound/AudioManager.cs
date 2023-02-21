@@ -59,7 +59,7 @@ public class AudioManager : Manager<AudioManager>
         }
         else
         {
-            return Mathf.Lerp(-40, 0, (value * 0.01f));
+            return Mathf.Lerp(-40, 0, (value * 0.1f));
         }
     }
 
