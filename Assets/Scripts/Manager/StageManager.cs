@@ -58,6 +58,8 @@ public class StageManager : Manager<StageManager>
         GameManager.Instance.player2D.localPosition = new Vector2(data.spawnPos_2D.x, data.spawnPos_2D.y);
     
         CinemachineController.Instance.CameraZoom(60, null);
+
+        PlayerInputController.Instance.currentInstrument.Value = Instrument.Automaton;
     }
 
     public void NextStage(StageDataBase stageData)
