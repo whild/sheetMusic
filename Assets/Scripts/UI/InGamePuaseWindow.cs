@@ -29,13 +29,13 @@ public class InGamePuaseWindow :OptionWindowCore
             case 1:
                 Retry();
                 break;
+            //case 2:
+            //    SelectLevel();
+            //  break;
             case 2:
-                SelectLevel();
-                break;
-            case 3:
                 Option();
                 break;
-            case 4:
+            case 3:
                 Title();
                 break;
             default:
