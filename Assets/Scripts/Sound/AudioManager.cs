@@ -7,7 +7,7 @@ using UniRx;
 public class AudioManager : Manager<AudioManager>
 {
 
-    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] public AudioMixer audioMixer;
 
     public readonly static string BGM = "BGM";
     public readonly static string Effect = "Effect";

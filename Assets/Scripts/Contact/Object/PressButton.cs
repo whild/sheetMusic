@@ -7,6 +7,7 @@ using DG.Tweening;
 public class PressButton : ContactInteractWithObjectCore
 {
     [SerializeField] private bool isContact;
+    [SerializeField] private bool contactDelay;
     [SerializeField] private bool activeOnce;
     [SerializeField] private float Y;
     [SerializeField] private float pressValue;
@@ -25,9 +26,12 @@ public class PressButton : ContactInteractWithObjectCore
             audioSource = this.gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
             audioSource.loop = false;
+            audioSource.outputAudioMixerGroup = AudioManager.Instance.audioMixer.FindMatchingGroups(AudioManager.Effect)[0];
             audioSource.clip = ResourceData<AudioClip>.GetData("Sound/Field_button");
         }
         Y = this.transform.position.y;
+        isContact = false;
+        contactDelay = false;
     }
 
     public override void OnContact(Collision collision)
@@ -53,30 +57,35 @@ public class PressButton : ContactInteractWithObjectCore
 
     private void Press()
     {
-        this.isContact = true;
-        float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
-        float duration_ = (duration != 0) ? current * duration : 0;
+        this.contactDelay = true;
+        StopCoroutine(WaitUnContact());
+        if (isContact == false)
+        {
+            this.isContact = true;
+            float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
+            float duration_ = (duration != 0) ? current * duration : 0;
 
-        audioSource.Play();
-        var down = DOTween.Sequence();
-        down.Append(this.transform
-            .DOMoveY(Y - pressValue, duration_)
-            .SetEase(Ease.Linear)
-            .OnUpdate(() =>
-            {
-                currentDuration = (Y - transform.position.y) / pressValue;
-                InvokeEvent(currentDuration);
-                if (!isContact)
+            audioSource.Play();
+            var down = DOTween.Sequence();
+            down.Append(this.transform
+                .DOMoveY(Y - pressValue, duration_)
+                .SetEase(Ease.Linear)
+                .OnUpdate(() =>
                 {
-                    down.Kill();
-                }
-            })
-            )
-            .OnComplete(() =>
-            {
-                currentDuration = 1;
-                InvokeEvent(currentDuration);
-            });
+                    currentDuration = (Y - transform.position.y) / pressValue;
+                    InvokeEvent(currentDuration);
+                    if (!isContact)
+                    {
+                        down.Kill();
+                    }
+                })
+                )
+                .OnComplete(() =>
+                {
+                    currentDuration = 1;
+                    InvokeEvent(currentDuration);
+                });
+        }
     }
 
     private void Detach()
@@ -85,18 +94,21 @@ public class PressButton : ContactInteractWithObjectCore
         {
             return;
         }
-        this.isContact = false;
+        StopCoroutine(WaitUnContact());
         StartCoroutine(WaitUnContact());
     }
 
     private IEnumerator WaitUnContact()
     {
+        yield return new WaitForSeconds(0.1f);
+        contactDelay = false;
         yield return new WaitForSeconds(0.2f);
 
-        if (isContact)
+        if (contactDelay)
         {
             yield break;
         }
+        isContact = false;
 
         float current = Mathf.Lerp(pressValue, 0, Y - this.transform.position.y);
         float duration_ = (duration != 0) ? current * duration : 0;
