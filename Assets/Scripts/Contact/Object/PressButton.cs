@@ -100,7 +100,6 @@ public class PressButton : ContactInteractWithObjectCore
 
     private IEnumerator WaitUnContact()
     {
-        yield return new WaitForSeconds(0.1f);
         contactDelay = false;
         yield return new WaitForSeconds(0.2f);
 
