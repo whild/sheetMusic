@@ -40,6 +40,7 @@ public class ChangeStage : TriggerInteractCore
         {
             goal2D = true;
         }
+        CheckNextStage();
     }
 
     private void CheckKey()
