@@ -2640,6 +2640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3616439102579626080}
+  - component: {fileID: 2319879951246123752}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -2667,6 +2668,24 @@ Transform:
   m_Father: {fileID: 7669995525730325205}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2319879951246123752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204380823655019035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncroIndex: 51
+  corruptedObject: {fileID: 6193622799700197558}
+  cleanObject: {fileID: 7489953679489281269}
+  cleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5767105975086802264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,14 +2836,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3842177336778131988}
-  - component: {fileID: 2683461790662280377}
   m_Layer: 0
   m_Name: CorruptedObject_51
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3842177336778131988
 Transform:
   m_ObjectHideFlags: 0
@@ -2841,24 +2859,6 @@ Transform:
   m_Father: {fileID: 3616439102579626080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2683461790662280377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6193622799700197558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a834ee35b02a8409ab44508c9e16fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncroIndex: 51
-  corruptedObject: {fileID: 6193622799700197558}
-  cleanObject: {fileID: 7489953679489281269}
-  cleanEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6458152549983172852
 GameObject:
   m_ObjectHideFlags: 0
