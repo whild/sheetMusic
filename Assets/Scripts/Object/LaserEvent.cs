@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LaserEvent : MonoBehaviour
 {
     [SerializeField] int syncroIndex;
     private IObjectEvent[] objectEvents;
+    [SerializeField] UnityEvent completeEvent;
 
     private void Awake()
     {
@@ -26,6 +28,9 @@ public class LaserEvent : MonoBehaviour
                 eve.Event();
             }
         }
+        completeEvent.Invoke();
+        Destroy(this);
+
     }
 
     IEnumerator Syncro()

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FocusOnce : FocusCore
 {
+
     protected override void Awake()
     {
         base.Awake();
@@ -12,6 +13,11 @@ public class FocusOnce : FocusCore
     public override void FocusEffect(CinemachineTargetGroup group)
     {
         StartCoroutine(Focus(group));
+    }
+
+    public override void FocusEffect()
+    {
+        StartCoroutine(Focus(CameraMagnetTargetController.Instance.targetGroup));
     }
 
     private IEnumerator Focus(CinemachineTargetGroup targetGroup)

@@ -8,6 +8,7 @@ public class FocusCore : MonoBehaviour, IFocusable
     [SerializeField] protected Transform targetTransform;
     [SerializeField] protected float duration;
     [SerializeField] protected bool isOneTime;
+    [SerializeField] protected bool isTrigger = true;
 
     [Range(0.1f, 50.0f)]
     public float MagnetStrength = 5.0f;
@@ -20,23 +21,35 @@ public class FocusCore : MonoBehaviour, IFocusable
 
     protected virtual void Awake()
     {
-        GameManager.CheckDemansionComponent(this.transform,ref sphereCollider,ref circleCollider2D);
+        ColliderInit();
+    }
 
-        if (sphereCollider != null)
+    protected void ColliderInit()
+    {
+        if (isTrigger)
         {
-            sphereCollider.radius = Proximity * 2f;
-            sphereCollider.isTrigger = true;
-            return;
-        }
-        if(circleCollider2D != null)
-        {
-            circleCollider2D.radius = Proximity * 2f;
-            circleCollider2D.isTrigger = true;
-            return;
+            GameManager.CheckDemansionComponent(this.transform, ref sphereCollider, ref circleCollider2D);
+
+            if (sphereCollider != null)
+            {
+                sphereCollider.radius = Proximity * 2f;
+                sphereCollider.isTrigger = true;
+                return;
+            }
+            if (circleCollider2D != null)
+            {
+                circleCollider2D.radius = Proximity * 2f;
+                circleCollider2D.isTrigger = true;
+                return;
+            }
         }
     }
 
     public virtual void FocusEffect(CinemachineTargetGroup group)
+    {
+
+    }
+    public virtual void FocusEffect()
     {
 
     }
@@ -58,4 +71,5 @@ public class FocusCore : MonoBehaviour, IFocusable
             }
         }
     }
+
 }

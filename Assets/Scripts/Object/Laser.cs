@@ -175,7 +175,11 @@ public class Laser : MonoBehaviour
     {
         if (hit.collider.CompareTag(TagManager.laserEvent))
         {
-            hit.transform.GetComponent<LaserEvent>().Event();
+            var eve = hit.transform.GetComponent<LaserEvent>();
+            if(eve != null)
+            {
+                eve.Event();
+            }
         }
     }
 
