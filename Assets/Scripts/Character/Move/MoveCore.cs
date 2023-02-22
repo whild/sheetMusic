@@ -10,7 +10,7 @@ public class MoveCore : MonoBehaviour, IMoveable
     [SerializeField] protected float jumpPower = 8;
 
     public static float normalSpeed = 5;
-    public static float dashSpeed = 10;
+    public static float dashSpeed = 8;
     [SerializeField] protected Vector3 direction;
 
     [SerializeField] SpriteRenderer spriteRenderer;

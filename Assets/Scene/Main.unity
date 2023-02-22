@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGround: 0
   speed: 5
-  jumpPower: 9
+  jumpPower: 10
   direction: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
   animatorController: {fileID: 0}
