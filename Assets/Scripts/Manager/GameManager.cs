@@ -122,6 +122,15 @@ public class GameManager : Manager<GameManager>
         Screen.SetResolution(setWidth, setHeight, true);
     }
 
+    public IEnumerator SummonGetEffect(float duration, Transform targetTransform)
+    {
+        yield return new WaitForSeconds(duration/2);
+
+        var effect = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/GetEffect"), targetTransform);
+
+        yield return new WaitForSeconds(duration/2);
+    }
+
 }
 
 public class TagManager 

@@ -14,8 +14,6 @@ public class FocusPlayer : FocusCore
     public override void FocusEffect(CinemachineTargetGroup group)
     {
         CinemachineController.Instance.PlayerZoom(true, isAuto);
-        this.gameObject.transform.position = GameManager._3Dplayer.transform.position + (Vector3.up * 5);
-        Destroy(transform.GetComponentInChildren<ParticleSystem>().gameObject);
         StartCoroutine(WaitEndFocus());
     }
 
@@ -29,11 +27,7 @@ public class FocusPlayer : FocusCore
     {
         GameManager.InputEnable(false);
 
-        yield return new WaitForSeconds(duration/2);
-
-        var effect = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/GetEffect"), targetTransform);
-
-        yield return new WaitForSeconds(duration/2);
+        yield return StartCoroutine(GameManager.Instance.SummonGetEffect(duration, targetTransform));
 
         GameManager.InputEnable(true);
         CinemachineController.Instance.PlayerZoom(false, isAuto);

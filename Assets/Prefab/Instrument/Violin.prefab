@@ -116,6 +116,7 @@ MonoBehaviour:
   targetTags:
   - Player
   targetDimension: 1
+  duration: 3.2
   instrument: 1
 --- !u!114 &1208142320865882052
 MonoBehaviour:
@@ -129,11 +130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5f9fc27b7b66145845e9570e1f2753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 0}
+  targetTransform: {fileID: 3494120531225050874}
   duration: 3
   isOneTime: 0
+  isTrigger: 1
   MagnetStrength: 5
   Proximity: 5
+  isAuto: 1
 --- !u!1001 &3785841916334987171
 PrefabInstance:
   m_ObjectHideFlags: 0
