@@ -11,8 +11,11 @@ public class React_Purification : PlayerReactCore
     private int instrumentIndex = 1;
     [SerializeField] private List<PurificationObject> targets = new List<PurificationObject>();
 
+    private bool isPlayeract;
+
     protected override void Awake()
     {
+        isPlayeract = false;
         base.Awake();
         StartCoroutine(SyncroObjects());
     }
@@ -30,11 +33,14 @@ public class React_Purification : PlayerReactCore
 
     public override void PlayerReact(int instrumentValue)
     {
-        if (instrumentIndex == instrumentValue)
+        if (isPlayeract)
         {
-            foreach (var item in targets)
+            if (instrumentIndex == instrumentValue)
             {
-                item.Purification();
+                foreach (var item in targets)
+                {
+                    item.Purification();
+                }
             }
         }
     }
@@ -44,5 +50,20 @@ public class React_Purification : PlayerReactCore
         yield return new WaitForSeconds(0.5f);
         this.targets = SyncroOjbect.GetSyncroObjects<PurificationObject>().ToList();
         targets.RemoveAll(x => x.SyncroIndex != syncroIndex);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == other.GetComponent<SphereCollider>())
+        {
+            isPlayeract = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == other.GetComponent<SphereCollider>())
+        {
+            isPlayeract = false;
+        }
     }
 }
