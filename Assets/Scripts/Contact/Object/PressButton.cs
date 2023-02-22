@@ -58,7 +58,7 @@ public class PressButton : ContactInteractWithObjectCore
     private void Press()
     {
         this.contactDelay = true;
-        StopCoroutine(WaitUnContact());
+        this.StopAllCoroutines();
         if (isContact == false)
         {
             this.isContact = true;
@@ -94,14 +94,15 @@ public class PressButton : ContactInteractWithObjectCore
         {
             return;
         }
-        StopCoroutine(WaitUnContact());
+        this.StopAllCoroutines();
+        this.StopAllCoroutines();
         StartCoroutine(WaitUnContact());
     }
 
     private IEnumerator WaitUnContact()
     {
         contactDelay = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         if (contactDelay)
         {

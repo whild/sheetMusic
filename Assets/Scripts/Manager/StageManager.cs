@@ -28,13 +28,13 @@ public class StageManager : Manager<StageManager>
             .Where(data => data != null)
             .Subscribe(data =>
             {
-                ParseStage(data);
+                StartCoroutine(ParseStage(data));
             });
     }
 
     private void Start()
     {
-        ChangeStagePerData(FindStage());
+        StartCoroutine(ChangeStagePerData(FindStage()));
     }
 
     private StageDataBase FindStage()
@@ -43,12 +43,15 @@ public class StageManager : Manager<StageManager>
         return Array.Find(allStages, x => x.stageIndex == GameManager.Instance.data.currentStage);
     }
 
-    private void ParseStage(StageDataBase data)
+    private IEnumerator ParseStage(StageDataBase data)
     {
         stageBGMAudio.clip = data.stageBGM;
         stageBGMAudio.Play();
         GameObject.Destroy(Current3D);
         GameObject.Destroy(Current2D);
+
+        yield return new WaitForEndOfFrame();
+
         Current3D = GameObject.Instantiate(data.stage_3D, _3Dparent);
         Current2D = GameObject.Instantiate(data.stage_2D, _2Dparent);
 
@@ -69,16 +72,18 @@ public class StageManager : Manager<StageManager>
 
         SceneChange.SceneChageEvent(() =>
         {
-            ChangeStagePerData(stageData);
+            StartCoroutine(ChangeStagePerData(stageData));
         });
         GameManager.Instance.data.currentStage = stageData.stageIndex;
         GameManager.Instance.SaveGameData();
     }
 
-    public void ChangeStagePerData(StageDataBase stageData)
+    public IEnumerator ChangeStagePerData(StageDataBase stageData)
     {
         ChangeStage.ReData(stageData.goal3d, stageData.goal2d, stageData.needKey);
+        yield return new WaitForEndOfFrame();
         this.stageData.Value = null;
+        yield return new WaitForEndOfFrame();
         this.stageData.Value = stageData;
     }
 
