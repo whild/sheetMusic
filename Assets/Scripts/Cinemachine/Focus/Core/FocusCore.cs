@@ -55,7 +55,7 @@ public class FocusCore : MonoBehaviour, IFocusable
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!isOneTime)
+        if (!isOneTime && isTrigger)
         {
             FocusEffect(CameraMagnetTargetController.Instance.targetGroup);
         }
@@ -63,7 +63,7 @@ public class FocusCore : MonoBehaviour, IFocusable
 
     private void OnTriggerExit(Collider other)
     {
-        if (!isOneTime)
+        if (!isOneTime && isTrigger)
         {
             if (targetTransform != null)
             {

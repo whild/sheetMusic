@@ -3126,7 +3126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineVirtual: {fileID: 1329161075}
-  AutomatonCamera: {fileID: 836697863}
+  automatonCamera: {fileID: 836697863}
+  paperCamera: {fileID: 1839665045}
 --- !u!1 &1839665043
 GameObject:
   m_ObjectHideFlags: 0

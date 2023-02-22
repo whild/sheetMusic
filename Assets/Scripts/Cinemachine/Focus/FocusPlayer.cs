@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FocusPlayer : FocusCore
 {
+    [SerializeField] private bool isAuto = true;
     protected override void Awake()
     {
         base.Awake();
@@ -12,9 +13,15 @@ public class FocusPlayer : FocusCore
 
     public override void FocusEffect(CinemachineTargetGroup group)
     {
-        CinemachineController.Instance.PlayerZoom(true);
+        CinemachineController.Instance.PlayerZoom(true, isAuto);
         this.gameObject.transform.position = GameManager._3Dplayer.transform.position + (Vector3.up * 5);
-        Destroy(transform.GetChild(0).gameObject);
+        Destroy(transform.GetComponentInChildren<ParticleSystem>().gameObject);
+        StartCoroutine(WaitEndFocus());
+    }
+
+    public override void FocusEffect()
+    {
+        CinemachineController.Instance.PlayerZoom(true, isAuto);
         StartCoroutine(WaitEndFocus());
     }
 
@@ -29,7 +36,7 @@ public class FocusPlayer : FocusCore
         yield return new WaitForSeconds(duration/2);
 
         GameManager.InputEnable(true);
-        CinemachineController.Instance.PlayerZoom(false);
+        CinemachineController.Instance.PlayerZoom(false, isAuto);
         Destroy(this.gameObject);
     }
 }

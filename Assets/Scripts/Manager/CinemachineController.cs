@@ -6,7 +6,8 @@ using UnityEngine;
 public class CinemachineController : Manager<CinemachineController>
 {
     [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
-    [SerializeField] CinemachineVirtualCamera AutomatonCamera;
+    [SerializeField] CinemachineVirtualCamera automatonCamera;
+    [SerializeField] CinemachineVirtualCamera paperCamera;
     private CinemachineTargetGroup cinemachineTargetGroup;
 
     protected override void Awake()
@@ -32,8 +33,9 @@ public class CinemachineController : Manager<CinemachineController>
         cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
     }
 
-    public void PlayerZoom(bool isFocus)
+    public void PlayerZoom(bool isFocus, bool isAutomaton)
     {
-        AutomatonCamera.Priority = (isFocus) ? 100 : 5;
+        var target = isAutomaton ? automatonCamera : paperCamera;
+        target.Priority = (isFocus) ? 100 : 5; ;
     }
 }
