@@ -57,7 +57,6 @@ public class ChangeStage : TriggerInteractCore
             }
             haveKey = true;
         }
-        CheckNextStage();
     }
 
     private void CheckNextStage()

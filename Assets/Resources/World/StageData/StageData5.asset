@@ -17,7 +17,7 @@ MonoBehaviour:
   stage_2D: {fileID: 1891056174770594533, guid: e2074047906fa4840a181520179d8a9c, type: 3}
   spawnPos_3D: {x: -110, y: 0, z: 0}
   spawnPos_2D: {x: -110, y: -5, z: 0}
-  goal3d: 0
-  goal2d: 0
+  goal3d: 1
+  goal2d: 1
   needKey: 0
   stageBGM: {fileID: 8300000, guid: d74228b2cd44f3c4d8e3ee59f09480a4, type: 3}
