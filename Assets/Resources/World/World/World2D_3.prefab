@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &749707699306246612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7846810711050332120}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7846810711050332120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749707699306246612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891056174770594532}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1425381034863577680
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +983,7 @@ Transform:
   - {fileID: 173398011288211884}
   - {fileID: 311777524218229066}
   - {fileID: 1289632623711765486}
+  - {fileID: 7846810711050332120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9083,8 +9115,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressButton2D (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2490966700707235084}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FocusEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FocusOnce, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+--- !u!1 &1014724476164345189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3393722342146961375, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+  m_PrefabInstance: {fileID: 2381818118743941818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2490966700707235084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014724476164345189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a57ed535c2f3b4090e7171e0ac3114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 7846810711050332120}
+  duration: 2
+  isOneTime: 0
+  isTrigger: 1
+  MagnetStrength: 5
+  Proximity: 5
 --- !u!4 &3621983916349135859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1391108550347553097, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
@@ -9467,8 +9550,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressButton2D
       objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6156951440729243976}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FocusEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FocusOnce, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9065626674137577112, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+      propertyPath: completeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+--- !u!1 &5819206409920068680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3393722342146961375, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}
+  m_PrefabInstance: {fileID: 9212417708607394711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6156951440729243976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819206409920068680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a57ed535c2f3b4090e7171e0ac3114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 7846810711050332120}
+  duration: 2
+  isOneTime: 0
+  isTrigger: 1
+  MagnetStrength: 5
+  Proximity: 5
 --- !u!4 &7824758902145592030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1391108550347553097, guid: 4b1951d83b9c049418fcaa5f6f9db714, type: 3}

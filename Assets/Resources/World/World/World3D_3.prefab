@@ -2993,6 +2993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3616439102579626080}
   - component: {fileID: 2319879951246123752}
+  - component: {fileID: 3407248807433362817}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -3037,7 +3038,37 @@ MonoBehaviour:
   cleanObject: {fileID: 7489953679489281269}
   cleanEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3407248807433362817}
+        m_TargetAssemblyTypeName: FocusOnce, Assembly-CSharp
+        m_MethodName: FocusEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3407248807433362817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204380823655019035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a57ed535c2f3b4090e7171e0ac3114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 2844950911615198846}
+  duration: 3
+  isOneTime: 0
+  isTrigger: 1
+  MagnetStrength: 5
+  Proximity: 5
 --- !u!1 &4914045827563208046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3414,6 +3445,37 @@ Transform:
   m_Father: {fileID: 7669995525730325205}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6467675203462800518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2844950911615198846}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2844950911615198846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467675203462800518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 38, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7669995525730325205}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6650932207733863076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,6 +3812,7 @@ Transform:
   - {fileID: 7320325802179307116}
   - {fileID: 2226484569570359218}
   - {fileID: 4037791370676939168}
+  - {fileID: 2844950911615198846}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21874,6 +21937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1257885243452335810, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
 --- !u!1 &5025922162103096705 stripped
@@ -29784,6 +29851,10 @@ PrefabInstance:
     - target: {fileID: 1257885242056732903, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257885243452335810, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3fa90d51818a942a9315aed9e644b9, type: 3}
