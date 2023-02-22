@@ -8959,6 +8959,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5216900420212051284, guid: daa5e03689abeff459ef3d68a2dc486f, type: 3}
+      propertyPath: direction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216900420212051284, guid: daa5e03689abeff459ef3d68a2dc486f, type: 3}
       propertyPath: syncroIndex
       value: 1
       objectReference: {fileID: 0}
