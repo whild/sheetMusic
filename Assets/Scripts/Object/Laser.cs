@@ -148,9 +148,11 @@ public class Laser : MonoBehaviour
         if (item2d.transform != null && item2d.collider.CompareTag(TagManager.player))
         {
             lineRenderer.enabled = false;
+            length = 0;
             return;
         }
         lineRenderer.enabled = true;
+        length = 256;
     }
 
     private void RefreshLineRenderer()
