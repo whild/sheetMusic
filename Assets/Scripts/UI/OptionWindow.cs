@@ -70,7 +70,7 @@ public class OptionWindow : OptionWindowCore
         }
         if (!PlayerPrefs.HasKey(_playType))
         {
-            PlayerPrefs.SetInt(_playType, 1);
+            PlayerPrefs.SetInt(_playType, 0);
         }
         if (!PlayerPrefs.HasKey(_currnetMike))
         {
