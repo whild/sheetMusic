@@ -10,7 +10,6 @@ public class LockBlock : ContactInteractCore
         base.Awake();
         Array.Resize(ref targetTags, 1);
         targetTags[0] = TagManager.player;
-        this.contactDirection = MoveDirection.back;
     }
 
 
