@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5548579e4c37e8e41a18fc96b9fd397b, type: 3}
+  m_Name: TileGroup_Deco
+  m_EditorClassIdentifier: 
+  Tiles:
+  - _group: TileGroup_Deco
+    _tileID: 1379604709
+    Default: {fileID: 8871468186525603914, guid: 3b995d41ce95d3847b2d7ea607b5f81c, type: 3}
+    Randoms: []
+    Random: 0
+    _name: Fence
+    Rules: []
+  - _group: TileGroup_Deco
+    _tileID: -402703493
+    Default: {fileID: 8871468186525603914, guid: 5c9f4199a0cf48d4db8382bd21ae22b5, type: 3}
+    Randoms:
+    - {fileID: 8871468186525603914, guid: adc7c3d9d244c0743a383a97fe12c111, type: 3}
+    - {fileID: 8871468186525603914, guid: ae080a6d27c8db84ea309434552ae530, type: 3}
+    Random: 1
+    _name: Grass
+    Rules: []
+  - _group: TileGroup_Deco
+    _tileID: 545143569
+    Default: {fileID: 8871468186525603914, guid: ea4a123b87b89d943a13363e9f54bb92, type: 3}
+    Randoms:
+    - {fileID: 8871468186525603914, guid: 3f0273735d57bb94fb3afb8d205a6b24, type: 3}
+    - {fileID: 8871468186525603914, guid: 4134843c1ef906c479cc176f77459054, type: 3}
+    Random: 1
+    _name: Mushroom
+    Rules: []
+  - _group: TileGroup_Deco
+    _tileID: 1837247110
+    Default: {fileID: 8871468186525603914, guid: 5704878c3fb8b4a4e9e38690d698ef06, type: 3}
+    Randoms:
+    - {fileID: 8871468186525603914, guid: 393304c47f0610441acbbdae0f85b76c, type: 3}
+    - {fileID: 8871468186525603914, guid: 9bdbdb262e0baea4da9aadc00f6a9ba6, type: 3}
+    - {fileID: 8871468186525603914, guid: 3f1dc80c01dc65d4fb5fb97e266c1ed3, type: 3}
+    Random: 1
+    _name: StonTile
+    Rules: []
