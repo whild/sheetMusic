@@ -43,6 +43,10 @@ public class FocusCore : MonoBehaviour, IFocusable
                 return;
             }
         }
+        if(targetTransform == null)
+        {
+            targetTransform = this.transform;
+        }
     }
 
     public virtual void FocusEffect(CinemachineTargetGroup group)

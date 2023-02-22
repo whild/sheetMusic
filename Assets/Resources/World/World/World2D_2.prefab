@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2024794000444250946}
+  - component: {fileID: 5765954453817316763}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
@@ -35,9 +36,29 @@ Transform:
   - {fileID: 7222532019973549948}
   - {fileID: 4683409122880443711}
   - {fileID: 3940901082128634467}
+  - {fileID: 6260218273418102198}
   m_Father: {fileID: 1891056174770594532}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5765954453817316763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018820523470209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5f9fc27b7b66145845e9570e1f2753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 6260218273418102198}
+  duration: 4
+  isOneTime: 0
+  isTrigger: 0
+  MagnetStrength: 5
+  Proximity: 5
+  isAuto: 0
 --- !u!1 &1425381034863577680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,6 +2286,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: With2DEvent, Assembly-CSharp
         m_MethodName: SetWith2D
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5765954453817316763}
+        m_TargetAssemblyTypeName: FocusPlayer, Assembly-CSharp
+        m_MethodName: FocusEffect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6489,6 +6522,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &7717147526581589263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6260218273418102198}
+  m_Layer: 0
+  m_Name: EffectTransfrom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6260218273418102198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717147526581589263}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -51, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2024794000444250946}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7775132552026703772
 GameObject:
   m_ObjectHideFlags: 0

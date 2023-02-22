@@ -31,12 +31,12 @@ public class FocusPlayer : FocusCore
 
         yield return new WaitForSeconds(duration/2);
 
-        var effect = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/GetEffect"), this.transform);
+        var effect = GameObject.Instantiate(ResourceData<GameObject>.GetData("Effect/GetEffect"), targetTransform);
 
         yield return new WaitForSeconds(duration/2);
 
         GameManager.InputEnable(true);
         CinemachineController.Instance.PlayerZoom(false, isAuto);
-        Destroy(this.gameObject);
+        Destroy(this);
     }
 }

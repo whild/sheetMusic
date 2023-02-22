@@ -6,7 +6,7 @@ public class SyncroOjbect
 {
     public static T[] GetSyncroObjects<T>() where T : Object
     {
-        return (T[])Resources.FindObjectsOfTypeAll(typeof(T));
+        return (T[])GameObject.FindSceneObjectsOfType(typeof(T));
     }
 
 }
