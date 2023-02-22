@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class PressButton : ContactInteractWithObjectCore
@@ -16,6 +17,8 @@ public class PressButton : ContactInteractWithObjectCore
     /// </summary>
     [SerializeField] private float duration;
     [SerializeField] private float currentDuration;
+
+    [SerializeField] UnityEvent completeEvent;
     AudioSource audioSource;
 
     protected override void Awake()
@@ -84,6 +87,7 @@ public class PressButton : ContactInteractWithObjectCore
                 {
                     currentDuration = 1;
                     InvokeEvent(currentDuration);
+                    completeEvent.Invoke();
                 });
         }
     }
