@@ -1,10 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimatorController : MonoBehaviour, IAnimatorControll
 {
-
     [Header("*Animation")]
     [SerializeField] public Animator Animator;
     [SerializeField] AnimatorOverrideController AnimatorOverrideController;
@@ -30,6 +29,7 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
 
     public void AnimationInit()
     {
+        //最初にデータを設定
         AnimatorOverrideController = new AnimatorOverrideController(Animator.runtimeAnimatorController);
         Animator.runtimeAnimatorController = AnimatorOverrideController;
 
@@ -37,7 +37,6 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
         AnimatorOverrideController.GetOverrides(ClipOverrides);
 
     }
-
     public void ChangeAnimation()
     {
         var instrument = GameManager.Instance.GetCurrentInstrument(); 
@@ -54,6 +53,7 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
         AnimatorOverrideController[name] = clip;
     }
 
+    #region アニメーション管理関数
     public void Walk(bool val)
     {
         Animator.SetBool(isMove, val);
@@ -79,6 +79,7 @@ public class AnimatorController : MonoBehaviour, IAnimatorControll
     {
         Animator.SetBool(isGround, true);
     }
+    #endregion
 }
 
 

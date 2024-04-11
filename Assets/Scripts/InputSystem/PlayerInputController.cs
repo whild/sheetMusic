@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UniRx;
 
+//動きについてすべて
 public class PlayerInputController : Manager<PlayerInputController>
 {
     [SerializeField] PlayerInput _input;
@@ -49,13 +50,9 @@ public class PlayerInputController : Manager<PlayerInputController>
                 }
                 if (moveCore != null)
                 {
-                    moveCore.InstrumentParticle();
+                    moveCore.PlayInstrumentParticle();
                     moveCore.SetPlayerActAudio();
                 }
-                //I2DAni.ChangeAnimation();
-                //�𵨸� �ٲ����
-                //�ִϸ��̼� �ٲ�� �� Ȯ�� �ؾ���
-                //
             });
 
     }
@@ -67,20 +64,20 @@ public class PlayerInputController : Manager<PlayerInputController>
         moveCore = player_3d.GetComponent<MoveCore>();
     }
 
-    private void OnEnable()
-    {
-        SetPlayerInput();
-        SetOptionInput();
-        SetChangeInstrumentInput();
-    }
-    
     public void SetOptionWindow(OptionWindowCore core)
     {
         this.optionWindow = core;
     }
 
+    private void OnEnable()
+    {//プレイヤーオブジェクトがActiveする時に初期化
+        SetPlayerInput();
+        SetOptionInput();
+        SetChangeInstrumentInput();
+    }
+    
     private void SetPlayerInput()
-    {
+    {//プレイヤー操作のインプット
         var playerInput = _input.actions.FindActionMap("Player");
         playerInput["Move"].performed += OnMove;
         playerInput["Move"].canceled += OnMoveStop;
@@ -97,7 +94,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     }
 
     private void SetOptionInput()
-    {
+    {//オプション上のインプット
         var optionInput = _input.actions.FindActionMap("Option");
         //optionInput["MoveUp"].started += OptionMoveUp;
         //optionInput["MoveDown"].started += OptionMoveDown;
@@ -108,7 +105,7 @@ public class PlayerInputController : Manager<PlayerInputController>
     }
 
     private void SetChangeInstrumentInput()
-    {
+    {//プレイヤーの能力(楽器)を変更する時のインプット
         var changeInstrument = _input.actions.FindActionMap("ChangeInstrument");
         changeInstrument["SelectInstrument"].performed += SelectInstrument;
         changeInstrument["Decide"].started += SwitchActionMapEvent;

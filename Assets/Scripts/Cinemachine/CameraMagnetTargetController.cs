@@ -22,6 +22,10 @@ public class CameraMagnetTargetController : Manager<CameraMagnetTargetController
         playerIndex = 0;
     }
 
+    /// <summary>
+    /// CinemachineのCinemachineTargetGroupに追加
+    /// </summary>
+    /// <param name="trans"></param>
     public void AddTargetGruop(Transform trans)
     {
         var container = targetGroup.m_Targets.ToList();
@@ -30,6 +34,10 @@ public class CameraMagnetTargetController : Manager<CameraMagnetTargetController
         targetGroup.m_Targets[targetGroup.m_Targets.Length - 1].target = trans;
     }
 
+    /// <summary>
+    /// CinemachineのCinemachineTargetGroupに削除
+    /// </summary>
+    /// <param name="trans"></param>
     public void DeleteTargetGruop(Transform trans)
     {
         var container = targetGroup.m_Targets.ToList();
@@ -43,9 +51,15 @@ public class CameraMagnetTargetController : Manager<CameraMagnetTargetController
         CinemachineController.Instance.CameraZoom(30, targetGroup.Transform);
         this.focusCores.Add(target);
     }
-    // Update is called once per frame
+
     void Update()
     {
+        MoveCamera();
+    }
+
+    private void MoveCamera()
+    {
+        //カメラの動きを実装
         if (targetGroup.m_Targets[playerIndex].weight != 0 && focusCores.Count >= 0)
         {
             for (int i = 1; i < targetGroup.m_Targets.Length; ++i)

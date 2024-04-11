@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//そのコードを継承し、プレイヤーのアクションによるそれぞれの効果を実現
 public class PlayerReactCore : MonoBehaviour, IPlayerReact
 {
     [SerializeField] protected MeshRenderer meshRenderer;

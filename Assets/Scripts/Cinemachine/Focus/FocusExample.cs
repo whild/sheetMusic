@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ÐñÜâîÜªÊÞÅª¤Û°
+/// </summary>
 public class FocusExample : FocusCore
 {
     protected override void Awake()
@@ -10,8 +13,8 @@ public class FocusExample : FocusCore
         base.Awake();
     }
 
-    public override void FocusEffect(CinemachineTargetGroup group)
+    protected override IEnumerator Focus(CinemachineTargetGroup targetGroup)
     {//write focus effect here!
-
+        yield return null;
     }
 }

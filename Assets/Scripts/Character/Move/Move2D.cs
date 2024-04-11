@@ -1,7 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 2Dの動きを担当
+/// 基本的に”MoveCore”側の関数をoverrideします。
+/// </summary>
 public class Move2D : MoveCore
 {
     [SerializeField] protected Rigidbody2D rigid;

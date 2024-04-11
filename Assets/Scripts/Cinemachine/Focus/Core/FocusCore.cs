@@ -1,12 +1,21 @@
-using Cinemachine;
+﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FocusCore : MonoBehaviour, IFocusable
+/// <summary>
+/// カメラが照らす時の基本的な内容実装
+/// </summary>
+public abstract class FocusCore : MonoBehaviour, IFocusable
 {
     [SerializeField] protected Transform targetTransform;
+    /// <summary>
+    /// 照らす時間
+    /// </summary>
     [SerializeField] protected float duration;
+    /// <summary>
+    /// 一回照らすのか
+    /// </summary>
     [SerializeField] protected bool isOneTime;
     [SerializeField] protected bool isTrigger = true;
 
@@ -16,6 +25,7 @@ public class FocusCore : MonoBehaviour, IFocusable
     [Range(0.1f, 50.0f)]
     public float Proximity = 5.0f;
 
+    //球体のColliderを使って実装
     protected SphereCollider sphereCollider;
     protected CircleCollider2D circleCollider2D;
 
@@ -43,20 +53,25 @@ public class FocusCore : MonoBehaviour, IFocusable
                 return;
             }
         }
-        if(targetTransform == null)
+        if (targetTransform == null)
         {
             targetTransform = this.transform;
         }
     }
 
-    public virtual void FocusEffect(CinemachineTargetGroup group)
+    public void FocusEffect(CinemachineTargetGroup group = null)//IFocusable
     {
-
+        group = (group == null) ? group : CameraMagnetTargetController.Instance.targetGroup;
+        this.StartCoroutine(Focus(group));
     }
-    public virtual void FocusEffect()
-    {
 
-    }
+    /// <summary>
+    /// Corotineで、映す効果を書く
+    /// </summary>
+    /// <param name="targetGroup"></param>
+    /// <returns></returns>
+    protected abstract IEnumerator Focus(CinemachineTargetGroup targetGroup);
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isOneTime && isTrigger)

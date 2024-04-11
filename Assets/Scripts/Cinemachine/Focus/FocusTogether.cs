@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ì£ªÄªÎObjectªòç±ªë
+/// </summary>
 public class FocusTogether : FocusCore
 {
     protected override void Awake()
@@ -11,9 +14,10 @@ public class FocusTogether : FocusCore
         this.targetTransform = this.transform;
     }
 
-    public override void FocusEffect(CinemachineTargetGroup group)
+    protected override IEnumerator Focus(CinemachineTargetGroup targetGroup)
     {
         CameraMagnetTargetController.Instance.AddTargetGruop(targetTransform);
         CameraMagnetTargetController.Instance.AddForcusObjects(this);
+        yield return null;
     }
 }

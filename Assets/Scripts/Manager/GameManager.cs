@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,33 +78,34 @@ public class GameManager : Manager<GameManager>
     {
         string filePath = Application.persistentDataPath + "/" + fileName;
 
-        // ÀúÀåµÈ °ÔÀÓÀÌ ÀÖ´Ù¸é
+        // ì €ì¥ëœ ê²Œì„ì´ ìˆë‹¤ë©´
         if (File.Exists(filePath))
         {
-            // ÀúÀåµÈ ÆÄÀÏ ÀĞ¾î¿À°í JsonÀ» Å¬·¡½º Çü½ÄÀ¸·Î ÀüÈ¯ÇØ¼­ ÇÒ´ç
+            // ì €ì¥ëœ íŒŒì¼ ì½ì–´ì˜¤ê³  Jsonì„ í´ë˜ìŠ¤ í˜•ì‹ìœ¼ë¡œ ì „í™˜í•´ì„œ í• ë‹¹
             string FromJsonData = File.ReadAllText(filePath);
             data = JsonUtility.FromJson<SaveData>(FromJsonData);
-            print("ºÒ·¯¿À±â ¿Ï·á");
+            print("ë¶ˆëŸ¬ì˜¤ê¸° ì™„ë£Œ");
         }
     }
 
 
-    // ÀúÀåÇÏ±â
+    // ì €ì¥í•˜ê¸°
     public void SaveGameData()
     {
-        // Å¬·¡½º¸¦ Json Çü½ÄÀ¸·Î ÀüÈ¯ (true : °¡µ¶¼º ÁÁ°Ô ÀÛ¼º)
+        // í´ë˜ìŠ¤ë¥¼ Json í˜•ì‹ìœ¼ë¡œ ì „í™˜ (true : ê°€ë…ì„± ì¢‹ê²Œ ì‘ì„±)
         string ToJsonData = JsonUtility.ToJson(data, true);
         string filePath = Application.persistentDataPath + "/" + fileName;
 
-        // ÀÌ¹Ì ÀúÀåµÈ ÆÄÀÏÀÌ ÀÖ´Ù¸é µ¤¾î¾²°í, ¾ø´Ù¸é »õ·Î ¸¸µé¾î¼­ ÀúÀå
+        // ì´ë¯¸ ì €ì¥ëœ íŒŒì¼ì´ ìˆë‹¤ë©´ ë®ì–´ì“°ê³ , ì—†ë‹¤ë©´ ìƒˆë¡œ ë§Œë“¤ì–´ì„œ ì €ì¥
         File.WriteAllText(filePath, ToJsonData);
 
-        // ¿Ã¹Ù¸£°Ô ÀúÀåµÆ´ÂÁö È®ÀÎ (ÀÚÀ¯·Ó°Ô º¯Çü)
+        // ì˜¬ë°”ë¥´ê²Œ ì €ì¥ëëŠ”ì§€ í™•ì¸ (ììœ ë¡­ê²Œ ë³€í˜•)
         Debug.Log(ToJsonData);
     }
 
     public InstrumentBase GetCurrentInstrument()
     {
+        //ç¾åœ¨ä½¿ã£ã¦ã„ã‚‹æ¥½å™¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¿”é‚„
         return ResourceData<InstrumentBase>.GetData("Instrument/" + PlayerInputController.Instance.currentInstrument.Value.ToString());
     }
 

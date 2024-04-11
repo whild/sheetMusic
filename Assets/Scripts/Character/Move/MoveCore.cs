@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// キャラクターの基本的な動き
+/// </summary>
 public class MoveCore : MonoBehaviour, IMoveable
 {
     [SerializeField] public bool isGround;
@@ -28,25 +31,27 @@ public class MoveCore : MonoBehaviour, IMoveable
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         animatorController = this.gameObject.GetComponent<AnimatorController>();
-
     }
 
     protected virtual void FixedUpdate()
     {
+        //動きだけ毎プレーム呼び出す。
         Move();
     }
 
-    public virtual void SetDirection(Vector3 direction)
+    public virtual void SetDirection(Vector3 direction)//IMoveable
     {
         this.direction = direction;
         playerMoveAudio.mute = (direction != Vector3.zero) ? false : true;
     }
 
-    public Vector3 GetDirection()
+    public Vector3 GetDirection()//IMoveable
     {
         return this.direction;
     }
-
+    /// <summary>
+    /// 動きの実装
+    /// </summary>
     public virtual void Move()
     {
         if (direction != Vector3.zero)
@@ -62,13 +67,13 @@ public class MoveCore : MonoBehaviour, IMoveable
         }
     }
 
-    public virtual void Jump() 
+    public virtual void Jump() //IMoveable
     {
         animatorController.JumpTrigger();
         AudioManager.PlayAudio(playerJumpAudio);
     }
 
-    public void Dash(float val)
+    public void Dash(float val) //IMoveable
     {
         animatorController.Dash((val == normalSpeed) ? false : true);
         playerMoveAudio.clip = (val == normalSpeed) ? walkClip : dashClip;
@@ -76,6 +81,8 @@ public class MoveCore : MonoBehaviour, IMoveable
         this.speed = val;
     }
 
+    #region 衝突判定
+    //2024.04.11 もっといい方があると思います。
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(TagManager.ground))
@@ -159,33 +166,27 @@ public class MoveCore : MonoBehaviour, IMoveable
             PlayerInputController.Instance.SetInteract(null);
         }
     }
+    #endregion
 
-    public virtual void PlayerAct(bool isMike)
+    public virtual void PlayerAct(bool isMike)//IMoveable
     {
         animatorController.PlayerAct();
     }
 
+    #region 2Dと3Dで実装する機能
     protected virtual void SetLadderMove(bool userGravity)
     {
         direction.y = direction.z;
         direction.z = 0;
         isGround = false;
     }
-    
-    public virtual void InstrumentParticle()
-    {
 
-    }
+    public virtual void PlayInstrumentParticle() { }
 
-    public virtual void SetPlayerActAudio()
-    {
+    public virtual void SetPlayerActAudio() { }
 
-    }
-
-    protected virtual void Drop()
-    {
-
-    }
+    protected virtual void Drop() { }
+    #endregion
 
     public static Vector3 GetDirection(MoveDirection direction)
     {

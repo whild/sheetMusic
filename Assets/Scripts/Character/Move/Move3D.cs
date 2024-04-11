@@ -1,7 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 3Dの動きを担当
+/// 基本的に”MoveCore”側の関数をoverrideします。
+/// </summary>
 public class Move3D : MoveCore
 {
     [SerializeField] protected Rigidbody rigid;
@@ -33,6 +37,42 @@ public class Move3D : MoveCore
         WalkParticle();
     }
 
+    //影の実装
+    private void SetShadow()
+    {
+        float distance = float.MaxValue;
+        var hits = Physics.RaycastAll(this.transform.position, Vector3.down, 16);
+        foreach (var item in hits)
+        {
+            if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground))
+            {
+                Vector3 itempoint = item.point;
+                float dis = Vector3.Distance(itempoint, transform.position);
+                if (dis < distance)
+                {
+                    distance = dis;
+                    itempoint.y += 0.1f;
+                    shadow.position = itempoint;
+                }
+            }
+        }
+    }
+    //動く時のイフェクトを実装
+    private void WalkParticle()
+    {
+        if (direction == Vector3.zero || !isGround)
+        {
+            walkParticle.Stop();
+        }
+        else
+        {
+            if (!walkParticle.isPlaying)
+            {
+                walkParticle.Play();
+            }
+        }
+    }
+
     public override void Jump()
     {
         base.Jump();
@@ -55,6 +95,10 @@ public class Move3D : MoveCore
         StartCoroutine(this.TurnOffReactRangeCollier());
     }
 
+    /// <summary>
+    /// 能力を使う時に楽器に会うイフェクトを召喚
+    /// </summary>
+    /// <param name="isMike"></param>
     private void SummonEffect(bool isMike)
     {
         var insturment = GameManager.Instance.GetCurrentInstrument();
@@ -70,8 +114,7 @@ public class Move3D : MoveCore
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        var react = other.gameObject.GetComponent<IPlayerReact>();
-        if(react != null)
+        if(other.gameObject.TryGetComponent(out IPlayerReact react))
         {
             react.PlayerReact((int)PlayerInputController.Instance.currentInstrument.Value);
         }
@@ -92,7 +135,8 @@ public class Move3D : MoveCore
         }
     }
 
-    public override void InstrumentParticle()
+    //楽器のイフェクトをプレイ
+    public override void PlayInstrumentParticle()
     {
         var particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
         foreach (var item in particles)
@@ -102,45 +146,11 @@ public class Move3D : MoveCore
         transformAudio.Play();
     }
 
-    private void WalkParticle()
-    {
-        if (direction == Vector3.zero || !isGround)
-        {
-            walkParticle.Stop();
-        }
-        else
-        {
-            if (!walkParticle.isPlaying)
-            {
-                walkParticle.Play();
-            }
-        }
-    }
-
     public override void SetPlayerActAudio()
     {
         playeractAudio.clip = GameManager.Instance.GetCurrentInstrument().actAudio;
     }
 
-    private void SetShadow()
-    {
-        float distance = float.MaxValue;
-        var hits = Physics.RaycastAll(this.transform.position, Vector3.down, 16);
-        foreach (var item in hits)
-        {
-            if (item.collider.CompareTag(TagManager.wall) || item.collider.CompareTag(TagManager.ground))
-            {
-                Vector3 itempoint = item.point;
-                float dis = Vector3.Distance(itempoint, transform.position);
-                if (dis < distance)
-                {
-                    distance = dis;
-                    itempoint.y += 0.1f;
-                    shadow.position = itempoint;
-                }
-            }
-        }
-    }
 
     protected override void Drop()
     {

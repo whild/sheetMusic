@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ìéüÞªÀª±Objectªòç±ªë
+/// </summary>
 public class FocusOnce : FocusCore
 {
 
@@ -10,18 +13,13 @@ public class FocusOnce : FocusCore
     {
         base.Awake();
     }
-    public override void FocusEffect(CinemachineTargetGroup group)
-    {
-        StartCoroutine(Focus(group));
-    }
 
-    public override void FocusEffect()
+    protected override IEnumerator Focus(CinemachineTargetGroup targetGroup)
     {
-        StartCoroutine(Focus(CameraMagnetTargetController.Instance.targetGroup));
-    }
-
-    private IEnumerator Focus(CinemachineTargetGroup targetGroup)
-    {
+        if(targetGroup == null)
+        {
+            targetGroup = CameraMagnetTargetController.Instance.targetGroup;
+        }
         isOneTime = true;
         CameraMagnetTargetController.Instance.AddTargetGruop(targetTransform);
 

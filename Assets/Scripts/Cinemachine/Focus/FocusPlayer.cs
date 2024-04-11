@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Playerªòç±ªë
+/// </summary>
 public class FocusPlayer : FocusCore
 {
     [SerializeField] private bool isAuto = true;
@@ -11,19 +14,7 @@ public class FocusPlayer : FocusCore
         base.Awake();
     }
 
-    public override void FocusEffect(CinemachineTargetGroup group)
-    {
-        CinemachineController.Instance.PlayerZoom(true, isAuto);
-        StartCoroutine(WaitEndFocus());
-    }
-
-    public override void FocusEffect()
-    {
-        CinemachineController.Instance.PlayerZoom(true, isAuto);
-        StartCoroutine(WaitEndFocus());
-    }
-
-    IEnumerator WaitEndFocus()
+    protected override IEnumerator Focus(CinemachineTargetGroup targetGroup)
     {
         GameManager.InputEnable(false);
 

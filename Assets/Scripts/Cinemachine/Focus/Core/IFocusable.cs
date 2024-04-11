@@ -1,8 +1,9 @@
-using Cinemachine;
+﻿using Cinemachine;
 
-public interface IFocusable 
+public interface IFocusable
 {
-    public void FocusEffect(CinemachineTargetGroup group);
-
-    public void FocusEffect();
+    /// <summary>
+    /// Objectを照らす時の実装
+    /// </summary>
+    public void FocusEffect(CinemachineTargetGroup group = null);
 }
