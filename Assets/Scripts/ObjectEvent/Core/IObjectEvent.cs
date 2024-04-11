@@ -1,3 +1,6 @@
+/// <summary>
+/// χεά¬ªΚ«¤«Ω«σ«Θª¬ªΆªλ«ª«Φ«Έ«§«―«Θ
+/// </summary>
 public interface IObjectEvent
 {
     public void Event();

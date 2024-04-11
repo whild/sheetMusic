@@ -1,9 +1,12 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの能力で浄化できるオブジェクト
+/// </summary>
 public class React_Purification : PlayerReactCore
 {
     [SerializeField] public int syncroIndex;

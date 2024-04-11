@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの能力で動くオブジェクト
+/// </summary>
 public class React_Knockback : PlayerReactCore
 {
     [SerializeField] Rigidbody rigid;

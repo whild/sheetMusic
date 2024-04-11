@@ -1,8 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// 浄化で変化するオブジェクト
+/// </summary>
 public class PurificationObject : MonoBehaviour
 {
     public int SyncroIndex;

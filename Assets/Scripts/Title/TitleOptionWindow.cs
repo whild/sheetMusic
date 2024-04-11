@@ -1,7 +1,10 @@
-using System.IO;
+ï»¿using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ³ä¸Šã§å‹•ãã‚ªãƒ—ã‚·ãƒ§ãƒ³ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ç”»é¢ã§ã™ã€‚
+/// </summary>
 public class TitleOptionWindow : OptionWindowCore
 {
     protected override void Awake()
@@ -56,7 +59,7 @@ public class TitleOptionWindow : OptionWindowCore
         string ToJsonData = JsonUtility.ToJson(data, true);
         string filePath = Application.persistentDataPath + "/" + GameManager.fileName;
 
-        // ÀÌ¹Ì ÀúÀåµÈ ÆÄÀÏÀÌ ÀÖ´Ù¸é µ¤¾î¾²°í, ¾ø´Ù¸é »õ·Î ¸¸µé¾î¼­ ÀúÀå
+        // ì´ë¯¸ ì €ì¥ëœ íŒŒì¼ì´ ìˆë‹¤ë©´ ë®ì–´ì“°ê³ , ì—†ë‹¤ë©´ ìƒˆë¡œ ë§Œë“¤ì–´ì„œ ì €ì¥
         File.WriteAllText(filePath, ToJsonData);
 
         NextScene();

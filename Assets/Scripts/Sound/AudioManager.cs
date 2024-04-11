@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -16,6 +16,8 @@ public class AudioManager : Manager<AudioManager>
     public IntReactiveProperty currentLoud = new IntReactiveProperty();
 
     public static bool isMike;
+
+    #region　最初設定
     protected override void Awake()
     {
         base.Awake();
@@ -39,9 +41,11 @@ public class AudioManager : Manager<AudioManager>
         audioMixer.SetFloat(Effect, GetAudioValue(Effect));
         audioMixer.SetFloat(Player, GetAudioValue(Player));
     }
+    #endregion
+
 
     public void ChangeVolume(string groupName, float volume)
-    {
+    {//groupNameサウンドの音量をvolumeに変更します。
         PlayerPrefs.SetInt(groupName, (int)volume);
         audioMixer.SetFloat(groupName, GetAudioValue(groupName));
     }
@@ -62,7 +66,7 @@ public class AudioManager : Manager<AudioManager>
             return Mathf.Lerp(-40, 0, (value * 0.1f));
         }
     }
-
+    #region サウンド再生
     public static void PlayAudio(AudioSource audioSource, string groupName)
     {
         if(audioSource == null)
@@ -109,6 +113,7 @@ public class AudioManager : Manager<AudioManager>
 
         audioSource.Play();
     }
+    #endregion
     public static void SetUiAudio(Transform from, ref AudioSource source, AudioClip clip)
     {
         source = from.gameObject.AddComponent<AudioSource>();

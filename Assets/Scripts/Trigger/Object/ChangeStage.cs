@@ -1,8 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// プレイヤーと触ったとき、ステージをクリアするのかを担当
+/// </summary>
 public class ChangeStage : TriggerInteractCore
 {
     [SerializeField] StageDataBase nextStageBase;

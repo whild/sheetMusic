@@ -1,9 +1,12 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// タイトルシンで入力設定を担当します。
+/// </summary>
 public class TitleInput : MonoBehaviour
 {
     [SerializeField] PlayerInput _input;

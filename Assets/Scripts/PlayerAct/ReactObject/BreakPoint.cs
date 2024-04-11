@@ -1,8 +1,11 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの能力で壊れるオブジェクト
+/// </summary>
 public class BreakPoint : MonoBehaviour, IPlayerReact
 {
     public int syncroIndex;

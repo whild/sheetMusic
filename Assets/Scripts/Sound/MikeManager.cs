@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ÞÅª¤ªÞª»ªó
 public class MikeManager : Manager<MikeManager>
 {
 

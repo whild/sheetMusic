@@ -1,7 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ステージのデータをセーブします。
+/// Assets/Resources/World/StageDataに作ってください。
+/// </summary>
 [CreateAssetMenu(fileName = "StageData", menuName = "SheetMusic/StageData", order = 10000)]
 [System.Serializable]
 public class StageDataBase: ScriptableObject

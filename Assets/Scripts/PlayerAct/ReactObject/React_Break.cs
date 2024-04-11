@@ -1,10 +1,13 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// プレイヤーの能力で壊れるオブジェクト
+/// </summary>
 public class React_Break : PlayerReactCore
 {
     [SerializeField] public int syncroIndex;
@@ -31,8 +34,8 @@ public class React_Break : PlayerReactCore
     {
         if (instrumentIndex == instrumentValue)
         {
-            if (AudioManager.isMike)
-            {
+            if (AudioManager.isMike)//マイクを使ったのか判断して
+            {//もっと強い能力
                 Break();
                 return;
             }

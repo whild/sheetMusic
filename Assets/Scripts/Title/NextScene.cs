@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class NextScene : MonoBehaviour
 {
     [SerializeField] Button button;
@@ -14,7 +15,7 @@ public class NextScene : MonoBehaviour
     }
 
     private void SetButtonEvent()
-    {
+    {//«¿«¤«È«ëª«ªéó­ªÎ«·«óªËÔÑª¯Ñ¦ÒöªòõÚÊ¥ª·ªÞª¹¡£
         button.onClick.AddListener(() =>
         {
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1); 

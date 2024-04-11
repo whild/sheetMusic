@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 特別なイベントがあるオブジェクト
+/// syncroIndexが同じオブジェクトに反応
+/// </summary>
 public class ObjectEventCore : MonoBehaviour, IObjectEvent
 {
     public int syncroIndex;
