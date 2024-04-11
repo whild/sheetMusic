@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ËõªÇú°ð¶ª¹ªë«ª«Ö«¸«§«¯«È
+/// </summary>
 public class LockBlock : ContactInteractCore
 {
     protected override void Awake()

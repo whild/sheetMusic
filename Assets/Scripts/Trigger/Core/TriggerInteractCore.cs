@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 触ったときに反応するオブジェクト
+/// </summary>
 public class TriggerInteractCore : MonoBehaviour, ITriggerInteract
 {
     [TagSelector]

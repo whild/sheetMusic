@@ -1,8 +1,10 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// RigidbodyªÇÔÑª¯«ª«Ö«¸«§«¯«È
+/// </summary>
 public class DragableObject : MonoBehaviour
 {
     [SerializeField] Dimension dimension;

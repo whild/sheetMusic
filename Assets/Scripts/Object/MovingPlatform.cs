@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// ªºªÃªÈstartª«ªéendªÞªÇÔÑª¯«ª«Ö«¸«§«¯«È
+/// </summary>
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] Transform start;

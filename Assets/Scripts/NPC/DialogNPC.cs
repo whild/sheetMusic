@@ -1,15 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// 話してるNPCオブジェクト
+/// </summary>
 public class DialogNPC : TriggerInteractCore
 {
     private readonly string dialogPath = "NPC/NPCDialog";
     [SerializeField] NPCDialogBase npcDialogBase;
     [SerializeField] GameObject dialog;
     [SerializeField] SpriteRenderer image;
-
+    //話したのかを判断
     [SerializeField] private bool isTalk;
 
     [SerializeField] AudioSource talkAudio;
@@ -38,9 +41,9 @@ public class DialogNPC : TriggerInteractCore
     }
 
     public override void OnTrigger(Collider collision)
-    {
-        if (!isTalk)
-        {
+    {//触ったから
+        if (!isTalk)//話したのかを判断して
+        {//話を進行します。
             isTalk = true;
             dialog.gameObject.SetActive(true);
             StartCoroutine(Talk());
@@ -49,7 +52,7 @@ public class DialogNPC : TriggerInteractCore
     }
 
     IEnumerator Talk()
-    {
+    {//話す過程のCorotine
         for (int i = 0; i < npcDialogBase.sprites.Count; i++)
         {
             int temp = i;
