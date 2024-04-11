@@ -1,10 +1,13 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
+/// <summary>
+/// バートンを実装
+/// </summary>
 public class PressButton : ContactInteractWithObjectCore
 {
     [SerializeField] private bool isContact;
@@ -13,7 +16,7 @@ public class PressButton : ContactInteractWithObjectCore
     [SerializeField] private float Y;
     [SerializeField] private float pressValue;
     /// <summary>
-    /// 0�� �� ��� �ߵ�
+    /// 0일 시 즉시 발동
     /// </summary>
     [SerializeField] private float duration;
     [SerializeField] private float currentDuration;
@@ -58,6 +61,9 @@ public class PressButton : ContactInteractWithObjectCore
         Detach();
     }
 
+    /// <summary>
+    /// 押す
+    /// </summary>
     private void Press()
     {
         this.contactDelay = true;
@@ -92,6 +98,9 @@ public class PressButton : ContactInteractWithObjectCore
         }
     }
 
+    /// <summary>
+    /// 離れる
+    /// </summary>
     private void Detach()
     {
         if (activeOnce)

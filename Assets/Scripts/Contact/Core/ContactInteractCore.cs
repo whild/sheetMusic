@@ -1,11 +1,13 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 触ったときの反応があるオブジェクトのベース
+/// </summary>
 public class ContactInteractCore : MonoBehaviour, IContactInteract
 {
-
     [TagSelector]
     [SerializeField] protected string[] targetTags = new string[] { };
     [SerializeField] protected Dimension targetDimension;
@@ -19,6 +21,7 @@ public class ContactInteractCore : MonoBehaviour, IContactInteract
         GameManager.CheckDemansionComponent(this.transform,ref col,ref col2D);
     }
 
+    #region 基本機能
     private void OnCollisionEnter(Collision collision)
     {
         if (TagManager.IsRightTag(targetTags, collision.gameObject.tag))
@@ -73,7 +76,7 @@ public class ContactInteractCore : MonoBehaviour, IContactInteract
     {
 
     }
-
+    #endregion
     private bool IsRightDirection(Transform trans)
     {
         switch (contactDirection)

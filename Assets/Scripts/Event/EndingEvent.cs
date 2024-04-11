@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ゲームをクリアした時にの確認
+/// </summary>
 public class EndingEvent : MonoBehaviour
 {
     public void Ending()

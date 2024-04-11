@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,10 @@ public enum Instrument
     Horn = 2,
 }
 
-
+/// <summary>
+/// 楽器のScriptableObject
+/// Assets\Resource\Instrumentにオブジェクトを作ってください。
+/// </summary>
 [CreateAssetMenu(fileName = "Instrument", menuName = "SheetMusic/Create NewI nstrument", order = 10001)]
 public class InstrumentBase : ScriptableObject
 {
@@ -18,6 +21,7 @@ public class InstrumentBase : ScriptableObject
     /// </summary>
     [SerializeField] private int instrumentIndex_;
 
+    [Header("*Animation")]
     [SerializeField] private AnimationClip idle_;
     [SerializeField] private AnimationClip walk_;
     [SerializeField] private AnimationClip dash_;

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,23 +13,20 @@ public class ContactInteractWithObjectCore : ContactInteractCore
         StartCoroutine(Syncro());
     }
 
-    protected void InvokeEvent()
+    protected void InvokeEvent(float val = float.MinValue)
     {
         foreach (var eve in objectEvent)
         {
             if (eve.GetSyncroIndex() == syncroIndex)
             {
-                eve.Event();
-            }
-        }
-    }
-    protected void InvokeEvent(float val)
-    {
-        foreach (var eve in objectEvent)
-        {
-            if (eve.GetSyncroIndex() == syncroIndex)
-            {
-                eve.Event(val);
+                if(val == float.MinValue)
+                {
+                    eve.Event(val);
+                }
+                else
+                {
+                    eve.Event();
+                }
             }
         }
     }

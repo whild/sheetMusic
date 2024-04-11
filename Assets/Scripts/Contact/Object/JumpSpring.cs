@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 触ったときに高くジャンプさせるオブジェクト
+/// </summary>
 public class JumpSpring : ContactInteractCore
 {
     [SerializeField] private float jumpPower;
