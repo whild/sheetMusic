@@ -1,8 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+/// <summary>
+/// 反応して動くオブジェクト
+/// </summary>
 public class ObjectMoveInteract : ObjectInteractCore
 {
     [SerializeField] FloatReactiveProperty currentValue = new FloatReactiveProperty();

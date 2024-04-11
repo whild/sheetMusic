@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Cinemachine;
 
+/// <summary>
+/// ゲーム全般の機能を担当する
+/// </summary>
 public class GameManager : Manager<GameManager>
 {
     public static readonly string fileName = "saveData.json";
@@ -28,7 +31,9 @@ public class GameManager : Manager<GameManager>
         LoadGameData();
         SaveGameData();
     }
-
+    /// <summary>
+    /// スクリプトが無いと追加して返還します。
+    /// </summary>
     public static T CheckNull<T>(Transform from) where T : Component
     {
         Transform trans = from;
@@ -49,6 +54,9 @@ public class GameManager : Manager<GameManager>
         return null;
     }
 
+    /// <summary>
+    /// transオブジェクトがどの次元にあるのか判断して正しいComponentを追加します。
+    /// </summary>
     public static void CheckDemansionComponent<T,C>(Transform trans,ref T d3d,ref C d2d) where T : Component where C : Component
     {
         if(trans.GetComponent<SpriteRenderer>() != null)
@@ -70,7 +78,7 @@ public class GameManager : Manager<GameManager>
     }
 
     public static void InputEnable(bool val)
-    {
+    {//プレイヤーからの入力を設定する
         PlayerInputController.Instance.gameObject.SetActive(val);
     }
 
@@ -116,7 +124,7 @@ public class GameManager : Manager<GameManager>
     }
 
     public static void SetScreenSize()
-    {
+    {//ゲーム画面のサイズを設定します。
         int setWidth = 1920;
         int setHeight = 1080;
 

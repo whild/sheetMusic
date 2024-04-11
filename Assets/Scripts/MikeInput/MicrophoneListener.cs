@@ -1,9 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+/// <summary>
+/// マイクからの入力を判断する機能を担当します。
+/// </summary>
 public class MicrophoneListener : MonoBehaviour
 {
     public AudioClip clip;
@@ -45,12 +48,13 @@ public class MicrophoneListener : MonoBehaviour
             resultValue = 0;
             return;
         }
+        //音量が百を超えた場合AudioManagerからプレイヤーの能力を使います。
         AudioManager.Instance.currentLoud.Value = (int)resultValue;
 
     }
 
     public void ChangeMke()
-    {
+    {//入力装置を変わります。
         clip = Microphone.Start(Microphone.devices[PlayerPrefs.GetInt("currentMike")].ToString(), true, 1, sampleRate);
     }
 }

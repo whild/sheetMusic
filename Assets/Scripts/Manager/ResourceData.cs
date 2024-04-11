@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Asset\Resource フォルダにあるAssetを引き出す機能を担当します。
+/// </summary>
 public class ResourceData<T> where T: Object
 {
     public static Dictionary<string, T> Data = new Dictionary<string, T>();

@@ -1,8 +1,11 @@
-using Cinemachine;
+﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// カメラの操作を担当します。
+/// </summary>
 public class CinemachineController : Manager<CinemachineController>
 {
     [SerializeField] CinemachineVirtualCamera cinemachineVirtual;
@@ -26,13 +29,6 @@ public class CinemachineController : Manager<CinemachineController>
         cinemachineVirtual.LookAt = lookat;
         cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
     }
-    public void CameraZoom(int pov)
-    {
-        cinemachineVirtual.m_Lens.FieldOfView = pov;
-        cinemachineVirtual.LookAt = CameraMagnetTargetController.Instance.targetGroup.Transform;
-        cinemachineVirtual.transform.rotation = Quaternion.Euler(30, 0, 0);
-    }
-
     public void PlayerZoom(bool isFocus, bool isAutomaton)
     {
         var target = isAutomaton ? automatonCamera : paperCamera;

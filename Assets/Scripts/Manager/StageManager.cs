@@ -1,9 +1,12 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+/// <summary>
+/// ステージ全般を担当します。
+/// </summary>
 public class StageManager : Manager<StageManager>
 {
     [SerializeField] Transform _3Dparent;
@@ -43,20 +46,29 @@ public class StageManager : Manager<StageManager>
         return Array.Find(allStages, x => x.stageIndex == GameManager.Instance.data.currentStage);
     }
 
+    /// <summary>
+    /// ステージの設定通りステージを設定します。
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
     private IEnumerator ParseStage(StageDataBase data)
     {
+        //サウンド設定＆再生
         stageBGMAudio.clip = data.stageBGM;
         stageBGMAudio.Play();
+        //元のステージを消します。
         GameObject.Destroy(Current3D);
         GameObject.Destroy(Current2D);
 
         yield return new WaitForEndOfFrame();
 
+        //ステージを召喚
         Current3D = GameObject.Instantiate(data.stage_3D, _3Dparent);
         Current2D = GameObject.Instantiate(data.stage_2D, _2Dparent);
 
         isGetKey = false;
 
+        //キャラクターの位置設定
         GameManager.Instance.player3D.localPosition = data.spawnPos_3D;
         GameManager.Instance.player2D.localPosition = new Vector2(data.spawnPos_2D.x, data.spawnPos_2D.y);
     
@@ -65,6 +77,9 @@ public class StageManager : Manager<StageManager>
         PlayerInputController.Instance.currentInstrument.Value = Instrument.Automaton;
     }
 
+    /// <summary>
+    /// 次のステージに移動します。
+    /// </summary>
     public void NextStage(StageDataBase stageData)
     {
         stageEndAudio.clip = clearClip;
@@ -87,6 +102,9 @@ public class StageManager : Manager<StageManager>
         this.stageData.Value = stageData;
     }
 
+    /// <summary>
+    /// ステージを最初からまた始めます。
+    /// </summary>
     public void Retry()
     {
         NextStage(this.stageData.Value);
