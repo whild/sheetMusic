@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーが触ると死ぬオブジェクトです。
+/// </summary>
 public class DeadZone : TriggerInteractCore
 {
     protected override void Awake()

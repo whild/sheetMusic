@@ -1,7 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 鍵です。
+/// ステージデータの「isGetKey」と一緒に動きます。
+/// </summary>
 public class Key : TriggerInteractCore
 {
     protected override void Awake()
